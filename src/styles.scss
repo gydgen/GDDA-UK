@@ -1,1 +1,282 @@
-/* You can add global styles to this file, and also import other style files */
+// Design tokens & mixins
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// Bootstrap with overrides
+@use "bootstrap/scss/bootstrap";
+
+// Google Material Symbols
+@import 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0';
+
+// ============================================================
+// Global Reset & Base
+// ============================================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-body;
+  font-size: $font-size-base;
+  color: $color-text;
+  background: $color-white;
+  line-height: $line-height-normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ============================================================
+// Typography
+// ============================================================
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-navy;
+  margin-bottom: $space-4;
+}
+
+h1 { font-size: $font-size-4xl; }
+h2 { font-size: $font-size-3xl; }
+h3 { font-size: $font-size-2xl; }
+h4 { font-size: $font-size-xl; }
+h5 { font-size: $font-size-lg; }
+h6 { font-size: $font-size-md; }
+
+p { margin-bottom: $space-4; }
+
+a {
+  color: $color-navy;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $color-gold;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+    border-radius: $border-radius-sm;
+  }
+}
+
+// ============================================================
+// Shared utility classes
+// ============================================================
+.section-badge {
+  display: inline-block;
+  padding: $space-1 $space-4;
+  background: $color-gold;
+  color: $color-text-gold;
+  font-family: $font-body;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: $border-radius-full;
+  margin-bottom: $space-4;
+}
+
+.section-title {
+  @include section-title;
+}
+
+.section-subtitle {
+  font-size: $font-size-md;
+  color: $color-text-muted;
+  line-height: $line-height-relaxed;
+  max-width: 600px;
+}
+
+.site-container {
+  @include site-container;
+}
+
+// Buttons
+.btn-udda-primary {
+  @include btn-primary;
+}
+
+.btn-udda-outline {
+  @include btn-outline;
+}
+.btn-secondary {
+  @include btn-secondary;
+}
+
+.btn-outline-secondary {
+  @include btn-outline-secondary;
+}
+.btn-udda-ghost {
+  @include btn-base;
+  background: transparent;
+  color: $color-navy;
+  border-color: $color-border;
+
+  &:hover, &:focus-visible {
+    background: $color-light-grey;
+    border-color: $color-border;
+    color: $color-navy;
+  }
+}
+
+// ============================================================
+// Cards
+// ============================================================
+.udda-card {
+  @include card-base;
+}
+
+// ============================================================
+// Section layouts
+// ============================================================
+.section {
+  @include section-padding;
+}
+
+.section--alt {
+  @include section-padding;
+  background: $color-off-white;
+}
+
+.section--dark {
+  @include section-padding;
+  background: $color-navy;
+  color: $color-white;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $color-white;
+  }
+
+  .section-subtitle {
+    color: rgba($color-white, 0.75);
+  }
+}
+
+// ============================================================
+// Divider
+// ============================================================
+.divider-gold {
+  width: 60px;
+  height: 3px;
+  background: $color-gold;
+  border-radius: $border-radius-full;
+  margin-bottom: $space-6;
+}
+
+// ============================================================
+// Tag / Badge chips
+// ============================================================
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-1 $space-3;
+  background: $color-light-grey;
+  color: $color-text-muted;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border-radius: $border-radius-full;
+  letter-spacing: 0.3px;
+}
+
+.tag--gold {
+  background: rgba($color-gold, 0.12);
+  color: #a3771f;
+}
+
+// ============================================================
+// Page hero (for inner pages)
+// ============================================================
+.page-hero {
+  background: $color-navy;
+  padding: $space-20 0 $space-16;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba($color-navy-mid, 0.5) 0%, transparent 70%);
+  }
+
+  .page-hero__inner {
+    @include site-container;
+    position: relative;
+    z-index: 1;
+  }
+
+  .page-hero__label {
+    @extend .section-badge;
+    background: rgba($color-gold, 0.2);
+    color: $color-gold;
+  }
+
+  .page-hero__title {
+    font-family: $font-heading;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    line-height: $line-height-tight;
+    max-width: 700px;
+    margin-bottom: $space-6;
+
+    @media (max-width: $bp-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  .page-hero__subtitle {
+    font-size: $font-size-md;
+    color: rgba($color-white, 0.8);
+    line-height: $line-height-relaxed;
+    max-width: 560px;
+  }
+}
+
+// ============================================================
+// Focus visible improvements
+// ============================================================
+:focus-visible {
+  @include focus-ring;
+}
+
+// ============================================================
+// Animation utility classes
+// ============================================================
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease both;
+}
+
+// Stagger delays
+@for $i from 1 through 8 {
+  .anim-delay-#{$i} {
+    animation-delay: #{$i * 0.1}s;
+  }
+}
+
+// ============================================================
+// Scroll-driven entrance (IntersectionObserver class hooks)
+// ============================================================
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

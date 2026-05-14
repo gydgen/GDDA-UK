@@ -1,0 +1,90 @@
+<header class="navbar-wrapper" role="banner">
+  <div class="navbar-inner">
+    <!-- Logo -->
+    <a routerLink="" class="navbar-brand gap-4" (click)="closeMobile()" aria-label="GDDA-UK">
+      <span class="brand-logo" aria-hidden="true">LOGO</span>
+      <span class="brand-tag">GDDA-UK</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="navbar-nav flex-row gap-4" role="navigation" aria-label="Main navigation">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="nav-link--active"
+          class="nav-link text-capitalize"
+          [attr.aria-current]="null">
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <!-- CTA -->
+    <div class="navbar-actions">
+      <a
+        href="#donate"
+        class="btn btn-udda-outline navbar-cta"
+        aria-label="Donate to UDDA UK">
+        Membership
+      </a>
+       <a
+        href="#donate"
+        class="btn btn-udda-primary navbar-cta"
+        aria-label="Donate to UDDA UK">
+        Donate
+      </a>
+      <!-- Mobile hamburger -->
+      <button
+        class="navbar-burger"
+        type="button"
+        [attr.aria-expanded]="mobileOpen()"
+        aria-controls="mobile-nav"
+        aria-label="Toggle mobile navigation"
+        (click)="toggleMobile()">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div
+    id="mobile-nav"
+    class="mobile-nav"
+    [class.mobile-nav--open]="mobileOpen()"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Mobile navigation">
+    <nav aria-label="Mobile navigation links">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="nav-link--active"
+          class="mobile-nav__link"
+          (click)="closeMobile()">
+          {{ link.label }}
+        </a>
+      }
+      <div>
+
+          <a href="" class="btn-udda-primary mobile-nav__cta" (click)="closeMobile()">
+          Membership
+        </a>
+        <a href="" class="btn-udda-primary mobile-nav__cta" (click)="closeMobile()">
+          Donate
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Overlay -->
+  @if (mobileOpen()) {
+    <div
+      class="mobile-overlay"
+      role="presentation"
+      (click)="closeMobile()"
+      (keydown.escape)="closeMobile()">
+    </div>
+  }
+</header>

@@ -1,0 +1,666 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+// ============================================================
+// HERO
+// ============================================================
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background: url('/assets/images/about-hero-bg.png') center / cover no-repeat;
+  transform: scale(1.05);
+  animation: heroZoom 12s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba($color-navy-dark, 0.94) 0%,
+    rgba($color-navy-dark, 0.88) 50%,
+    rgba($color-navy, 0.72) 100%
+  );
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+  gap: $space-12;
+  padding-top: calc(#{$navbar-height} + #{$space-16});
+  padding-bottom: $space-20;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero__content-left {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.hero__title {
+  font-family: $font-classic;
+  font-size: clamp(2.5rem, 6vw, $font-size-5xl);
+  font-weight: $font-weight-extrabold;
+  color: $color-white;
+  line-height: $line-height-tight;
+  margin-bottom: $space-6;
+  span {
+    color: $color-gold;
+  }
+}
+
+.hero__subtitle {
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  margin-bottom: $space-8;
+  font-family: $font-basic;
+  font-weight: $font-weight-regular;
+  color: rgba($color-white, 0.75);
+  max-width: 520px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: $space-4;
+  flex-wrap: wrap;
+}
+
+// ============================================================
+// Hero: right-side floating card
+// ============================================================
+.hero__content-right {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: $bp-lg) {
+    display: flex;
+  }
+}
+
+.hero__card {
+  position: relative;
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.hero__card-badge {
+  position: absolute;
+  top: -$space-4;
+  right: -$space-6;
+  z-index: 2;
+  background: $color-navy;
+  color: $color-white;
+  font-size: $font-size-xs;
+  font-style: italic;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-snug;
+  text-align: center;
+  padding: $space-3 $space-4;
+  border-radius: $border-radius;
+  box-shadow: $shadow-md;
+}
+
+.hero__card-inner {
+  position: relative;
+  border-radius: $border-radius-xl;
+  overflow: hidden;
+  border: 2px solid rgba($color-white, 0.18);
+  box-shadow: $shadow-xl;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+  }
+}
+
+.hero__card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $space-6;
+  background: linear-gradient(
+    to top,
+    rgba($color-navy-dark, 0.95) 0%,
+    rgba($color-navy-dark, 0.65) 60%,
+    transparent 100%
+  );
+}
+
+.hero__quote {
+  font-family: $font-heading;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-gold;
+  margin: 0 0 $space-2;
+  text-align: center;
+}
+
+.hero__quote-text {
+  font-size: $font-size-xs;
+  color: rgba($color-white, 0.85);
+  line-height: $line-height-normal;
+  text-align: center;
+  margin: 0;
+}
+.hero__cta-secondary {
+  @include btn-outline;
+}
+
+.hero__scroll-hint {
+  position: absolute;
+  bottom: $space-8;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  span {
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, rgba($color-white, 0.5));
+    margin: 0 auto;
+    animation: scrollHint 2s ease-in-out infinite;
+  }
+}
+
+@keyframes scrollHint {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleY(0.5);
+    transform-origin: top;
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+// ============================================================
+// STATS
+// ============================================================
+.stats {
+  background: $color-navy;
+  padding: $space-10 0;
+  position: relative;
+
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   inset: 0;
+  //   background: linear-gradient(90deg,
+  //     rgba($color-gold, 0.05) 0%,
+  //     transparent 40%,
+  //     transparent 60%,
+  //     rgba($color-gold, 0.05) 100%);
+  // }
+}
+
+.stats__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-4;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-item {
+  padding: $space-6;
+  text-align: center;
+  border-right: 1px solid rgba($color-white, 0.1);
+  transition: transform $transition-smooth;
+  animation-delay: var(--delay, 0s);
+
+  &:last-child {
+    border-right: none;
+  }
+
+  @media (max-width: $bp-md) {
+    border-right: none;
+    border-bottom: 1px solid rgba($color-white, 0.1);
+
+    &:nth-child(even) {
+      border-right: none;
+    }
+    &:nth-last-child(-n + 2) {
+      border-bottom: none;
+    }
+  }
+}
+
+.stat-item__value {
+  display: block;
+  font-family: $font-heading;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-gold;
+  line-height: 1;
+  margin-bottom: $space-2;
+}
+
+.stat-item__label {
+  display: block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: $space-1;
+}
+
+.stat-item__desc {
+  display: block;
+  font-size: $font-size-xs;
+  color: rgba($color-white, 0.55);
+}
+
+// ============================================================
+// MISSION
+// ============================================================
+.mission__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-20;
+  align-items: center;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+    gap: $space-12;
+  }
+}
+
+.mission__list {
+  list-style: none;
+  padding: 0;
+  margin: $space-6 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-3;
+    color: $color-text-muted;
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $color-gold;
+      margin-top: 8px;
+    }
+  }
+}
+
+.mission__image-stack {
+  position: relative;
+  height: 480px;
+
+  @media (max-width: $bp-lg) {
+    display: none;
+  }
+}
+
+.img-card {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+  position: absolute;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &--primary {
+    top: 0;
+    right: 0;
+    width: 340px;
+    height: 280px;
+  }
+
+  &--secondary {
+    bottom: 40px;
+    left: 0;
+    width: 240px;
+    height: 180px;
+    box-shadow: $shadow-md;
+  }
+}
+
+.img-stat {
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+  background: $color-gold;
+  color: $color-navy-dark;
+  border-radius: $border-radius-md;
+  padding: $space-4 $space-6;
+  text-align: center;
+  box-shadow: $shadow-md;
+}
+
+.img-stat__num {
+  display: block;
+  font-family: $font-heading;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+}
+
+.img-stat__lbl {
+  display: block;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+// ============================================================
+// MILESTONES
+// ============================================================
+.milestones__header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto $space-12;
+
+  .section-subtitle {
+    margin: 0 auto;
+  }
+}
+
+.milestones__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-8;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.milestone-card {
+  display: flex;
+  flex-direction: column;
+  animation-delay: var(--delay, 0s);
+}
+
+.milestone-card__img {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: $border-radius-md $border-radius-md 0 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform $transition-slow;
+  }
+
+  .milestone-card:hover & img {
+    transform: scale(1.05);
+  }
+}
+
+.milestone-card__tag {
+  position: absolute;
+  top: $space-4;
+  left: $space-4;
+}
+
+.milestone-card__body {
+  padding: $space-6;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.milestone-card__date {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-gold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.milestone-card__title {
+  font-family: $font-heading;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-navy;
+  line-height: $line-height-snug;
+  margin: 0;
+}
+
+.milestone-card__desc {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: $line-height-relaxed;
+  flex: 1;
+  margin: 0;
+}
+
+.milestones__cta {
+  margin-top: $space-12;
+  text-align: center;
+}
+
+// ============================================================
+// EVENT TYPES
+// ============================================================
+.section-center {
+  text-align: center;
+
+  .section-title,
+  .section-subtitle {
+    margin-inline: auto;
+  }
+}
+
+.event-types__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: $space-4;
+  list-style: none;
+  padding: $space-10 0 0;
+  margin: 0;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.event-type-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-6 $space-4;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  text-align: center;
+  transition: all $transition-smooth;
+  cursor: default;
+
+  &:hover {
+    border-color: $color-gold;
+    background: rgba($color-gold, 0.04);
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.event-type-chip__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.event-type-chip__label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+}
+
+// ============================================================
+// NEWSLETTER / CONTACT SPLIT
+// ============================================================
+.newsletter-split__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-20;
+  align-items: start;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+    gap: $space-12;
+  }
+}
+
+.newsletter-split__title {
+  font-family: $font-heading;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  margin-bottom: $space-4;
+}
+
+.newsletter-split__subtitle {
+  font-size: $font-size-base;
+  color: rgba($color-white, 0.75);
+  line-height: $line-height-relaxed;
+  margin-bottom: $space-8;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.newsletter-form__group {
+  display: flex;
+  gap: $space-3;
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+  }
+}
+
+.newsletter-form__input {
+  flex: 1;
+  padding: $space-3 $space-5;
+  background: rgba($color-white, 0.08);
+  border: 1px solid rgba($color-white, 0.2);
+  border-radius: $border-radius-full;
+  color: $color-white;
+  font-family: $font-body;
+  font-size: $font-size-sm;
+  transition:
+    border-color $transition-base,
+    background $transition-base;
+
+  &::placeholder {
+    color: rgba($color-white, 0.45);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-gold;
+    background: rgba($color-white, 0.12);
+  }
+}
+
+.newsletter-form__note {
+  font-size: $font-size-xs;
+  color: rgba($color-white, 0.45);
+  margin: 0;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    color: rgba($color-white, 0.8);
+    font-size: $font-size-base;
+
+    svg {
+      color: $color-gold;
+      flex-shrink: 0;
+    }
+
+    a {
+      color: rgba($color-white, 0.8);
+      &:hover {
+        color: $color-gold;
+      }
+    }
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}

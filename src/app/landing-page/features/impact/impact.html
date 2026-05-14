@@ -1,0 +1,104 @@
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <span class="page-hero__label">Our Impact</span>
+    <h1 class="page-hero__title">Measuring What
+      <em style="font-style: italic; color: var(--color-gold, #C9952A);"> Matters</em>
+    </h1>
+    <p class="page-hero__subtitle">
+      Every event, every donation, every volunteer hour adds up. Here is what
+      our community has achieved together since 2016.
+    </p>
+  </div>
+</div>
+
+<!-- Stats -->
+<section class="impact-stats section" aria-labelledby="stats-heading">
+  <div class="site-container">
+    <h2 class="visually-hidden" id="stats-heading">Impact Statistics</h2>
+    <div class="stats-grid">
+      @for (stat of stats; track stat.label) {
+        <div class="stat-block reveal">
+          <div class="stat-block__value" aria-label="{{ stat.value }}">{{ stat.value }}</div>
+          <div class="stat-block__label">{{ stat.label }}</div>
+          <div class="stat-block__divider" aria-hidden="true"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Programmes -->
+<section class="programmes section--alt" aria-labelledby="programmes-heading">
+  <div class="site-container">
+    <header style="text-align: center; margin-bottom: 4rem;">
+      <span class="section-badge">What We've Done</span>
+      <h2 id="programmes-heading" class="section-title">Key Programmes</h2>
+      <p class="section-subtitle mx-auto">Each programme is born from a real need and delivered with passion by our volunteer community.</p>
+    </header>
+    <div class="programmes-list" role="list">
+      @for (prog of programmes; track prog.title) {
+        <div class="programme-card reveal" role="listitem">
+          <div class="programme-card__tag">
+            <span class="tag tag--gold">{{ prog.tag }}</span>
+          </div>
+          <div class="programme-card__body">
+            <h3 class="programme-card__title">{{ prog.title }}</h3>
+            <p class="programme-card__desc">{{ prog.description }}</p>
+            <ul class="programme-card__outcomes" role="list">
+              @for (outcome of prog.outcomes; track outcome) {
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  {{ outcome }}
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials section" aria-labelledby="testimonials-heading">
+  <div class="site-container">
+    <header style="text-align: center; margin-bottom: 4rem;">
+      <span class="section-badge">Voices</span>
+      <h2 id="testimonials-heading" class="section-title">Voices from Our Community</h2>
+    </header>
+    <div class="testimonials-grid" role="list">
+      @for (testimonial of testimonials; track testimonial.name) {
+        <blockquote class="testimonial-card reveal" role="listitem">
+          <div class="testimonial-card__quote" aria-hidden="true">“”</div>
+          <p class="testimonial-card__text">{{ testimonial.quote }}</p>
+          <footer class="testimonial-card__footer">
+            <div class="testimonial-card__avatar" aria-hidden="true">
+              {{ testimonial.name.charAt(0) }}
+            </div>
+            <div>
+              <cite class="testimonial-card__name">{{ testimonial.name }}</cite>
+              <span class="testimonial-card__role">{{ testimonial.role }}</span>
+            </div>
+          </footer>
+        </blockquote>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section--dark" aria-labelledby="impact-cta-title">
+  <div class="site-container" style="text-align: center; max-width: 640px; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+    <span class="section-badge">Join the Mission</span>
+    <h2 id="impact-cta-title" class="section-title" style="color: white;">Help Us Create More Impact</h2>
+    <p style="color: rgba(255,255,255,0.75); font-size: 1.0625rem; line-height: 1.7; margin: 0;">
+      Every contribution — big or small — amplifies our collective ability to create change.
+    </p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+      <a routerLink="/get-involved" class="btn-udda-primary">Get Involved</a>
+      <a routerLink="/sponsorship" class="btn-udda-outline">Become a Sponsor</a>
+    </div>
+  </div>
+</section>

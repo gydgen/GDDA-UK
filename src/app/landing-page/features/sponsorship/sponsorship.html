@@ -1,0 +1,113 @@
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <span class="page-hero__label">Partner with Us</span>
+    <h1 class="page-hero__title">Sponsorship &amp;<br>
+      <em style="font-style: italic; color: var(--color-gold, #C9952A);">Partnership</em>
+    </h1>
+    <p class="page-hero__subtitle">
+      Align your brand with a mission of impact, equality, and health equity.
+      Your investment powers life-changing programmes and opens doors to a
+      vibrant, purpose-driven community.
+    </p>
+  </div>
+</div>
+
+<!-- Why Sponsor -->
+<section class="why-sponsor section" aria-labelledby="why-title">
+  <div class="site-container">
+    <header class="text-center mb-5">
+      <span class="section-badge">Why Partner With Us</span>
+      <h2 id="why-title" class="section-title">Make a Difference. Build Your Brand.</h2>
+      <p class="section-subtitle mx-auto">
+        Sponsoring UDDA-UK events places you at the heart of a movement —
+        connecting diaspora professionals, policymakers, and communities.
+      </p>
+    </header>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <span class="why-item__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span>
+        <h3>Trusted Organisation</h3>
+        <p>UDDA-UK has a proven track record of delivering impact since 2016, trusted by healthcare professionals across the UK.</p>
+      </div>
+      <div class="why-item reveal anim-delay-1">
+        <span class="why-item__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </span>
+        <h3>500+ Community Reach</h3>
+        <p>Connect with over 500 diaspora healthcare volunteers and thousands of event attendees across the UK.</p>
+      </div>
+      <div class="why-item reveal anim-delay-2">
+        <span class="why-item__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </span>
+        <h3>£9,900 Raised</h3>
+        <p>Every penny is reinvested into programmes that transform lives. Your sponsorship creates measurable, lasting change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sponsorship Tiers -->
+<section class="tiers section--alt" aria-labelledby="tiers-title">
+  <div class="site-container">
+    <header style="text-align: center; margin-bottom: 3rem;">
+      <span class="section-badge">Packages</span>
+      <h2 id="tiers-title" class="section-title">Sponsorship Packages</h2>
+    </header>
+    <div class="tiers-grid" role="list">
+      @for (tier of tiers; track tier.name) {
+        <div class="tier-card reveal" [class.tier-card--featured]="tier.featured" role="listitem">
+          @if (tier.featured) {
+            <div class="tier-card__badge" aria-label="Most popular package">Most Popular</div>
+          }
+          <div class="tier-card__header">
+            <h3 class="tier-card__name">{{ tier.name }}</h3>
+            <span class="tier-card__badge-label">{{ tier.badge }}</span>
+            <div class="tier-card__amount">{{ tier.amount }}</div>
+          </div>
+          <p class="tier-card__desc">{{ tier.description }}</p>
+          <ul class="tier-card__perks" role="list">
+            @for (perk of tier.perks; track perk) {
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {{ perk }}
+              </li>
+            }
+          </ul>
+          <a href="mailto:info@udda-uk.org?subject=Sponsorship%20Enquiry%20-%20{{ tier.name }}"
+             class="btn-udda-primary tier-card__cta"
+             [class.btn-outline-navy]="!tier.featured">
+            Enquire About {{ tier.name }}
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Custom sponsorship -->
+<section class="custom-sponsor section" aria-labelledby="custom-title">
+  <div class="site-container">
+    <div class="custom-sponsor__inner">
+      <div class="reveal">
+        <span class="section-badge">Bespoke</span>
+        <h2 id="custom-title" class="section-title">Need a Custom Package?</h2>
+        <p class="section-subtitle">
+          We work with corporates, charities, and individuals to create tailored
+          sponsorship arrangements. Let's talk about what works for you.
+        </p>
+        <a href="mailto:info@udda-uk.org?subject=Custom%20Sponsorship%20Enquiry"
+           class="btn-udda-primary">
+          Get In Touch
+        </a>
+      </div>
+      <div class="custom-sponsor__img reveal anim-delay-2" aria-hidden="true">
+        <img src="assets/images/sponsorship-cta.jpg" alt="" role="presentation" width="480" height="320" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>

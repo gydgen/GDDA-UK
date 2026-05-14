@@ -1,0 +1,71 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-main site-container">
+    <!-- Brand -->
+    <div class="footer-brand">
+      <a routerLink="/about" class="footer-logo" aria-label="GDDA UK Home">
+        <span class="brand-logo">GDDA-UK</span>
+      </a>
+      <p class="footer-brand__tagline">
+        A non-profit association fostering professional growth and contributing to the health sector
+        in Ghana since its inception.
+      </p>
+      <div class="footer-socials" role="list" aria-label="Social media links">
+        @for (social of socials; track social.name) {
+          <a
+            [href]="social.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-btn"
+            role="listitem"
+            [attr.aria-label]="social.name + ' - opens in new tab'"
+          >
+            <span [innerHTML]="social.icon"></span>
+          </a>
+        }
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <h3 class="footer-nav__title">Explore</h3>
+      <ul role="list">
+        @for (link of exploreLinks; track link.path) {
+          <li>
+            <a [routerLink]="link.path" class="footer-nav__link">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <h3 class="footer-nav__title">Membership</h3>
+      <ul role="list">
+        @for (link of membershipLinks; track link.path) {
+          <li>
+            <a [routerLink]="link.path" class="footer-nav__link">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- Mission CTA -->
+    <div class="footer-cta">
+      <h3 class="footer-cta__title">Newsletter</h3>
+      <p class="footer-cta__text">Stay updated with medical news and outreach reports.</p>
+     <div class="footer-cta__form">
+      <input type="text" class="footer-cta__input" placeholder="Email" aria-label="Email address for newsletter subscription" />
+      <button class="btn footer-cta__btn"><span class="material-symbols-outlined">send</span></button>
+     </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <div class="footer-bottom__inner site-container">
+      <p class="footer-bottom__copy">
+        &copy; {{ currentYear }} Ghana Doctors and Dentists Association UK. All rights reserved.
+      </p>
+      <div class="footer-bottom__links">Charity Number: 1109403</div>
+    </div>
+  </div>
+</footer>

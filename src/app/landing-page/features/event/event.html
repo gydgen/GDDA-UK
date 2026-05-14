@@ -1,0 +1,143 @@
+<!-- ============================================================ -->
+<!-- Section 1: Volunteer Giving Cards                           -->
+<!-- ============================================================ -->
+<section class="giving-section" aria-labelledby="giving-heading">
+  <div class="site-container">
+    <h2 id="giving-heading" class="giving-section__title">
+      We would love volunteers who are willing to give:
+    </h2>
+    <div class="giving-cards" role="list">
+      @for (card of givingCards; track card.title) {
+        <article class="giving-card reveal" role="listitem">
+          <div class="giving-card__icon" [innerHTML]="card.icon" aria-hidden="true"></div>
+          <h3 class="giving-card__title">{{ card.title }}</h3>
+          <p class="giving-card__desc">{{ card.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 2: Support Our Mission Financially                  -->
+<!-- ============================================================ -->
+<section class="financial-cta" aria-labelledby="financial-heading">
+  <div class="site-container">
+    <div class="financial-cta__inner">
+      <h2 id="financial-heading" class="financial-cta__title">Support Our Mission Financially</h2>
+      <p class="financial-cta__subtitle">
+        Every contribution ensures the longevity of GDDA-UK's philanthropic endeavors and
+        professional support frameworks.
+      </p>
+      <div class="financial-cta__actions">
+        <a
+          href="https://donate.gdda-uk.org"
+          class="btn-udda-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Make a One Off Donation
+        </a>
+        <a
+          href="https://donate.gdda-uk.org/regular"
+          class="btn-donate-secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Make a Regular Donation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 3: Other Ways To Get Involved                       -->
+<!-- ============================================================ -->
+<section class="involvement-section" aria-labelledby="involvement-heading">
+  <div class="site-container">
+    <div class="involvement-section__inner">
+      <div class="involvement-section__content">
+        <h2 id="involvement-heading" class="involvement-section__title">
+          Other Ways To Get Involved
+        </h2>
+        <ul class="involvement-list" role="list">
+          @for (option of involvementOptions; track option.title) {
+            <li class="involvement-item reveal">
+              <div class="involvement-item__icon" [innerHTML]="option.icon" aria-hidden="true"></div>
+              <div class="involvement-item__body">
+                <h3 class="involvement-item__title">{{ option.title }}</h3>
+                <p class="involvement-item__desc">{{ option.description }}</p>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+      <div class="involvement-section__image">
+        <img
+          ngSrc="assets/images/about-hero-image.png"
+          width="520"
+          height="620"
+          alt="GDDA-UK healthcare professional"
+          class="involvement-img"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Section 4: Instagram / Community Feed                        -->
+<!-- ============================================================ -->
+<section class="instagram-section" aria-labelledby="instagram-heading">
+  <div class="site-container">
+    <div class="instagram-section__header">
+      <div>
+        <span class="instagram-section__label" aria-hidden="true">COMMUNITY</span>
+        <h2 id="instagram-heading" class="instagram-section__title">
+          Keep Up To Date On &#64;gdda_uk
+        </h2>
+      </div>
+      <a
+        href="https://instagram.com/gdda_uk"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="instagram-section__link"
+        aria-label="Follow GDDA-UK on Instagram (opens in new tab)"
+      >
+        Follow on Instagram
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          <polyline points="15 3 21 3 21 9" />
+          <line x1="10" y1="14" x2="21" y2="3" />
+        </svg>
+      </a>
+    </div>
+    <ul class="instagram-grid" role="list">
+      @for (post of instagramPosts; track post.alt) {
+        <li role="listitem">
+          <a
+            [href]="post.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="instagram-post"
+            [attr.aria-label]="'View on Instagram: ' + post.alt"
+          >
+            <img [src]="post.image" [alt]="post.alt" loading="lazy" width="250" height="250" />
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
