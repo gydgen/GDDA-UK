@@ -1,0 +1,70 @@
+<section class="events" aria-labelledby="events-heading">
+  <div class="events__inner">
+
+    <!-- Header -->
+    <div class="events__header">
+      <div class="events__header-text">
+        <h2 class="events__heading" id="events-heading">Upcoming Events</h2>
+        <p class="events__subheading">Connecting, learning, and celebrating excellence.</p>
+      </div>
+      <a class="events__calendar-link" routerLink="/events" aria-label="View full events calendar">
+        View Calendar
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Grid: Featured + Side List -->
+    <div class="events__grid">
+
+      <!-- Featured Event -->
+      <article class="events__featured" aria-label="Featured event">
+        <div class="events__featured-img-wrap">
+          <img
+            ngSrc="/assets/images/event-featured.jpg"
+            alt="Annual Health Conference and Dinner Dance venue"
+            width="592"
+            height="320"
+            class="events__featured-img"
+          />
+        </div>
+        <div class="events__featured-body">
+          <div class="events__featured-date-badge">
+            <span class="events__date-day">24</span>
+            <span class="events__date-month">Mar 2026</span>
+          </div>
+          <div class="events__featured-info">
+            <h3 class="events__featured-title">Annual Health Conference &amp; Dinner Dance</h3>
+            <p class="events__featured-desc">
+              Connect. Celebrate. Learn. Join the UK's leading Ghanaian healthcare community for a day
+              of insight, impact, and inspiration. Doors at 8:30am, event starts 9:30am BST
+            </p>
+            <div class="events__featured-meta">
+              <span class="events__location" aria-label="Location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                London, UK
+              </span>
+              <a class="btn btn--navy btn--sm events__register-btn" routerLink="/events">Register Now</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Side Events -->
+      <div class="events__side" role="list">
+        @for (event of sideEvents; track event.title) {
+          <article class="events__side-item" role="listitem">
+            <span class="events__side-date">{{ event.date }}</span>
+            <h3 class="events__side-title">{{ event.title }}</h3>
+            <p class="events__side-desc">{{ event.description }}</p>
+          </article>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

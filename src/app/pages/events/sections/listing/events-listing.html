@@ -1,0 +1,107 @@
+<section class="events-listing" aria-label="All events">
+  <div class="events-listing__container">
+
+    <!-- Section heading -->
+    <div class="events-listing__header">
+      <h2 class="events-listing__title">All Events</h2>
+      <p class="events-listing__subtitle">
+        Upcoming conferences, webinars, and gatherings for Ghana's healthcare community.
+      </p>
+    </div>
+
+    <!-- Filter row -->
+    <div class="events-listing__filters" role="group" aria-label="Filter events by type">
+      @for (type of filterTypes; track type) {
+        <button
+          class="events-listing__filter-btn"
+          [class.events-listing__filter-btn--active]="activeFilter() === type"
+          (click)="setFilter(type)"
+          [attr.aria-pressed]="activeFilter() === type"
+        >
+          {{ type }}
+        </button>
+      }
+    </div>
+
+    <!-- Events grid -->
+    <div class="events-listing__grid" aria-live="polite" aria-label="Events list">
+      @for (event of filteredEvents(); track event.id) {
+        <article class="event-card" aria-label="{{ event.title }}">
+          <!-- Date block -->
+          <div class="event-card__date" aria-label="Date: {{ event.date }} {{ event.month }} {{ event.year }}">
+            <span class="event-card__day">{{ event.date }}</span>
+            <span class="event-card__month-year">{{ event.month }} {{ event.year }}</span>
+          </div>
+
+          <!-- Card content -->
+          <div class="event-card__body">
+            <span
+              class="event-card__type-badge event-card__type-badge--{{ event.type | lowercase }}"
+              aria-label="Event type: {{ event.type }}"
+            >
+              {{ event.type }}
+            </span>
+
+            <h3 class="event-card__title">{{ event.title }}</h3>
+
+            <p class="event-card__description">{{ event.description }}</p>
+
+            <div class="event-card__meta">
+              <span class="event-card__location" aria-label="Location: {{ event.location }}">
+                <svg
+                  class="event-card__pin-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                {{ event.location }}
+              </span>
+
+              <a
+                class="event-card__learn-more"
+                routerLink="/events/{{ event.id }}"
+                aria-label="Learn more about {{ event.title }}"
+              >
+                Learn More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      }
+
+      @if (filteredEvents().length === 0) {
+        <p class="events-listing__empty" role="status">
+          No events found for this category. Please check back soon.
+        </p>
+      }
+    </div>
+
+  </div>
+</section>

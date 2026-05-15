@@ -1,0 +1,62 @@
+<section class="membership" aria-labelledby="membership-heading">
+  <div class="membership__inner">
+    <div class="membership__ellipse" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <div class="membership__header">
+      <h2 class="membership__heading" id="membership-heading">Membership &amp; Benefits</h2>
+      <p class="membership__subheading">
+        Join a network that supports your career and fuels your passion for service.
+      </p>
+    </div>
+
+    <!-- Benefit Cards -->
+    <div class="membership__cards" role="list">
+      @for (benefit of benefits; track benefit.title) {
+        <article class="membership__card" role="listitem">
+          <div class="membership__card-icon" aria-hidden="true">
+            @switch (benefit.icon) {
+              @case ('network') {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              }
+              @case ('career') {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+              }
+              @case ('outreach') {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              }
+              @default {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+              }
+            }
+          </div>
+          <h3 class="membership__card-title">{{ benefit.title }}</h3>
+          <p class="membership__card-desc">{{ benefit.description }}</p>
+        </article>
+      }
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="membership__cta-banner">
+      <div class="membership__cta-text">
+        <h3 class="membership__cta-title">Who can join?</h3>
+        <p class="membership__cta-desc">
+          Doctors, Dentists, and Students of Ghanaian heritage currently in the UK.
+        </p>
+      </div>
+      <div class="membership__cta-buttons">
+        <a class="btn btn--outline-gold" routerLink="/contact">Join Our Mailing List</a>
+        <a class="btn btn--primary" routerLink="/get-involved">Become a Member</a>
+      </div>
+    </div>
+
+  </div>
+</section>

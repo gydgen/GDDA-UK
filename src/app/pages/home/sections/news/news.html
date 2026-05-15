@@ -1,0 +1,38 @@
+<section class="news" aria-labelledby="news-heading">
+  <div class="news__inner">
+
+    <!-- Header -->
+    <div class="news__header">
+      <h2 class="news__heading" id="news-heading">Latest News &amp; Updates</h2>
+      <a class="news__blog-link" routerLink="/news" aria-label="See all blog posts">
+        See Blog
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="news__grid" role="list">
+      @for (article of articles; track article.title) {
+        <article class="news__article" role="listitem">
+          <div class="news__article-img-wrap">
+            <img
+              [ngSrc]="article.image"
+              [alt]="article.imageAlt"
+              width="384"
+              height="216"
+              class="news__article-img"
+            />
+          </div>
+          <div class="news__article-body">
+            <span class="news__article-category">{{ article.category }}</span>
+            <h3 class="news__article-title">{{ article.title }}</h3>
+            <p class="news__article-excerpt">{{ article.excerpt }}</p>
+          </div>
+        </article>
+      }
+    </div>
+
+  </div>
+</section>

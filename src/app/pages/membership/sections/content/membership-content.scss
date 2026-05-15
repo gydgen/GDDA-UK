@@ -1,0 +1,404 @@
+// =============================================
+// Section 1: Who Can Join
+// =============================================
+.who-can-join {
+  background-color: var(--color-bg-gray);
+  padding: var(--section-padding-v) var(--section-padding-h);
+}
+
+.who-can-join__heading {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.who-can-join__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.eligibility-card {
+  border-radius: var(--radius-card-lg);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.eligibility-card--navy {
+  background-color: var(--color-primary);
+
+  .eligibility-card__icon {
+    color: var(--color-gold);
+  }
+
+  .eligibility-card__title {
+    color: var(--color-white);
+  }
+
+  .eligibility-card__item {
+    color: rgba(255, 255, 255, 0.85);
+
+    &::before {
+      background-color: var(--color-gold);
+    }
+  }
+}
+
+.eligibility-card--white {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-stroke-light);
+
+  .eligibility-card__icon {
+    color: var(--color-primary);
+  }
+
+  .eligibility-card__title {
+    color: var(--color-primary);
+  }
+
+  .eligibility-card__item {
+    color: var(--color-text-body);
+
+    &::before {
+      background-color: var(--color-primary);
+    }
+  }
+}
+
+.eligibility-card__icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.eligibility-card__title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.eligibility-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eligibility-card__item {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+}
+
+.who-can-join__note {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text-body);
+  text-align: center;
+  max-width: 640px;
+  margin: 32px auto 0;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+// =============================================
+// Section 2: Membership Benefits
+// =============================================
+.mem-benefits {
+  background-color: var(--color-white);
+  padding: var(--section-padding-v) var(--section-padding-h);
+}
+
+.mem-benefits__heading {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.mem-benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+.benefit-card {
+  background-color: var(--color-bg-gray);
+  border-radius: var(--radius-card);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0, 51, 102, 0.08);
+  }
+}
+
+.benefit-card__icon {
+  width: 52px;
+  height: 52px;
+  background-color: var(--color-primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.benefit-card__title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.benefit-card__desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-body);
+  line-height: 1.65;
+  margin: 0;
+}
+
+// =============================================
+// Section 3: How to Join
+// =============================================
+.how-to-join {
+  background-color: #00261b;
+  padding: var(--section-padding-v) var(--section-padding-h);
+}
+
+.how-to-join__heading {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-white);
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.how-to-join__steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  max-width: 900px;
+  margin-inline: auto;
+  flex-wrap: wrap;
+}
+
+.join-step {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-card);
+  padding: 36px 28px;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.join-step__number {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.join-step__title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.join-step__desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.join-step__arrow {
+  color: var(--color-gold);
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+// =============================================
+// Application Form
+// =============================================
+.application-form {
+  background-color: var(--color-white);
+  padding: var(--section-padding-v) var(--section-padding-h);
+}
+
+.application-form__heading {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.application-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 840px;
+  margin-inline: auto;
+}
+
+.application-form__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  align-items: end;
+}
+
+.application-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.application-form__field--grow {
+  flex: 1;
+}
+
+.application-form__label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.application-form__input,
+.application-form__select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-stroke-light);
+  border-radius: var(--radius-btn-sm);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text-body);
+  background-color: var(--color-white);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  outline: none;
+  appearance: none;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.08);
+  }
+
+  &[aria-invalid='true'] {
+    border-color: #ef4444;
+  }
+}
+
+.application-form__select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23414944' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.application-form__submit {
+  align-self: flex-start;
+  padding: 16px 40px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+// =============================================
+// Responsive
+// =============================================
+@media (max-width: 1024px) {
+  .mem-benefits__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .who-can-join__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .how-to-join__steps {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 640px) {
+  .who-can-join__heading,
+  .mem-benefits__heading,
+  .how-to-join__heading {
+    font-size: 32px;
+  }
+
+  .mem-benefits__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .application-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .application-form__submit {
+    width: 100%;
+    justify-content: center;
+  }
+}

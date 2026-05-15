@@ -1,0 +1,153 @@
+.gi-ways {
+  background-color: var(--color-bg-gray);
+  padding-block: var(--section-padding-v);
+}
+
+.gi-ways__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.gi-ways__heading {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+.gi-ways__subheading {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+// Grid
+.gi-ways__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+// Base card
+.gi-ways__card {
+  border-radius: var(--radius-card);
+  padding: 40px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gi-ways__card-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.gi-ways__card-title {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.gi-ways__card-description {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+.gi-ways__card-cta {
+  align-self: flex-start;
+  font-size: 16px;
+  padding: 14px 24px;
+}
+
+// Navy card variant
+.gi-ways__card--navy {
+  background-color: #00261b;
+
+  .gi-ways__card-icon {
+    background-color: rgba(254, 212, 136, 0.12);
+  }
+
+  .gi-ways__card-title {
+    color: var(--color-white);
+  }
+
+  .gi-ways__card-description {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+// Gold card variant
+.gi-ways__card--gold {
+  background-color: #fef3c7;
+
+  .gi-ways__card-icon {
+    background-color: rgba(120, 90, 26, 0.1);
+  }
+
+  .gi-ways__card-title {
+    color: var(--color-text-dark);
+  }
+
+  .gi-ways__card-description {
+    color: var(--color-text-body);
+  }
+}
+
+// White card variant
+.gi-ways__card--white {
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-stroke-light);
+
+  .gi-ways__card-icon {
+    background-color: rgba(0, 51, 102, 0.06);
+  }
+
+  .gi-ways__card-title {
+    color: var(--color-text-dark);
+  }
+
+  .gi-ways__card-description {
+    color: var(--color-text-body);
+  }
+}
+
+// Responsive
+@media (max-width: 1024px) {
+  .gi-ways__grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin-inline: auto;
+  }
+
+  .gi-ways__heading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .gi-ways {
+    padding-block: 64px;
+  }
+
+  .gi-ways__heading {
+    font-size: 28px;
+  }
+
+  .gi-ways__card {
+    padding: 32px 24px 28px;
+  }
+}

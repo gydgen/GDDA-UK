@@ -1,0 +1,204 @@
+<section class="gi-form" id="get-involved-form" aria-labelledby="gi-form-heading">
+  <div class="container">
+    <div class="gi-form__grid">
+
+      <!-- Left: info panel -->
+      <div class="gi-form__info">
+        <h2 id="gi-form-heading" class="gi-form__info-heading">Ready to Join Us?</h2>
+        <p class="gi-form__info-description">
+          Fill in the form and a member of our team will be in touch. Whether
+          you want to join as a member, lend your time as a volunteer, or make a
+          financial contribution — we'd love to hear from you.
+        </p>
+
+        <ul class="gi-form__contact-list" role="list" aria-label="Contact details">
+          <li class="gi-form__contact-item">
+            <span class="gi-form__contact-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <path d="M2.5 5.833A1.667 1.667 0 0 1 4.167 4.167h11.666A1.667 1.667 0 0 1 17.5 5.833v8.334a1.667 1.667 0 0 1-1.667 1.666H4.167A1.667 1.667 0 0 1 2.5 14.167V5.833z" stroke="#fed488" stroke-width="1.5" fill="none"/>
+                <path d="M2.5 5.833 10 10.833l7.5-5" stroke="#fed488" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <a class="gi-form__contact-link" href="mailto:info@gddauk.org" aria-label="Email us at info@gddauk.org">
+              info@gddauk.org
+            </a>
+          </li>
+          <li class="gi-form__contact-item">
+            <span class="gi-form__contact-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <path d="M3.333 3.333h3.334l1.666 4.167-2.083 1.25a9.167 9.167 0 0 0 5 5l1.25-2.083 4.167 1.666v3.334a1.667 1.667 0 0 1-1.667 1.666C7.292 18.333 1.667 12.708 1.667 5a1.667 1.667 0 0 1 1.666-1.667z" stroke="#fed488" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <a class="gi-form__contact-link" href="tel:+442071234567" aria-label="Call us at plus 44 020 7 X X X X X X X">
+              +44 (0)20 7XXX XXXX
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: form -->
+      <div class="gi-form__form-wrap">
+        @if (submitSuccess()) {
+          <div class="gi-form__success" role="status" aria-live="polite">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <circle cx="24" cy="24" r="22" stroke="#00261b" stroke-width="2.5" fill="#ecfdf5"/>
+              <path d="M14 24l8 8 12-16" stroke="#00261b" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="gi-form__success-heading">Application Sent!</h3>
+            <p class="gi-form__success-text">Thank you for getting in touch. We'll be in contact with you shortly.</p>
+          </div>
+        } @else {
+          <form
+            class="gi-form__form"
+            [formGroup]="form"
+            (ngSubmit)="onSubmit()"
+            novalidate
+            aria-label="Get involved application form"
+          >
+            <!-- Name row -->
+            <div class="gi-form__row">
+              <div class="gi-form__field" [class.gi-form__field--error]="isInvalid('firstName')">
+                <label class="gi-form__label" for="firstName">
+                  First Name <span class="gi-form__required" aria-label="required">*</span>
+                </label>
+                <input
+                  class="gi-form__input"
+                  id="firstName"
+                  type="text"
+                  formControlName="firstName"
+                  autocomplete="given-name"
+                  [attr.aria-invalid]="isInvalid('firstName') || null"
+                  aria-describedby="firstName-error"
+                  placeholder="e.g. Kofi"
+                />
+                @if (isInvalid('firstName')) {
+                  <span class="gi-form__error" id="firstName-error" role="alert">First name is required.</span>
+                }
+              </div>
+
+              <div class="gi-form__field" [class.gi-form__field--error]="isInvalid('lastName')">
+                <label class="gi-form__label" for="lastName">
+                  Last Name <span class="gi-form__required" aria-label="required">*</span>
+                </label>
+                <input
+                  class="gi-form__input"
+                  id="lastName"
+                  type="text"
+                  formControlName="lastName"
+                  autocomplete="family-name"
+                  [attr.aria-invalid]="isInvalid('lastName') || null"
+                  aria-describedby="lastName-error"
+                  placeholder="e.g. Mensah"
+                />
+                @if (isInvalid('lastName')) {
+                  <span class="gi-form__error" id="lastName-error" role="alert">Last name is required.</span>
+                }
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="gi-form__field" [class.gi-form__field--error]="isInvalid('email')">
+              <label class="gi-form__label" for="email">
+                Email Address <span class="gi-form__required" aria-label="required">*</span>
+              </label>
+              <input
+                class="gi-form__input"
+                id="email"
+                type="email"
+                formControlName="email"
+                autocomplete="email"
+                [attr.aria-invalid]="isInvalid('email') || null"
+                aria-describedby="email-error"
+                placeholder="e.g. kofi@example.com"
+              />
+              @if (isInvalid('email')) {
+                <span class="gi-form__error" id="email-error" role="alert">Please enter a valid email address.</span>
+              }
+            </div>
+
+            <!-- Phone -->
+            <div class="gi-form__field">
+              <label class="gi-form__label" for="phone">Phone Number</label>
+              <input
+                class="gi-form__input"
+                id="phone"
+                type="tel"
+                formControlName="phone"
+                autocomplete="tel"
+                placeholder="e.g. +44 7700 900000"
+              />
+            </div>
+
+            <!-- Profession -->
+            <div class="gi-form__field" [class.gi-form__field--error]="isInvalid('profession')">
+              <label class="gi-form__label" for="profession">
+                Profession <span class="gi-form__required" aria-label="required">*</span>
+              </label>
+              <select
+                class="gi-form__select"
+                id="profession"
+                formControlName="profession"
+                [attr.aria-invalid]="isInvalid('profession') || null"
+                aria-describedby="profession-error"
+              >
+                <option value="" disabled>Select your profession</option>
+                <option value="doctor">General Practitioner</option>
+                <option value="dentist">Dentist</option>
+                <option value="medical-student">Medical Student</option>
+                <option value="dental-student">Dental Student</option>
+                <option value="other">Other</option>
+              </select>
+              @if (isInvalid('profession')) {
+                <span class="gi-form__error" id="profession-error" role="alert">Please select your profession.</span>
+              }
+            </div>
+
+            <!-- Area of Interest -->
+            <div class="gi-form__field" [class.gi-form__field--error]="isInvalid('interest')">
+              <label class="gi-form__label" for="interest">
+                Area of Interest <span class="gi-form__required" aria-label="required">*</span>
+              </label>
+              <select
+                class="gi-form__select"
+                id="interest"
+                formControlName="interest"
+                [attr.aria-invalid]="isInvalid('interest') || null"
+                aria-describedby="interest-error"
+              >
+                <option value="" disabled>Select area of interest</option>
+                <option value="membership">Membership</option>
+                <option value="volunteer">Volunteer</option>
+                <option value="donate">Donate</option>
+                <option value="all">All of the Above</option>
+              </select>
+              @if (isInvalid('interest')) {
+                <span class="gi-form__error" id="interest-error" role="alert">Please select an area of interest.</span>
+              }
+            </div>
+
+            <!-- Message -->
+            <div class="gi-form__field">
+              <label class="gi-form__label" for="message">Message</label>
+              <textarea
+                class="gi-form__textarea"
+                id="message"
+                formControlName="message"
+                rows="4"
+                placeholder="Tell us more about yourself or how you'd like to get involved…"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn--navy gi-form__submit"
+              [attr.aria-busy]="null"
+            >
+              Send Application
+            </button>
+          </form>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

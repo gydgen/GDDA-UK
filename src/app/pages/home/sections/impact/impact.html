@@ -1,0 +1,91 @@
+<section class="impact" aria-labelledby="impact-heading">
+  <div class="impact__inner">
+
+    <!-- Header row -->
+    <div class="impact__header">
+      <div class="impact__header-text">
+        <span class="section-badge section-badge--gold">Our Projects</span>
+        <h2 class="impact__heading" id="impact-heading">
+          Transforming Healthcare<br />in Ghana
+        </h2>
+      </div>
+      <a class="impact__view-all" routerLink="/impact" aria-label="View all projects">
+        View All Projects
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="impact__grid" role="list">
+
+      <!-- Diabetic Paediatric - tall left card -->
+      <article class="impact__card impact__card--diabetic" role="listitem">
+        <img
+          ngSrc="/assets/images/impact-diabetic.jpg"
+          alt="Young patient receiving diabetes care"
+          fill
+          class="impact__card-img"
+        />
+        <div class="impact__card-overlay">
+          <div class="impact__card-content">
+            <h3 class="impact__card-title impact__card-title--lg">Diabetic Paediatric Project</h3>
+            <p class="impact__card-desc">
+              Empowering young patients and families with essential insulin and education.
+            </p>
+            <a class="impact__card-link" routerLink="/impact" aria-label="Learn more about Diabetic Paediatric Project">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Surgical Skills - top right -->
+      <article class="impact__card impact__card--surgical" role="listitem">
+        <h3 class="impact__card-title">Surgical Skills Training</h3>
+        <p class="impact__card-desc impact__card-desc--light">
+          Hands-on workshops for Ghanaian surgeons, bridging the gap in advanced clinical techniques.
+        </p>
+      </article>
+
+      <!-- Health Leaflets - middle right top -->
+      <article class="impact__card impact__card--leaflets" role="listitem">
+        <h3 class="impact__card-title impact__card-title--dark">Health Information Leaflets</h3>
+        <p class="impact__card-desc impact__card-desc--dark">
+          Culturally relevant medical guidance translated for local community needs.
+        </p>
+      </article>
+
+      <!-- Paediatric Programme - middle right bottom -->
+      <article class="impact__card impact__card--paediatric" role="listitem">
+        <h3 class="impact__card-title impact__card-title--gold">The Paediatric Programme</h3>
+        <p class="impact__card-desc impact__card-desc--brown">
+          Specialized newborn care training and equipment donations for regional hospitals.
+        </p>
+      </article>
+
+      <!-- Obstetric Fistula - bottom wide -->
+      <article class="impact__card impact__card--fistula" role="listitem">
+        <img
+          ngSrc="/assets/images/impact-fistula.jpg"
+          alt="Medical team performing restorative surgery"
+          fill
+          class="impact__card-img"
+        />
+        <div class="impact__card-overlay impact__card-overlay--bottom">
+          <div class="impact__card-content">
+            <h3 class="impact__card-title">Obstetric Fistula Fund</h3>
+            <p class="impact__card-desc">
+              Providing restorative surgeries and social rehabilitation for women across rural Ghana.
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,236 @@
+.about {
+  background-color: var(--color-bg-light);
+  padding-top: var(--section-padding-v);
+  padding-bottom: var(--section-padding-v);
+}
+
+.about__inner {
+  max-width: calc(var(--container-max) + var(--section-padding-h) * 2);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-h);
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+// Top grid
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+// Text side
+.about__text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about__ellipse {
+  position: absolute;
+  top: -60px;
+  left: -80px;
+  width: 335px;
+  height: 335px;
+  border-radius: 50%;
+  background-color: rgba(255, 222, 165, 0.35);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about__label {
+  position: relative;
+  z-index: 1;
+}
+
+.about__heading {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.about__missions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 16px;
+}
+
+.about__mission-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 12px;
+}
+
+.about__mission-text {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-text-body);
+  line-height: 1.65;
+  margin: 0;
+}
+
+// Image side
+.about__image-wrap {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.about__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.about__image-overlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  background-color: rgba(0, 51, 102, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+.about__overlay-stat {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: #261900;
+  margin: 0 0 4px;
+}
+
+.about__overlay-desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  color: #5d4201;
+  line-height: 1.5;
+  margin: 0;
+}
+
+// Regional groups banner
+.about__regional {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 161px;
+  background-color: rgba(255, 222, 165, 0.4);
+  border-radius: var(--radius-card-md);
+  padding: 30px;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.about__regional-text {
+  position: relative;
+  flex: 1;
+}
+
+.about__regional-ellipse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 452px;
+  height: 452px;
+  border-radius: 50%;
+  background-color: rgba(255, 222, 165, 0.6);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about__regional-heading {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.about__regional-image {
+  flex-shrink: 0;
+  width: 320px;
+}
+
+.about__regional-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 16px;
+}
+
+// Responsive
+@media (max-width: 1024px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about__ellipse {
+    display: none;
+  }
+
+  .about__heading {
+    font-size: 40px;
+  }
+
+  .about__regional {
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .about__regional-heading {
+    font-size: 44px;
+  }
+
+  .about__regional-image {
+    width: 100%;
+  }
+
+  .about__regional-ellipse {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .about__heading {
+    font-size: 32px;
+  }
+
+  .about__mission-text {
+    font-size: 16px;
+  }
+
+  .about__regional-heading {
+    font-size: 32px;
+  }
+
+  .about__overlay-stat {
+    font-size: 20px;
+  }
+}

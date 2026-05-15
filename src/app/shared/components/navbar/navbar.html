@@ -1,0 +1,78 @@
+<header class="navbar" role="banner">
+  <div class="navbar__inner">
+    <!-- Logo -->
+    <a class="navbar__logo" routerLink="/" aria-label="GDDA-UK Home">
+      <span class="navbar__logo-text">GDDA-UK</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="navbar__nav" aria-label="Main navigation">
+      <ul class="navbar__links" role="list">
+        @for (link of navLinks; track link.label) {
+          <li>
+            <a
+              class="navbar__link"
+              [routerLink]="link.path"
+              routerLinkActive="navbar__link--active"
+              [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- CTA Buttons -->
+    <div class="navbar__ctas">
+      <a class="btn btn--outline-navy btn--sm" routerLink="/membership">Membership</a>
+      <a class="btn btn--navy btn--sm" routerLink="/donate">Donate</a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button
+      class="navbar__hamburger"
+      type="button"
+      [attr.aria-expanded]="mobileMenuOpen()"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+      (click)="toggleMobileMenu()"
+    >
+      <span class="navbar__hamburger-bar"></span>
+      <span class="navbar__hamburger-bar"></span>
+      <span class="navbar__hamburger-bar"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="navbar__mobile"
+    [class.navbar__mobile--open]="mobileMenuOpen()"
+    role="dialog"
+    aria-modal="false"
+    aria-label="Mobile navigation"
+  >
+    <nav aria-label="Mobile navigation links">
+      <ul class="navbar__mobile-links" role="list">
+        @for (link of navLinks; track link.label) {
+          <li>
+            <a
+              class="navbar__mobile-link"
+              [routerLink]="link.path"
+              routerLinkActive="navbar__mobile-link--active"
+              [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+              (click)="closeMobileMenu()"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+    <div class="navbar__mobile-ctas">
+      <a class="btn btn--outline-navy" routerLink="/membership" (click)="closeMobileMenu()">Membership</a>
+      <a class="btn btn--navy" routerLink="/donate" (click)="closeMobileMenu()">Donate</a>
+    </div>
+  </div>
+</header>

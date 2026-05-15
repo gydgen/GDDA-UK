@@ -1,0 +1,14 @@
+<section class="gi-counter" aria-label="Our impact in numbers">
+  <div class="container">
+    <ul class="gi-counter__grid" role="list">
+      @for (stat of stats; track stat.label) {
+        <li class="gi-counter__item">
+          <span class="gi-counter__number" aria-label="{{ stat.number }} {{ stat.label }}">
+            {{ stat.number }}
+          </span>
+          <span class="gi-counter__label" aria-hidden="true">{{ stat.label }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

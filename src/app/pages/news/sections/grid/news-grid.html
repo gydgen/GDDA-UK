@@ -1,0 +1,38 @@
+<section class="news-grid" aria-labelledby="news-grid-heading">
+  <div class="container">
+    <!-- Header -->
+    <div class="news-grid__header">
+      <h2 class="news-grid__heading" id="news-grid-heading">Latest News</h2>
+      <p class="news-grid__subheading">
+        Stay informed with stories, research, and updates from across the GDDA-UK community.
+      </p>
+    </div>
+
+    <!-- Articles grid -->
+    <div class="news-grid__grid" role="list">
+      @for (article of articles(); track article.title) {
+        <article class="news-card" role="listitem">
+          <div class="news-card__meta">
+            <span [class]="'news-card__badge ' + categoryClass(article.category)">
+              {{ article.category }}
+            </span>
+            <time class="news-card__date" [attr.datetime]="article.date">{{ article.date }}</time>
+          </div>
+          <h3 class="news-card__title">{{ article.title }}</h3>
+          <p class="news-card__excerpt">{{ article.excerpt }}</p>
+          <div class="news-card__footer">
+            <span class="news-card__read-time">{{ article.readTime }}</span>
+            <a class="news-card__link" href="#" [attr.aria-label]="'Read more about ' + article.title">
+              Read More →
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+
+    <!-- View all -->
+    <div class="news-grid__cta">
+      <a class="btn btn--outline-navy" href="#">View all articles</a>
+    </div>
+  </div>
+</section>

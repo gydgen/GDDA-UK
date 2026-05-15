@@ -1,0 +1,274 @@
+.impact {
+  background-color: var(--color-bg-light);
+  padding-top: var(--section-padding-v);
+  padding-bottom: 0;
+}
+
+.impact__inner {
+  max-width: calc(var(--container-max) + var(--section-padding-h) * 2);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-h);
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+// Header
+.impact__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.impact__header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.impact__heading {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.impact__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  padding-bottom: 8px;
+  transition: gap var(--transition-base), opacity var(--transition-base);
+
+  &:hover {
+    opacity: 0.75;
+    gap: 12px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+}
+
+// Bento Grid
+.impact__grid {
+  display: grid;
+  grid-template-columns: 389px 389px 1fr;
+  grid-template-rows: 400px 400px;
+  gap: 16px;
+}
+
+// Base card styles
+.impact__card {
+  border-radius: var(--radius-card-lg);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.impact__card-img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.impact__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: 32px;
+
+  &--bottom {
+    background: linear-gradient(to top, rgba(0, 51, 102, 0.9) 0%, transparent 70%);
+  }
+}
+
+.impact__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.impact__card-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin: 0;
+
+  &--lg {
+    font-size: 24px;
+    color: var(--color-white);
+  }
+
+  &--dark {
+    color: var(--color-text-dark-green);
+  }
+
+  &--gold {
+    color: var(--color-gold-dark);
+    font-size: 24px;
+  }
+}
+
+.impact__card-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-white);
+  line-height: 1.5;
+  margin: 0;
+
+  &--light {
+    color: var(--color-white);
+  }
+
+  &--dark {
+    color: var(--color-text-body);
+  }
+
+  &--brown {
+    font-size: 14px;
+    font-weight: 500;
+    color: #5d4201;
+  }
+}
+
+.impact__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: gap var(--transition-base);
+
+  &:hover {
+    gap: 10px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+}
+
+// Individual card placements
+.impact__card--diabetic {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.impact__card--surgical {
+  grid-column: 2;
+  grid-row: 1;
+  background-color: var(--color-primary);
+  padding: 32px;
+  justify-content: flex-end;
+
+  .impact__card-title {
+    color: var(--color-white);
+  }
+}
+
+.impact__card--leaflets {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: var(--color-bg-gray);
+  padding: 32px;
+  justify-content: center;
+}
+
+.impact__card--paediatric {
+  grid-column: 3;
+  grid-row: 1;
+  background-color: var(--color-gold);
+  padding: 59px 32px;
+  justify-content: center;
+}
+
+.impact__card--fistula {
+  grid-column: 3;
+  grid-row: 2;
+  background-color: var(--color-bg-dark-gray);
+  padding: 4px;
+}
+
+// Responsive
+@media (max-width: 1100px) {
+  .impact__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .impact__card--diabetic {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 360px;
+  }
+
+  .impact__card--surgical {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .impact__card--leaflets {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .impact__card--paediatric {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .impact__card--fistula {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .impact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact__card--diabetic,
+  .impact__card--surgical,
+  .impact__card--leaflets,
+  .impact__card--paediatric,
+  .impact__card--fistula {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 280px;
+  }
+
+  .impact__heading {
+    font-size: 36px;
+  }
+
+  .impact__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

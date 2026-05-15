@@ -1,0 +1,118 @@
+.testimonials {
+  background-color: var(--color-primary);
+  padding-top: var(--section-padding-v);
+  padding-bottom: var(--section-padding-v);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials__decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 571px;
+  height: 100%;
+  background-color: rgba(255, 222, 165, 0.15);
+  clip-path: ellipse(60% 55% at 10% 50%);
+  pointer-events: none;
+}
+
+.testimonials__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 896px;
+  margin-inline: auto;
+  padding-inline: var(--section-padding-h);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.testimonials__quote-icon {
+  display: flex;
+  align-items: center;
+}
+
+.testimonials__blockquote {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin: 0;
+  padding: 0;
+}
+
+.testimonials__quote {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--color-white);
+  line-height: 1.4;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.testimonials__author {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-style: normal;
+}
+
+.testimonials__avatar-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.testimonials__avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.testimonials__author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.testimonials__author-name {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-white);
+  font-style: normal;
+}
+
+.testimonials__author-role {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-muted-green);
+}
+
+@media (max-width: 768px) {
+  .testimonials__quote {
+    font-size: 26px;
+  }
+
+  .testimonials__decoration {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials__quote {
+    font-size: 20px;
+  }
+
+  .testimonials__author {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

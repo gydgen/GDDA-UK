@@ -1,0 +1,260 @@
+.about-mission {
+  background-color: var(--color-white);
+  padding-block: var(--section-padding-v);
+}
+
+.about-mission__container {
+  width: 100%;
+  max-width: calc(var(--container-max) + var(--section-padding-h) * 2);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-h);
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+// Two-column grid
+.about-mission__grid {
+  display: grid;
+  grid-template-columns: 1fr 568px;
+  gap: 80px;
+  align-items: start;
+}
+
+// Left column
+.about-mission__text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.about-mission__badge {
+  align-self: flex-start;
+  background-color: #fff8e1;
+  color: var(--color-gold-dark);
+}
+
+.about-mission__heading {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.about-mission__subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-bg-gray);
+}
+
+.about-mission__subsection-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-mission__subsection-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: var(--color-bg-gray);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.about-mission__subsection-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0;
+}
+
+.about-mission__subsection-desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-body);
+  line-height: 1.7;
+  margin: 0;
+}
+
+// Right column — image
+.about-mission__image-col {
+  position: relative;
+}
+
+.about-mission__image-wrap {
+  position: relative;
+  border-radius: var(--radius-card-lg);
+  overflow: hidden;
+}
+
+.about-mission__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.about-mission__image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 26, 27, 0.90) 0%,
+    rgba(0, 26, 27, 0.55) 60%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-mission__image-stat {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1;
+  margin: 0;
+}
+
+.about-mission__image-sub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.80);
+  margin: 0;
+}
+
+// Leadership
+.about-leadership {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-leadership__heading {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--color-bg-gray);
+}
+
+.about-leadership__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.about-leadership__card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid var(--color-bg-gray);
+  border-radius: var(--radius-card-md);
+  background-color: var(--color-bg-light);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 51, 102, 0.10);
+    transform: translateY(-2px);
+  }
+}
+
+.about-leadership__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-bg-dark-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-body);
+  flex-shrink: 0;
+}
+
+.about-leadership__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-leadership__name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0;
+}
+
+.about-leadership__role {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-gold-brown);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 8px;
+}
+
+.about-leadership__bio {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-body);
+  line-height: 1.65;
+  margin: 0;
+}
+
+// Responsive
+@media (max-width: 1024px) {
+  .about-mission__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-mission__image-col {
+    order: -1;
+  }
+
+  .about-mission__image-wrap img {
+    max-height: 420px;
+    object-fit: cover;
+  }
+
+  .about-leadership__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .about-mission {
+    padding-block: 60px;
+  }
+
+  .about-mission__heading {
+    font-size: 28px;
+  }
+
+  .about-leadership__grid {
+    grid-template-columns: 1fr;
+  }
+}

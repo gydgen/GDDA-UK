@@ -1,0 +1,204 @@
+.contact-page {
+  background-color: var(--color-white);
+  padding-top: 120px;
+  padding-bottom: var(--section-padding-v);
+  padding-inline: var(--section-padding-h);
+}
+
+.contact-page__inner {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 80px;
+  align-items: start;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+// =============================================
+// Left: Info
+// =============================================
+.contact-page__heading {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.contact-page__intro {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-body);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.contact-page__details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.contact-page__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-page__detail-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted-green);
+}
+
+.contact-page__detail-value {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary);
+  font-style: normal;
+  text-decoration: none;
+
+  &[href] {
+    &:hover {
+      color: var(--color-gold-dark);
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-gold);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+  }
+}
+
+.contact-page__detail-value--address {
+  line-height: 1.6;
+}
+
+// Social
+.contact-page__social-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted-green);
+  margin-bottom: 14px;
+}
+
+.contact-page__social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.contact-page__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-bg-gray);
+  color: var(--color-primary);
+  transition: background-color var(--transition-base), color var(--transition-base);
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
+
+// =============================================
+// Right: Form
+// =============================================
+.contact-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-page__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-page__label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.contact-page__input,
+.contact-page__textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-stroke-light);
+  border-radius: var(--radius-btn-sm);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text-body);
+  background-color: var(--color-white);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  outline: none;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.08);
+  }
+
+  &[aria-invalid='true'] {
+    border-color: #ef4444;
+  }
+}
+
+.contact-page__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-page__submit {
+  align-self: flex-start;
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+// Responsive
+@media (max-width: 1024px) {
+  .contact-page__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-page {
+    padding-top: 100px;
+  }
+
+  .contact-page__heading {
+    font-size: 32px;
+  }
+
+  .contact-page__submit {
+    width: 100%;
+    justify-content: center;
+  }
+}

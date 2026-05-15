@@ -1,0 +1,437 @@
+// ── Section shell ──────────────────────────────────────────────────────────
+.milestones {
+  background-color: var(--color-white, #fff);
+  padding-block: var(--section-padding-v, 96px);
+}
+
+.milestones__inner {
+  max-width: calc(var(--container-max, 1216px) + var(--section-padding-h, 32px) * 2);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-h, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+// ── Section header ─────────────────────────────────────────────────────────
+.milestones__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.milestones__heading {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 800;
+  color: #001a1b;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.milestones__underline {
+  width: 64px;
+  height: 4px;
+  background-color: var(--color-gold, #fed488);
+  border-radius: 2px;
+}
+
+// ── Shared milestone tokens ────────────────────────────────────────────────
+.milestone__year {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-body, #414944);
+  margin-bottom: 8px;
+}
+
+.milestone__year--brown {
+  color: #5c3d11;
+}
+
+.milestone__title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 800;
+  color: #001a1b;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+
+.milestone__title--dark {
+  color: #1a1a1a;
+}
+
+.milestone__desc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text-body, #414944);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.milestone__desc--brown {
+  color: #5c3d11;
+}
+
+// ── Full-width alternating rows (COVID + Fistula) ──────────────────────────
+.milestone {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--color-bg-gray, #f3f4f5);
+}
+
+.milestone--covid {
+  .milestone__image-wrap { order: 0; }
+  .milestone__body       { order: 1; padding: 48px 48px 48px 0; }
+}
+
+.milestone--fistula {
+  .milestone__body       { order: 0; padding: 48px 0 48px 48px; }
+  .milestone__image-wrap { order: 1; }
+}
+
+.milestone__image-wrap {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.milestone__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+// Bullet list inside COVID card
+.milestone__items {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.milestone__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 16px;
+  border-left: 3px solid var(--color-gold, #fed488);
+}
+
+.milestone__item-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: #001a1b;
+}
+
+.milestone__item-desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-body, #414944);
+  line-height: 1.5;
+}
+
+// Tag chips inside Fistula card
+.milestone__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.milestone__tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background-color: rgba(0, 38, 27, 0.08);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: #001a1b;
+}
+
+// ── Asymmetric Bento (Diabetic + Paediatric Network) ──────────────────────
+.milestone-bento {
+  display: grid;
+  grid-template-columns: 1fr 384px;
+  gap: 24px;
+  min-height: 340px;
+}
+
+.milestone-bento__main {
+  background-color: #f3f4f5;
+  border-radius: 16px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.milestone-bento__main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.milestone-bento__main-quote {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--color-text-body, #414944);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.5;
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--color-gold-dark, #785a1a);
+  }
+}
+
+.milestone-bento__side {
+  background-color: #fef3c7;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.milestone-bento__side-content {
+  padding: 32px 32px 20px;
+}
+
+.milestone-bento__side-image {
+  flex: 1;
+  min-height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.milestone-bento__side-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+// ── Educational Interventions (navy card) ─────────────────────────────────
+.milestone-edu {
+  background-color: #00261b;
+  border-radius: 16px;
+  padding: 48px;
+}
+
+.milestone-edu__grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+}
+
+.milestone-edu__title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 28px;
+}
+
+.milestone-edu__items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.milestone-edu__item-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-gold, #fed488);
+  margin: 0 0 4px;
+}
+
+.milestone-edu__item-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.milestone-edu__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.milestone-edu__stat {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px 32px;
+  text-align: center;
+  min-width: 160px;
+}
+
+.milestone-edu__stat--gold {
+  background-color: rgba(254, 212, 136, 0.15);
+}
+
+.milestone-edu__stat-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-gold, #fed488);
+  line-height: 1;
+}
+
+.milestone-edu__stat-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 6px;
+}
+
+// ── Foundations (2 cards side by side) ────────────────────────────────────
+.milestone-foundations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.milestone-foundations__card {
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.milestone-foundations__card--gray {
+  background-color: #f3f4f5;
+}
+
+.milestone-foundations__card--white {
+  background-color: #fff;
+  border: 1px solid #e8eae8;
+}
+
+.milestone-foundations__card-header {
+  margin-bottom: 4px;
+}
+
+.milestone-foundations__divider {
+  border: none;
+  border-top: 1px solid #d1d5d1;
+  margin: 0;
+}
+
+.milestone-foundations__stats {
+  display: flex;
+  gap: 24px;
+}
+
+.milestone-foundations__stat {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: #001a1b;
+  padding: 6px 14px;
+  background-color: rgba(0, 26, 27, 0.06);
+  border-radius: 20px;
+}
+
+.milestone-foundations__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.milestone-foundations__pill {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: #001a1b;
+  padding: 5px 14px;
+  border: 1px solid rgba(0, 26, 27, 0.2);
+  border-radius: 20px;
+}
+
+// ── Responsive ─────────────────────────────────────────────────────────────
+@media (max-width: 1024px) {
+  .milestone-bento {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .milestones__heading { font-size: 32px; }
+
+  .milestone {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .milestone--covid {
+    .milestone__image-wrap { order: 0; }
+    .milestone__body       { order: 1; padding: 32px; }
+  }
+
+  .milestone--fistula {
+    .milestone__body       { order: 1; padding: 32px; }
+    .milestone__image-wrap { order: 0; }
+  }
+
+  .milestone__image-wrap { height: 260px; }
+
+  .milestone-bento {
+    grid-template-columns: 1fr;
+  }
+
+  .milestone-edu__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .milestone-edu__stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .milestone-foundations {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .milestones__inner { gap: 32px; }
+  .milestone-bento__main,
+  .milestone-edu { padding: 28px; }
+  .milestone-foundations__card { padding: 28px; }
+}

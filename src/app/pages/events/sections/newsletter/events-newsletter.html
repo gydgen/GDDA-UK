@@ -1,0 +1,114 @@
+<section class="events-newsletter" aria-label="Newsletter signup">
+  <div class="events-newsletter__container">
+
+    <!-- Left: form -->
+    <div class="events-newsletter__left">
+      <h2 class="events-newsletter__title">Never Miss an Event</h2>
+      <p class="events-newsletter__description">
+        Subscribe to our mailing list and be the first to hear about upcoming GDDA-UK
+        events, exclusive member invitations, and community news.
+      </p>
+
+      @if (submitted()) {
+        <div class="events-newsletter__success" role="status" aria-live="polite">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          <span>Thank you for subscribing! We'll be in touch soon.</span>
+        </div>
+      }
+
+      @if (!submitted()) {
+        <form
+          class="events-newsletter__form"
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()"
+          novalidate
+          aria-label="Email subscription form"
+        >
+          <div class="events-newsletter__field">
+            <label class="events-newsletter__label" for="newsletter-email">
+              Email address
+            </label>
+            <div class="events-newsletter__input-row">
+              <input
+                class="events-newsletter__input"
+                id="newsletter-email"
+                type="email"
+                formControlName="email"
+                placeholder="your@email.com"
+                autocomplete="email"
+                [attr.aria-invalid]="emailControl.invalid && emailControl.touched ? 'true' : null"
+                aria-describedby="newsletter-email-error"
+              />
+              <button
+                class="events-newsletter__submit btn btn--primary"
+                type="submit"
+                aria-label="Subscribe to newsletter"
+              >
+                Subscribe
+              </button>
+            </div>
+
+            @if (emailControl.invalid && emailControl.touched) {
+              <span
+                class="events-newsletter__error"
+                id="newsletter-email-error"
+                role="alert"
+                aria-live="assertive"
+              >
+                @if (emailControl.errors?.['required']) {
+                  Please enter your email address.
+                } @else if (emailControl.errors?.['email']) {
+                  Please enter a valid email address.
+                }
+              </span>
+            }
+          </div>
+        </form>
+      }
+    </div>
+
+    <!-- Right: benefits list -->
+    <div class="events-newsletter__right" aria-label="Subscriber benefits">
+      <h3 class="events-newsletter__benefits-title">What you'll receive</h3>
+      <ul class="events-newsletter__benefits" aria-label="List of subscriber benefits">
+        @for (benefit of benefits; track benefit) {
+          <li class="events-newsletter__benefit">
+            <span class="events-newsletter__benefit-icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            {{ benefit }}
+          </li>
+        }
+      </ul>
+    </div>
+
+  </div>
+</section>
