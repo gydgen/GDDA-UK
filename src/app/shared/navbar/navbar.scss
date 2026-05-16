@@ -5,12 +5,12 @@
 // Navbar Wrapper
 // ============================================================
 .navbar-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-   font-family: 'Manrope', sans-serif;
+  // position: sticky;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // z-index: 1000;
+  font-family: 'Manrope', sans-serif;
   background: $color-white;
   transition: background $transition-smooth, box-shadow $transition-smooth;
 
@@ -24,6 +24,9 @@
 // Host default state (transparent over hero)
 :host {
   display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 :host(.navbar--scrolled) .navbar-wrapper {

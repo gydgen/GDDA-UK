@@ -79,7 +79,7 @@
   margin-bottom: $space-8;
   font-family: $font-basic;
   font-weight: $font-weight-regular;
-  color: rgba($color-white, 0.75);
+  color: $color-text-green;
   max-width: 520px;
 }
 
@@ -104,7 +104,7 @@
 
 .hero__card {
   position: relative;
-  width: 320px;
+  width: 420px;
   flex-shrink: 0;
 }
 
@@ -113,23 +113,33 @@
   top: -$space-4;
   right: -$space-6;
   z-index: 2;
-  background: $color-navy;
   color: $color-white;
   font-size: $font-size-xs;
   font-style: italic;
   font-weight: $font-weight-semibold;
-  line-height: $line-height-snug;
   text-align: center;
   padding: $space-3 $space-4;
-  border-radius: $border-radius;
-  box-shadow: $shadow-md;
+}
+
+
+/* Create a blurred background layer behind the text */
+.hero__card-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $color-navy-light;
+  box-shadow: 1px 1px 4px 40px rgba($color-highlight-soft, 0.2);
+  filter: blur(10px); /* Blur only the pseudo-element */
+  z-index: -1; /* Behind the text */
+  border-radius: inherit; /* If you add border-radius later */
 }
 
 .hero__card-inner {
   position: relative;
-  border-radius: $border-radius-xl;
   overflow: hidden;
-  border: 2px solid rgba($color-white, 0.18);
   box-shadow: $shadow-xl;
 
   img {
@@ -146,12 +156,9 @@
   left: 0;
   right: 0;
   padding: $space-6;
-  background: linear-gradient(
-    to top,
-    rgba($color-navy-dark, 0.95) 0%,
-    rgba($color-navy-dark, 0.65) 60%,
-    transparent 100%
-  );
+  margin: $space-4;
+  background-color:rgba($color-navy-light, 0.5);
+  border-radius: $border-radius-lg;
 }
 
 .hero__quote {
@@ -203,6 +210,12 @@
     transform: scaleY(1);
   }
 }
+
+// ============================================================
+// about-mission
+// ============================================================
+
+
 
 // ============================================================
 // STATS

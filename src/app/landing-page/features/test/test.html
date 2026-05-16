@@ -1,0 +1,129 @@
+<section class="about" aria-labelledby="about-heading">
+  <div class="about__inner">
+    <!-- Top two-column: Text + Image -->
+    <div class="about__grid">
+      <!-- Right: Image with overlay -->
+      <div class="about__image-wrap">
+        <img
+          ngSrc="/assets/images/about-male-doctor.png"
+          alt="GDDA-UK members at a medical outreach event"
+          width="568"
+          height="710"
+          class="about__image"
+        />
+        <div class="about__image-overlay" aria-hidden="true">
+          <p class="about__overlay-stat">30+ Years</p>
+          <p class="about__overlay-desc">
+            Of collective medical impact and diaspora professional advocacy.
+          </p>
+        </div>
+      </div>
+      <!-- Left: Text content -->
+      <div class="about__text">
+        <div class="about__ellipse" aria-hidden="true"></div>
+
+        <div class="about__label">
+          <span class="section-badge--gold">About GDDA-UK</span>
+        </div>
+
+        <h2 class="about__heading" id="about-heading">Professionalism with a Purpose.</h2>
+
+        <div class="about__missions">
+          <div class="about__mission">
+            <h3 class="about__mission-title d-flex align-items-center gap-2"><span class="material-symbols-outlined">flag</span>Our Mission</h3>
+            <p class="about__mission-text">
+              To unite Ghanaian doctors and dentists in the UK into one strong association,
+              providing support, mentorship, and a collective voice in their careers, while
+              contributing meaningfully to the healthcare sector in Ghana.
+            </p>
+          </div>
+
+          <div class="about__mission">
+            <h3 class="about__mission-title d-flex align-items-center gap-2"><span class="material-symbols-outlined">visibility</span>Our Vision</h3>
+            <p class="about__mission-text">
+              To be a trusted "home away from home" for Ghanaian healthcare professionals in the UK,
+              built on truth and equality, fostering unity, professional growth, and impactful
+              contributions to both the UK and Ghana's health systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom: Regional Groups banner -->
+    <div class="about__regional" aria-label="Regional groups">
+      <div class="about__regional-text">
+        <h2 class="about__regional-heading">Our Regional <br> Groups</h2>
+      </div>
+      <div class="about__regional-image">
+        <img
+          src="/assets/images/about-regional-map.png"
+          alt="GDDA-UK regional group members"    
+          class="about__regional-img"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<section class="membership" aria-labelledby="membership-heading">
+  <div class="membership__inner">
+    <div class="membership__ellipse" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <div class="membership__header">
+      <h2 class="membership__heading" id="membership-heading">Membership &amp; Benefits</h2>
+      <p class="membership__subheading">
+        Join a network that supports your career and fuels your passion for service.
+      </p>
+    </div>
+
+    <!-- Benefit Cards -->
+    <div class="membership__cards" role="list">
+      @for (benefit of benefits; track benefit.title) {
+        <article class="membership__card" role="listitem">
+          <div class="membership__card-icon" aria-hidden="true">
+            @switch (benefit.icon) {
+              @case ('network') {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              }
+              @case ('career') {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+              }
+              @case ('outreach') {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              }
+              @default {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+              }
+            }
+          </div>
+          <h3 class="membership__card-title">{{ benefit.title }}</h3>
+          <p class="membership__card-desc">{{ benefit.description }}</p>
+        </article>
+      }
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="membership__cta-banner">
+      <div class="membership__cta-text">
+        <h3 class="membership__cta-title">Who can join?</h3>
+        <p class="membership__cta-desc">
+          Doctors, Dentists, and Students of Ghanaian heritage currently in the UK.
+        </p>
+      </div>
+      <div class="membership__cta-buttons">
+        <a class="btn btn--outline-gold" routerLink="/contact">Join Our Mailing List</a>
+        <a class="btn btn--primary" routerLink="/get-involved">Become a Member</a>
+      </div>
+    </div>
+
+  </div>
+</section>

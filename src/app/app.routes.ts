@@ -1,12 +1,13 @@
 import { Routes } from '@angular/router';
 import { LandingPage } from './landing-page/landing-page';
+import { Test } from './landing-page/features/test/test';
 
 export const routes: Routes = [
   {
     path: '',
     component: LandingPage,
     children: [
-        {redirectTo: 'about', pathMatch: 'full', path: ''},
+        {redirectTo: 'test', pathMatch: 'full', path: ''},
       {
         path: 'about',
         loadComponent: () => import('./landing-page/features/about/about').then((m) => m.About),
@@ -28,7 +29,10 @@ export const routes: Routes = [
       {
         path: 'event',
         loadComponent: () => import('./landing-page/features/event/event').then((m) => m.Event),
-      },
+      },{
+        path: 'test',
+        component: Test
+      }
     ],
   },
 ];
