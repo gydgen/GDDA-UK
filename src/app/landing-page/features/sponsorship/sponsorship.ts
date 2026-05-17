@@ -1,74 +1,66 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
-interface SponsorTier {
+interface SponsorLogo {
+  mark: string;
   name: string;
-  amount: string;
-  badge: string;
-  description: string;
-  perks: string[];
-  featured?: boolean;
+}
+
+interface SponsorshipPath {
+  theme: 'navy' | 'light';
+  label: string;
+  title: string;
+  text: string;
+  points: readonly string[];
+  actionLabel: string;
+  actionLink: string;
 }
 
 @Component({
   selector: 'app-sponsorship',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './sponsorship.html',
   styleUrl: './sponsorship.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sponsorship {
-  readonly tiers: SponsorTier[] = [
-    {
-      name: 'Bronze',
-      amount: '£500+',
-      badge: 'Community Supporter',
-      description: 'A meaningful contribution that makes a real difference to our community programmes.',
-      perks: [
-        'Name/logo in event programme',
-        '2 complimentary event tickets',
-        'Social media recognition',
-        'Annual impact report',
-      ],
-    },
-    {
-      name: 'Silver',
-      amount: '£2,500+',
-      badge: 'Committed Partner',
-      description: 'A significant investment that powers our health and education initiatives for a year.',
-      perks: [
-        'Branding on event materials',
-        '5 complimentary event tickets',
-        'Featured in newsletter (2x)',
-        'Dedicated social media post',
-        'Logo on UDDA-UK website',
-        'Quarterly impact briefings',
-      ],
-      featured: true,
-    },
-    {
-      name: 'Gold',
-      amount: '£5,000+',
-      badge: 'Impact Leader',
-      description: 'A transformative partnership that funds landmark programmes and positions your brand as a leader in diaspora health equity.',
-      perks: [
-        'Premium branding at all events',
-        '10 complimentary event tickets',
-        'Keynote speaking opportunity',
-        'Dedicated feature in annual report',
-        'Monthly newsletter feature',
-        'Priority logo placement',
-        'Personal impact presentation',
-        'VIP access to all events',
-      ],
-    },
+  readonly sponsorLogos: readonly SponsorLogo[] = [
+    { mark: 'NHS', name: 'NHS England' },
+    { mark: 'BMA', name: 'British Medical Association' },
+    { mark: 'GMC', name: 'General Medical Council' },
+    { mark: 'RCP', name: 'Royal College of Physicians' },
+    { mark: 'RCS', name: 'Royal College of Surgeons' },
+    { mark: 'RCPCH', name: 'Royal College of Paediatrics' },
+    { mark: 'NMC', name: 'Nursing and Midwifery Council' },
+    { mark: 'GMA', name: 'Ghana Medical Association' },
   ];
 
-  readonly pastSponsors = [
-    { name: 'HealthFirst UK', logo: 'assets/images/sponsors/sponsor-1.png' },
-    { name: 'MedCore Group', logo: 'assets/images/sponsors/sponsor-2.png' },
-    { name: 'Global Aid Alliance', logo: 'assets/images/sponsors/sponsor-3.png' },
-    { name: 'DiasporaConnect', logo: 'assets/images/sponsors/sponsor-4.png' },
-    { name: 'CareInvest Partners', logo: 'assets/images/sponsors/sponsor-5.png' },
+  readonly sponsorshipPaths: readonly SponsorshipPath[] = [
+    {
+      theme: 'navy',
+      label: 'Strategic Sponsorship',
+      title: 'Partner with us on flagship events and programmes',
+      text: 'Ideal for organisations that want long-term visibility and measurable community impact.',
+      points: [
+        'Brand placement across major GDDA-UK events',
+        'Direct engagement with healthcare professionals',
+        'Co-developed impact activities and reporting',
+      ],
+      actionLabel: 'Become a Sponsor',
+      actionLink: '/contact',
+    },
+    {
+      theme: 'light',
+      label: 'Community Partnership',
+      title: 'Support targeted projects and professional development',
+      text: 'A focused option for supporting scholarships, outreach, and education-led interventions.',
+      points: [
+        'Project-aligned contribution opportunities',
+        'Visibility through selected campaigns',
+        'Flexible support options for your team',
+      ],
+      actionLabel: 'See Impact Areas',
+      actionLink: '/impact',
+    },
   ];
 }
-

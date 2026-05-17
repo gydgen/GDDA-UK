@@ -1,142 +1,167 @@
-<section class="events-hero" aria-label="Events hero">
-  <!-- Background image -->
-  <div class="events-hero__bg" aria-hidden="true">
+<section class="event-hero" aria-labelledby="event-hero-heading">
+  <div class="event-hero__media" aria-hidden="true">
     <img
-      ngSrc="/assets/images/events-hero-bg.jpg"
+      ngSrc="/assets/images/event-hero-background.png"
       alt=""
       fill
       priority
-      class="events-hero__bg-img"
+      class="event-hero__bg"
     />
-    <div class="events-hero__gradient"></div>
   </div>
+  <div class="event-hero__overlay" aria-hidden="true"></div>
 
-  <!-- Content -->
-  <div class="events-hero__content">
-    <div class="events-hero__content-inner">
-      <div class="section-badge section-badge--gold events-hero__badge">CLINICAL FELLOWSHIP</div>
+  <div class="site-container event-hero__inner">
+    <div class="event-hero__layout">
+      <div class="event-hero__copy">
+        <span class="section-badge section-badge--gold">Clinical Fellowship</span>
+        <h1 id="event-hero-heading" class="event-hero__title">Creating for Excellence</h1>
+        <p class="event-hero__subtitle">
+          Our event ecosystem blends continuing education, mentorship, and community-led healthcare
+          action in one connected programme.
+        </p>
+        <div class="event-hero__actions">
+          <a routerLink="/event" class="btn-secondary">View Conference Details</a>
+          <a routerLink="/get-involved" class="btn-outline-white">Get Involved</a>
+        </div>
+      </div>
 
-      <h1 class="events-hero__heading">
-        Gathering for <br />
-        Excellence
-      </h1>
-
-      <p class="events-hero__description">
-        GDDA-UK brings together the brightest minds in the Ghanaian medical and dental community.
-        Our events serve as a cornerstone for clinical synergy, professional mentorship, and the
-        celebration of healthcare distinction.
-      </p>
-      <div class="hero__actions animate-fade-in-up anim-delay-4">
-        <a routerLink="" class="btn-secondary hero__cta"> View Latest Conference Details </a>
-        <a routerLink="/event" class="btn-outline-white hero__cta-secondary"> Our Mission </a>
+      <div class="event-hero__card" aria-label="Event highlight">
+        <img
+          ngSrc="/assets/images/about-hero-image.png"
+          width="340"
+          height="420"
+          alt="GDDA-UK member speaking at a professional event"
+          class="event-hero__card-image"
+        />
+        <div class="event-hero__note">
+          <p class="event-hero__note-value">12+</p>
+          <p class="event-hero__note-text">Annual programmes</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="events-listing" aria-label="All events">
-  <div class="events-listing__container">
-    <!-- Section heading -->
-    <div class="events-listing__header">
-      <span class="section-badge--outline">EVENT PORTFOLIO</span>
-      <h2 class="events-listing__title">We Host Events Such As...</h2>
-      <p class="events-listing__subtitle">
-        From academic rigor to high-society galas, our events are meticulously designed to foster
-        clinical education and communal bonding.
+<section class="event-portfolio" aria-labelledby="event-portfolio-heading">
+  <div class="site-container event-portfolio__inner">
+    <header class="event-portfolio__header">
+      <span class="section-badge section-badge--gold">Event Portfolio</span>
+      <h2 id="event-portfolio-heading" class="event-portfolio__title">We Host Events Such As...</h2>
+      <p class="event-portfolio__summary">
+        From flagship conferences to practical learning forums, each programme is designed for
+        collaboration, learning, and measurable impact.
+      </p>
+    </header>
+
+    <ul class="event-portfolio__grid" role="list" aria-label="Event portfolio cards">
+      @for (card of portfolioCards; track card.title) {
+        <li class="event-portfolio__item" role="listitem">
+          @if (card.variant === 'image') {
+            <article class="event-card">
+              <img
+                [ngSrc]="card.image ?? ''"
+                width="420"
+                height="220"
+                [alt]="card.title"
+                class="event-card__image"
+              />
+              <div class="event-card__body">
+                <h3 class="event-card__title">{{ card.title }}</h3>
+                <p class="event-card__text">{{ card.summary }}</p>
+                <a [routerLink]="card.actionLink" class="event-card__link">
+                  {{ card.actionLabel }}
+                  <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                </a>
+              </div>
+            </article>
+          } @else {
+            <article class="event-card event-card--info" [class.event-card--gold]="card.variant === 'info-gold'">
+              <p class="event-card__tag">GDDA-UK Events</p>
+              <h3 class="event-card__title">{{ card.title }}</h3>
+              <p class="event-card__text">{{ card.summary }}</p>
+              <a [routerLink]="card.actionLink" class="event-card__link">
+                {{ card.actionLabel }}
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+              </a>
+            </article>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="event-upcoming" aria-labelledby="event-upcoming-heading">
+  <div class="site-container event-upcoming__inner">
+    <div class="event-upcoming__intro">
+      <h2 id="event-upcoming-heading" class="event-upcoming__title">Upcoming Schedule</h2>
+      <p class="event-upcoming__summary">
+        Plan ahead and reserve your place in our upcoming programmes.
+      </p>
+      <a routerLink="/contact" class="btn-secondary">Register Interest</a>
+    </div>
+
+    <ul class="event-upcoming__list" role="list" aria-label="Upcoming events list">
+      @for (item of upcomingEvents; track item.title) {
+        <li class="event-upcoming__item" role="listitem">
+          <article class="event-upcoming-card">
+            <div class="event-upcoming-card__date" aria-hidden="true">
+              <span class="event-upcoming-card__day">{{ item.day }}</span>
+              <span class="event-upcoming-card__month">{{ item.month }}</span>
+            </div>
+            <div class="event-upcoming-card__content">
+              <p class="event-upcoming-card__type">{{ item.type }}</p>
+              <h3 class="event-upcoming-card__title">{{ item.title }}</h3>
+              <p class="event-upcoming-card__location">{{ item.location }}</p>
+            </div>
+          </article>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="event-newsletter" aria-labelledby="event-newsletter-heading">
+  <div class="site-container event-newsletter__inner">
+    <div class="event-newsletter__copy">
+      <h2 id="event-newsletter-heading" class="event-newsletter__title">Stay Updated</h2>
+      <p class="event-newsletter__text">
+        Receive event announcements, registration windows, and key conference updates directly in
+        your inbox.
       </p>
     </div>
-    <div class="news__side" role="list">
-      <div class="news__slide--first-row d-flex gap-4">
-        <article class="news__side-item d-flex card gap-4" role="listitem">
-          <div class="card-image news__side-image">
-            <img src="/assets/images/about-webinar-nhs.jpg" alt="" class="news__side-image" />
+
+    <div class="event-newsletter__form-wrap">
+      @if (subscribed()) {
+        <p class="event-newsletter__success" role="status" aria-live="polite">
+          Thanks for subscribing. We will keep you informed about upcoming events.
+        </p>
+      } @else {
+        <form
+          class="event-newsletter__form"
+          [formGroup]="newsletterForm"
+          (ngSubmit)="onNewsletterSubmit()"
+          novalidate
+          aria-label="Event newsletter sign-up"
+        >
+          <label for="event-newsletter-email" class="event-newsletter__label">Email address</label>
+          <div class="event-newsletter__field-row">
+            <input
+              id="event-newsletter-email"
+              type="email"
+              class="event-newsletter__input"
+              formControlName="email"
+              autocomplete="email"
+              placeholder="name@example.com"
+              [attr.aria-invalid]="emailInvalid || null"
+            />
+            <button type="submit" class="btn-secondary event-newsletter__submit">Subscribe</button>
           </div>
-          <div class="card-body news__side-body">
-            <h6 class="news__side-title">Annual Health Conference</h6>
-            <p class="news__side-desc">
-              Our flagship gathering focusing on networking, continuous clinical learning, and
-              vibrant social interactions.
-            </p>
-            <a class="section-badge--outline"
-              >Explore Conference <span class="material-symbols-outlined">arrow_forward</span></a
-            >
-          </div>
-        </article>
-        <article class="news__side-item d-flex card gap-4" role="listitem">
-          <div class="card-image news__side-image">
-            <img src="/assets/images/about-webinar-nhs.jpg" alt="" class="news__side-image" />
-          </div>
-          <div class="card-body news__side-body">
-            <h6 class="news__side-title">Charity Gala</h6>
-            <p class="news__side-desc">
-              A night of prestige and purpose, raising significant funds for selected healthcare
-              initiatives in Ghana and the UK.
-            </p>
-            <a class="section-badge--outline"
-              >View Philanthropy <span class="material-symbols-outlined">arrow_forward</span></a
-            >
-          </div>
-        </article>
-        <article class="news__side-ite blue--card d-flex card gap-4" role="listitem">
-          <div class="card-body news__side-body">
-            <h6 class="news__side-title">AGMs</h6>
-            <p class="news__side-desc">
-              Exclusive for paying members. A time for governance, accountability, and shaping the
-              future of GDDA-UK during the conference weekend.
-            </p>
-            <a class="btn-secondary d-flex justify-content-center align-items-center"
-              >Become a Member to Attend</a
-            >
-          </div>
-        </article>
-      </div>
-      <!-- <div class="news__slide--second-row d-flex gap-4">
-        <article class="news__side-item d-flex card gap-4" role="listitem">
-          <div class="card-image news__side-image">
-            <img src="/assets/images/about-webinar-nhs.jpg" alt="" class="news__side-image" />
-          </div>
-          <div class="card-body news__side-body">
-            <h6 class="news__side-title">Poster Competitions</h6>
-            <p class="news__side-desc">
-              Empowering junior colleagues to showcase clinical research, case studies, and
-              innovative medical insights to a global audience.
-            </p>
-            <a class="section-badge--outline"
-              >Submission Guidelines <span class="material-symbols-outlined">arrow_forward</span></a
-            >
-          </div>
-        </article>
-        <article class="news__side-item d-flex card gap-4" role="listitem">
-          <div class="card-image news__side-image">
-            <img src="/assets/images/about-webinar-nhs.jpg" alt="" class="news__side-image" />
-          </div>
-          <div class="card-body news__side-body">
-            <h6 class="news__side-title">Annual Health Conference</h6>
-            <p class="news__side-desc">
-              Our flagship gathering focusing on networking, continuous clinical learning, and
-              vibrant social interactions.
-            </p>
-            <a class="section-badge--outline"
-              >Explore Conference <span class="material-symbols-outlined">arrow_forward</span></a
-            >
-          </div>
-        </article>
-        <article class="news__side-item d-flex card gap-4" role="listitem">
-          <div class="card-image news__side-image">
-            <img src="/assets/images/about-webinar-nhs.jpg" alt="" class="news__side-image" />
-          </div>
-          <div class="card-body news__side-body">
-            <h6 class="news__side-title">Annual Health Conference</h6>
-            <p class="news__side-desc">
-              Our flagship gathering focusing on networking, continuous clinical learning, and
-              vibrant social interactions.
-            </p>
-            <a class="section-badge--outline"
-              >Explore Conference <span class="material-symbols-outlined">arrow_forward</span></a
-            >
-          </div>
-        </article>
-      </div> -->
+          @if (emailInvalid) {
+            <p class="event-newsletter__error" role="alert">Please enter a valid email address.</p>
+          }
+        </form>
+      }
     </div>
   </div>
 </section>

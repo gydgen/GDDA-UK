@@ -1,133 +1,299 @@
 @use '../../../../styles/variables' as *;
 @use '../../../../styles/mixins' as *;
 
-.involvement-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $space-8;
-
-  @media (max-width: $bp-lg) { grid-template-columns: repeat(2, 1fr); }
-  @media (max-width: $bp-sm) { grid-template-columns: 1fr; }
-}
-
-.involvement-card {
-  padding: $space-8;
-  background: $color-white;
-  border: 1px solid $color-border;
-  border-radius: $border-radius-lg;
-  display: flex;
-  flex-direction: column;
-  gap: $space-4;
-  transition: all $transition-smooth;
-
-  &:hover {
-    border-color: $color-gold;
-    box-shadow: $shadow-md;
-    transform: translateY(-4px);
-  }
-}
-
-.involvement-card__icon {
-  width: 64px;
-  height: 64px;
-  background: rgba($color-gold, 0.1);
-  border-radius: $border-radius-md;
+.gi-hero {
+  position: relative;
+  min-height: 34rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: $color-gold;
-  flex-shrink: 0;
+  overflow: hidden;
 }
 
-.involvement-card__title {
-  font-family: $font-heading;
-  font-size: $font-size-xl;
-  font-weight: $font-weight-bold;
-  color: $color-navy;
+.gi-hero__media {
+  position: absolute;
+  inset: 0;
+  background: url('/assets/images/about-hero-bg.png') center / cover no-repeat;
+}
+
+.gi-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba($color-navy-dark, 0.94) 0%,
+    rgba($color-navy, 0.8) 60%,
+    rgba($color-navy, 0.45) 100%
+  );
+}
+
+.gi-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-5;
+  padding-top: calc(#{$navbar-height} + #{$space-10});
+  padding-bottom: $space-16;
+}
+
+.gi-hero__title {
   margin: 0;
+  max-width: 38rem;
+  font-family: $font-classic;
+  font-size: clamp(2.15rem, 4.8vw, $font-size-5xl);
+  font-weight: $font-weight-extrabold;
+  line-height: $line-height-tight;
+  color: $color-white;
 }
 
-.involvement-card__desc {
-  font-size: $font-size-sm;
-  color: $color-text-muted;
+.gi-hero__subtitle {
+  margin: 0;
+  max-width: 38rem;
+  font-family: $font-basic;
+  font-size: $font-size-md;
   line-height: $line-height-relaxed;
-  flex: 1;
+  color: rgba($color-white, 0.84);
+}
+
+.gi-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-4;
+}
+
+.gi-overview {
+  @include section-padding($space-12, $space-12);
+  background: $color-white;
+}
+
+.gi-overview__inner {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.gi-overview__header {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  text-align: center;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.gi-overview__title {
   margin: 0;
+  font-family: $font-classic;
+  font-size: clamp(1.75rem, 3.4vw, $font-size-3xl);
+  font-weight: $font-weight-bold;
+  line-height: $line-height-snug;
+  color: $color-text-navy;
 }
 
-.involvement-card__btn {
-  align-self: flex-start;
-  margin-top: auto;
+.gi-overview__subtitle {
+  margin: 0;
+  font-family: $font-basic;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: $color-text-dark;
 }
 
-// Form section
-.volunteer-form-wrapper {
+.gi-overview__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: $space-16;
-  align-items: start;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: $space-4;
+}
 
-  @media (max-width: $bp-lg) {
-    grid-template-columns: 1fr;
-    gap: $space-10;
+.gi-overview__card {
+  border: 1px solid rgba($color-border-soft, 0.45);
+  border-radius: $border-radius-lg;
+  padding: $space-5;
+  background: $color-white;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.gi-overview__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: $border-radius;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($color-blue-light, 0.14);
+  color: $color-text-navy;
+}
+
+.gi-overview__card-title {
+  margin: 0;
+  font-family: $font-classic;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-navy;
+}
+
+.gi-overview__card-text {
+  margin: 0;
+  font-family: $font-basic;
+  font-size: $font-size-sm;
+  line-height: $line-height-relaxed;
+  color: $color-text-dark;
+}
+
+.gi-channels {
+  @include section-padding($space-12, $space-16);
+  background: $color-lighter-grey;
+}
+
+.gi-channels__inner {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.gi-channels__header {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  max-width: 46rem;
+}
+
+.gi-channels__title {
+  margin: 0;
+  font-family: $font-classic;
+  font-size: clamp(1.85rem, 3.6vw, $font-size-3xl);
+  font-weight: $font-weight-bold;
+  color: $color-text-navy;
+}
+
+.gi-channels__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: $space-5;
+}
+
+.gi-channel {
+  border-radius: $border-radius-xl;
+  padding: $space-6;
+  background: $color-text-navy;
+  border: 1px solid rgba($color-navy-dark, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.gi-channel--gold {
+  background: $color-peach-light;
+  border-color: rgba($color-text-gold-dark, 0.2);
+
+  .gi-channel__label,
+  .gi-channel__title,
+  .gi-channel__text,
+  .gi-channel__list-item {
+    color: $color-text-navy;
+  }
+
+  .gi-channel__list-item .material-symbols-outlined {
+    color: $color-text-gold-dark;
   }
 }
 
-.volunteer-form {
-  background: $color-white;
-  border-radius: $border-radius-lg;
-  padding: $space-10;
-  box-shadow: $shadow-card;
-  display: flex;
-  flex-direction: column;
-  gap: $space-5;
+.gi-channel__label {
+  margin: 0;
+  font-family: $font-basic;
+  font-size: $font-size-xs;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba($color-white, 0.7);
 }
 
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $space-5;
-
-  @media (max-width: $bp-sm) { grid-template-columns: 1fr; }
+.gi-channel__title {
+  margin: 0;
+  font-family: $font-classic;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-snug;
+  color: $color-white;
 }
 
-.form-group {
+.gi-channel__text {
+  margin: 0;
+  font-family: $font-basic;
+  font-size: $font-size-sm;
+  line-height: $line-height-relaxed;
+  color: rgba($color-white, 0.85);
+}
+
+.gi-channel__list {
+  list-style: none;
+  margin: $space-1 0 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: $space-2;
+}
 
-  label {
-    font-size: $font-size-sm;
-    font-weight: $font-weight-medium;
-    color: $color-text;
+.gi-channel__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-2;
+  color: rgba($color-white, 0.9);
+  font-family: $font-basic;
+  font-size: $font-size-sm;
+  line-height: $line-height-relaxed;
 
-    span { color: $color-gold; }
-  }
-
-  input, textarea {
-    padding: $space-3 $space-4;
-    border: 1px solid $color-border;
-    border-radius: $border-radius;
-    font-family: $font-body;
-    font-size: $font-size-sm;
-    color: $color-text;
-    background: $color-white;
-    transition: border-color $transition-base, box-shadow $transition-base;
-    resize: vertical;
-
-    &::placeholder { color: $color-text-muted; }
-
-    &:focus {
-      outline: none;
-      border-color: $color-gold;
-      box-shadow: 0 0 0 3px rgba($color-gold, 0.15);
-    }
+  .material-symbols-outlined {
+    font-size: 1rem;
+    margin-top: 0.14rem;
+    color: $color-gold;
   }
 }
 
-.form-submit {
-  width: 100%;
-  justify-content: center;
+.gi-channel__action {
+  margin-top: auto;
 }
 
-.visually-hidden { @include visually-hidden; }
+@media (max-width: $bp-lg) {
+  .gi-overview__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gi-channels__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $bp-md) {
+  .gi-hero {
+    min-height: 29rem;
+  }
+
+  .gi-hero__inner {
+    padding-top: calc(#{$navbar-height} + #{$space-8});
+    padding-bottom: $space-12;
+  }
+}
+
+@media (max-width: $bp-sm) {
+  .gi-overview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gi-hero__actions,
+  .gi-channel__action {
+    width: 100%;
+  }
+
+  .gi-hero__actions a,
+  .gi-channel__action {
+    justify-content: center;
+  }
+}

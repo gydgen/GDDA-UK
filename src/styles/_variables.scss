@@ -7,6 +7,7 @@ $color-navy:          #0B1E3E;
 $color-navy-dark:     #071428;
 $color-navy-mid:      #1A3260;
 $color-navy-light:    #003366;
+$color-blue-light: #037FFB;
 $color-gold:          #FED488;
 $color-gold-light:    #E8B040;
 $color-gold-lighter:  #FED488;
@@ -16,17 +17,21 @@ $color-blue:          #0080FF33; // 20% opacity
 $color-white:         #FFFFFF;
 $color-off-white:     #F7F8FA;
 $color-light-grey:    #EEF0F4;
+$color-lighter-grey:  #F3F4F5;
 $color-mid-grey:      #9AA1AF;
 $color-text:          #1E2A3A;
 $color-text-navy:     #003366;
 $color-highlight-soft: #F5FFA5;
 $color-text-gold:     #785A1A;
+$color-text-gold-dark: #775A19;
 $color-text-green:    #79A894;
 $color-text-muted:    #6C7688;
 $color-text-dark:     #414944;
 $color-border:        #DDE1E9;
 $color-overlay:       rgba(7, 20, 40, 0.72);
-
+$color-shadow-dark: #191C1D;
+$color-border-soft: #C0C8C3;
+$color-blue-pale: #CAE4FF;
 // --- Typography ---
 $font-heading:        'Playfair Display', serif;
 $font-body:           'Manrope', 'Inter', sans-serif;

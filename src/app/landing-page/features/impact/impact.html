@@ -1,104 +1,140 @@
-<div class="page-hero">
-  <div class="page-hero__inner">
-    <span class="page-hero__label">Our Impact</span>
-    <h1 class="page-hero__title">Measuring What
-      <em style="font-style: italic; color: var(--color-gold, #C9952A);"> Matters</em>
-    </h1>
-    <p class="page-hero__subtitle">
-      Every event, every donation, every volunteer hour adds up. Here is what
-      our community has achieved together since 2016.
+<section class="impact-hero" aria-labelledby="impact-hero-heading">
+  <div class="impact-hero__media" aria-hidden="true">
+    <img
+      ngSrc="/assets/images/about-hero-bg.png"
+      alt=""
+      fill
+      priority
+      class="impact-hero__bg"
+    />
+  </div>
+  <div class="impact-hero__overlay" aria-hidden="true"></div>
+
+  <div class="site-container impact-hero__inner">
+    <span class="section-badge section-badge--gold">Since 2010</span>
+    <h1 id="impact-hero-heading" class="impact-hero__title">A Legacy of Giving Back</h1>
+    <p class="impact-hero__subtitle">
+      GDDA-UK continues to bridge world-class clinical expertise in the UK with meaningful,
+      measurable healthcare support in Ghana.
     </p>
   </div>
-</div>
+</section>
 
-<!-- Stats -->
-<section class="impact-stats section" aria-labelledby="stats-heading">
-  <div class="site-container">
-    <h2 class="visually-hidden" id="stats-heading">Impact Statistics</h2>
-    <div class="stats-grid">
+<section class="impact-stats" aria-label="Impact statistics">
+  <div class="site-container impact-stats__inner">
+    <ul class="impact-stats__grid" role="list">
       @for (stat of stats; track stat.label) {
-        <div class="stat-block reveal">
-          <div class="stat-block__value" aria-label="{{ stat.value }}">{{ stat.value }}</div>
-          <div class="stat-block__label">{{ stat.label }}</div>
-          <div class="stat-block__divider" aria-hidden="true"></div>
-        </div>
+        <li class="impact-stats__card" role="listitem">
+          <p class="impact-stats__value">{{ stat.value }}</p>
+          <p class="impact-stats__label">{{ stat.label }}</p>
+        </li>
       }
-    </div>
+    </ul>
   </div>
 </section>
 
-<!-- Programmes -->
-<section class="programmes section--alt" aria-labelledby="programmes-heading">
-  <div class="site-container">
-    <header style="text-align: center; margin-bottom: 4rem;">
-      <span class="section-badge">What We've Done</span>
-      <h2 id="programmes-heading" class="section-title">Key Programmes</h2>
-      <p class="section-subtitle mx-auto">Each programme is born from a real need and delivered with passion by our volunteer community.</p>
+<section class="impact-stories" aria-labelledby="impact-stories-heading">
+  <div class="site-container impact-stories__inner">
+    <header class="impact-stories__header">
+      <h2 id="impact-stories-heading" class="impact-stories__title">Milestones Of Service</h2>
+      <p class="impact-stories__summary">
+        Key interventions that shaped our journey and strengthened patient care outcomes.
+      </p>
     </header>
-    <div class="programmes-list" role="list">
-      @for (prog of programmes; track prog.title) {
-        <div class="programme-card reveal" role="listitem">
-          <div class="programme-card__tag">
-            <span class="tag tag--gold">{{ prog.tag }}</span>
-          </div>
-          <div class="programme-card__body">
-            <h3 class="programme-card__title">{{ prog.title }}</h3>
-            <p class="programme-card__desc">{{ prog.description }}</p>
-            <ul class="programme-card__outcomes" role="list">
-              @for (outcome of prog.outcomes; track outcome) {
-                <li>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
-                  {{ outcome }}
-                </li>
-              }
-            </ul>
-          </div>
-        </div>
+
+    <ul class="impact-stories__list" role="list" aria-label="Impact milestones">
+      @for (milestone of milestones; let i = $index; track milestone.title) {
+        <li class="impact-stories__item" role="listitem">
+          <article class="impact-story" [class.impact-story--reversed]="i % 2 === 1" [attr.aria-label]="milestone.title">
+            <div class="impact-story__media">
+              <img
+                [ngSrc]="milestone.image"
+                width="620"
+                height="360"
+                [alt]="milestone.imageAlt"
+                class="impact-story__image"
+              />
+            </div>
+            <div class="impact-story__content">
+              <p class="impact-story__period">{{ milestone.period }}</p>
+              <h3 class="impact-story__title">{{ milestone.title }}</h3>
+              <p class="impact-story__description">{{ milestone.description }}</p>
+            </div>
+          </article>
+        </li>
       }
+    </ul>
+  </div>
+</section>
+
+<section class="impact-education" aria-labelledby="impact-education-heading">
+  <div class="site-container impact-education__inner">
+    <div class="impact-education__copy">
+      <h2 id="impact-education-heading" class="impact-education__title">Educational Interventions</h2>
+      <div class="impact-education__points" role="list" aria-label="Educational intervention highlights">
+        <article class="impact-education__point" role="listitem">
+          <h3 class="impact-education__point-title">Broadcast Health Education</h3>
+          <p class="impact-education__point-text">
+            Delivered expert public awareness sessions on ABN TV and GTV Sports to improve health literacy.
+          </p>
+        </article>
+        <article class="impact-education__point" role="listitem">
+          <h3 class="impact-education__point-title">Community Information Leaflets</h3>
+          <p class="impact-education__point-text">
+            Published practical guides on hypertension, sickle cell disease, and diabetes for Ghanaian communities.
+          </p>
+        </article>
+      </div>
+    </div>
+
+    <div class="impact-education__stats" aria-label="Educational statistics">
+      <div class="impact-education__stat">
+        <span class="impact-education__stat-value">3k+</span>
+        <span class="impact-education__stat-label">Leaflets Distributed</span>
+      </div>
+      <div class="impact-education__stat impact-education__stat--light">
+        <span class="impact-education__stat-value">Free</span>
+        <span class="impact-education__stat-label">Public Access</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="testimonials section" aria-labelledby="testimonials-heading">
-  <div class="site-container">
-    <header style="text-align: center; margin-bottom: 4rem;">
-      <span class="section-badge">Voices</span>
-      <h2 id="testimonials-heading" class="section-title">Voices from Our Community</h2>
-    </header>
-    <div class="testimonials-grid" role="list">
-      @for (testimonial of testimonials; track testimonial.name) {
-        <blockquote class="testimonial-card reveal" role="listitem">
-          <div class="testimonial-card__quote" aria-hidden="true">“”</div>
-          <p class="testimonial-card__text">{{ testimonial.quote }}</p>
-          <footer class="testimonial-card__footer">
-            <div class="testimonial-card__avatar" aria-hidden="true">
-              {{ testimonial.name.charAt(0) }}
-            </div>
-            <div>
-              <cite class="testimonial-card__name">{{ testimonial.name }}</cite>
-              <span class="testimonial-card__role">{{ testimonial.role }}</span>
-            </div>
-          </footer>
-        </blockquote>
-      }
+<section class="impact-foundations" aria-labelledby="impact-foundations-heading">
+  <div class="site-container impact-foundations__inner">
+    <h2 id="impact-foundations-heading" class="impact-foundations__title">Foundational Programmes</h2>
+
+    <div class="impact-foundations__grid">
+      <article class="impact-foundation-card" aria-labelledby="impact-foundation-health-heading">
+        <p class="impact-foundation-card__year">2008</p>
+        <h3 id="impact-foundation-health-heading" class="impact-foundation-card__title">Health Extension Programme</h3>
+        <p class="impact-foundation-card__text">
+          Twelve clinicians travelled to Ghana for a two-week mission and delivered over 600 contact
+          hours of direct support and practical training.
+        </p>
+      </article>
+
+      <article class="impact-foundation-card impact-foundation-card--alt" aria-labelledby="impact-foundation-knowledge-heading">
+        <p class="impact-foundation-card__year">2007</p>
+        <h3 id="impact-foundation-knowledge-heading" class="impact-foundation-card__title">Knowledge Infrastructure</h3>
+        <p class="impact-foundation-card__text">
+          Donated Oxford textbooks, British Medical Journals, and specialist tropical medicine resources
+          to hospitals and teaching institutions.
+        </p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section--dark" aria-labelledby="impact-cta-title">
-  <div class="site-container" style="text-align: center; max-width: 640px; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-    <span class="section-badge">Join the Mission</span>
-    <h2 id="impact-cta-title" class="section-title" style="color: white;">Help Us Create More Impact</h2>
-    <p style="color: rgba(255,255,255,0.75); font-size: 1.0625rem; line-height: 1.7; margin: 0;">
-      Every contribution — big or small — amplifies our collective ability to create change.
+<section class="impact-cta" aria-labelledby="impact-cta-heading">
+  <div class="site-container impact-cta__inner">
+    <h2 id="impact-cta-heading" class="impact-cta__title">Be Part Of The Change</h2>
+    <p class="impact-cta__text">
+      Join a network of Ghanaian healthcare professionals committed to practical, long-term impact.
     </p>
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-      <a routerLink="/get-involved" class="btn-udda-primary">Get Involved</a>
-      <a routerLink="/sponsorship" class="btn-udda-outline">Become a Sponsor</a>
+    <div class="impact-cta__actions">
+      <a routerLink="/get-involved" class="btn-secondary">Become a Member</a>
+      <a routerLink="/sponsorship" class="btn-outline-white">Support Our Work</a>
     </div>
   </div>
 </section>

@@ -30,8 +30,8 @@
 }
 
 :host(.navbar--scrolled) .navbar-wrapper {
-  background: $color-navy;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+  background: $color-white;
+  box-shadow: 0 2px 20px rgba($color-navy, 0.25);
 }
 
 .navbar-inner {
@@ -81,7 +81,7 @@
 
 .nav-link {
   position: relative;
-  padding: $space-2 0;
+  padding: 0;
   color: rgba($color-text-navy, 0.85);
   font-size: $font-size-base;
   font-weight: $font-weight-semibold;
@@ -121,7 +121,7 @@
 
   &.nav-link--active {
     // color: $color-gold;
-      border-bottom: 4px solid $color-gold;
+      border-bottom: 2px solid $color-gold;
 
 
     // &::after {

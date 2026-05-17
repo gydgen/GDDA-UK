@@ -34,6 +34,14 @@
   justify-content: space-between;
 }
 
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-4;
+}
+
 // --- Button base ---
 @mixin btn-base {
   display: inline-flex;
@@ -49,6 +57,10 @@
   border: 2px solid transparent;
   transition: all $transition-smooth;
   text-decoration: none;
+  font-family: $font-classic;
+  font-weight: $font-weight-bold;
+
+
 }
 
 // --- Primary button ---
@@ -94,7 +106,7 @@
   border-radius: $border-radius-md;
 
   &:hover, &:focus-visible {
-    background: $color-white;
+    background: transparent;
     color: $color-text-gold;
     border-color: $color-gold;
     // transform: translateY(-1px);
@@ -105,12 +117,12 @@
 @mixin btn-outline-secondary {
   @include btn-base;
   background: transparent;
-  color: $color-navy;
-  border-color: $color-navy;
-
+  color: $color-gold;
+  border-color: $color-gold;
+ border-radius: $border-radius-md;
   &:hover, &:focus-visible {
-    background: $color-navy;
-    color: $color-white;
+    background: $color-gold;
+    color:  $color-text-gold;
   }
 }
 
@@ -119,11 +131,12 @@
   @include btn-base;
   background: transparent;
   color: $color-white;
-  border-color: $color-white;
+  border-color: rgba($color-white, 0.3);
+  border-radius: $border-radius-md;
 
   &:hover, &:focus-visible {
-    background: $color-navy;
-    color: $color-white;
+    background: $color-white;
+    color: $color-navy;
   }
 }
 

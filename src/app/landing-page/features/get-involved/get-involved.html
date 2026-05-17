@@ -1,73 +1,71 @@
-<div class="page-hero">
-  <div class="page-hero__inner">
-    <span class="page-hero__label">Take Action</span>
-    <h1 class="page-hero__title">Get Involved &<br>
-      <em style="font-style: italic; color: var(--color-gold, #C9952A);">Make an Impact</em>
-    </h1>
-    <p class="page-hero__subtitle">
-      There are many ways to support UDDA-UK's mission. Every contribution —
-      of time, talent, or treasure — moves us closer to a healthier, more
-      equitable world.
-    </p>
-  </div>
-</div>
+<section class="gi-hero" aria-labelledby="gi-heading">
+  <div class="gi-hero__media" aria-hidden="true"></div>
+  <div class="gi-hero__overlay" aria-hidden="true"></div>
 
-<section class="get-involved-grid section" aria-labelledby="involvement-heading">
-  <div class="site-container">
-    <h2 class="visually-hidden" id="involvement-heading">Ways to Get Involved</h2>
-    <div class="involvement-options" role="list">
-      @for (option of options; track option.title) {
-        <div class="involvement-card reveal" role="listitem">
-          <div class="involvement-card__icon" aria-hidden="true" [innerHTML]="option.icon"></div>
-          <h3 class="involvement-card__title">{{ option.title }}</h3>
-          <p class="involvement-card__desc">{{ option.description }}</p>
-          <a [href]="option.ctaLink" class="btn-udda-primary involvement-card__btn">
-            {{ option.cta }}
-          </a>
-        </div>
-      }
+  <div class="site-container gi-hero__inner">
+    <span class="section-badge section-badge--gold">Get Involved</span>
+    <h1 id="gi-heading" class="gi-hero__title">Get Involved In Meaningful Service</h1>
+    <p class="gi-hero__subtitle">
+      Join a professional network that supports members and delivers practical healthcare impact.
+    </p>
+    <div class="gi-hero__actions">
+      <a routerLink="/contact" class="btn-secondary">Join Our Mailing List</a>
+      <a routerLink="/event" class="btn-outline-white">Become a Member</a>
     </div>
   </div>
 </section>
 
-<!-- Volunteer Form -->
-<section class="volunteer-form-section section--alt" id="volunteer-form" aria-labelledby="vf-title">
-  <div class="site-container">
-    <div class="volunteer-form-wrapper">
-      <div class="volunteer-form__info reveal">
-        <span class="section-badge">Join Us</span>
-        <h2 id="vf-title" class="section-title">Volunteer Sign Up</h2>
-        <div class="divider-gold" aria-hidden="true"></div>
-        <p class="section-subtitle">
-          Fill in the form and one of our team members will be in touch with
-          next steps and available opportunities that match your skills.
-        </p>
-      </div>
-      <form class="volunteer-form reveal anim-delay-2" novalidate aria-label="Volunteer sign up form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="vf-fname">First Name <span aria-label="required">*</span></label>
-            <input id="vf-fname" type="text" placeholder="Jane" autocomplete="given-name" required aria-required="true">
-          </div>
-          <div class="form-group">
-            <label for="vf-lname">Last Name <span aria-label="required">*</span></label>
-            <input id="vf-lname" type="text" placeholder="Doe" autocomplete="family-name" required aria-required="true">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="vf-email">Email Address <span aria-label="required">*</span></label>
-          <input id="vf-email" type="email" placeholder="jane&#64;email.com" autocomplete="email" required aria-required="true">
-        </div>
-        <div class="form-group">
-          <label for="vf-profession">Profession / Role</label>
-          <input id="vf-profession" type="text" placeholder="e.g. Nurse, Engineer, Teacher">
-        </div>
-        <div class="form-group">
-          <label for="vf-message">How would you like to help?</label>
-          <textarea id="vf-message" rows="4" placeholder="Tell us about your skills and how you'd like to contribute..."></textarea>
-        </div>
-        <button type="submit" class="btn-udda-primary form-submit">Submit Application</button>
-      </form>
-    </div>
+<section class="gi-overview" aria-labelledby="gi-overview-heading">
+  <div class="site-container gi-overview__inner">
+    <header class="gi-overview__header">
+      <h2 id="gi-overview-heading" class="gi-overview__title">
+        As an active member of a vibrant and rapidly growing professional community
+      </h2>
+      <p class="gi-overview__subtitle">
+        There are clear ways to participate, contribute, and strengthen our shared mission.
+      </p>
+    </header>
+
+    <ul class="gi-overview__grid" role="list" aria-label="Get involved pathways">
+      @for (path of involvementPaths; track path.title) {
+        <li class="gi-overview__card" role="listitem">
+          <span class="material-symbols-outlined gi-overview__icon" aria-hidden="true">{{ path.icon }}</span>
+          <h3 class="gi-overview__card-title">{{ path.title }}</h3>
+          <p class="gi-overview__card-text">{{ path.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="gi-channels" aria-labelledby="gi-channels-heading">
+  <div class="site-container gi-channels__inner">
+    <header class="gi-channels__header">
+      <span class="section-badge section-badge--outline">How You Can Participate</span>
+      <h2 id="gi-channels-heading" class="gi-channels__title">Choose a practical way to contribute</h2>
+    </header>
+
+    <ul class="gi-channels__grid" role="list" aria-label="Participation channels">
+      @for (channel of involvementChannels; track channel.title) {
+        <li class="gi-channel" [class.gi-channel--gold]="channel.theme === 'gold'" role="listitem">
+          <p class="gi-channel__label">{{ channel.label }}</p>
+          <h3 class="gi-channel__title">{{ channel.title }}</h3>
+          <p class="gi-channel__text">{{ channel.text }}</p>
+
+          <ul class="gi-channel__list" role="list" [attr.aria-label]="channel.label + ' focus areas'">
+            @for (item of channel.bullets; track item) {
+              <li class="gi-channel__list-item" role="listitem">
+                <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                <span>{{ item }}</span>
+              </li>
+            }
+          </ul>
+
+          <a [routerLink]="channel.actionLink" class="btn-secondary gi-channel__action">
+            {{ channel.actionLabel }}
+          </a>
+        </li>
+      }
+    </ul>
   </div>
 </section>

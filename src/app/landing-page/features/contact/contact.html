@@ -1,0 +1,136 @@
+<section class="contact-page" aria-labelledby="contact-page-heading">
+  <div class="container">
+    <div class="contact-page__inner">
+
+      <!-- Left: Info -->
+      <div class="contact-page__info">
+        <h1 class="contact-page__heading" id="contact-page-heading">Get in Touch</h1>
+        <p class="contact-page__intro">
+          We'd love to hear from you. Send us a message and we'll respond within 2 working days.
+        </p>
+
+        <div class="contact-page__details">
+          <div class="contact-page__detail">
+            <span class="contact-page__detail-label">Email</span>
+            <a class="contact-page__detail-value" href="mailto:info@gddauk.org">
+              info&#64;gddauk.org
+            </a>
+          </div>
+          <div class="contact-page__detail">
+            <span class="contact-page__detail-label">Address</span>
+            <address class="contact-page__detail-value contact-page__detail-value--address">
+              52 Rosebard Lane, Exeter,<br />England, EX4 5DP
+            </address>
+          </div>
+          <div class="contact-page__detail">
+            <span class="contact-page__detail-label">Registered Charity</span>
+            <span class="contact-page__detail-value">No. 1109403</span>
+          </div>
+        </div>
+
+        <!-- Social links -->
+        <div class="contact-page__social">
+          <p class="contact-page__social-label">Follow our journey</p>
+          <div class="contact-page__social-icons" aria-label="Social media links">
+            <a href="https://twitter.com/gddauk" target="_blank" rel="noopener noreferrer"
+               class="contact-page__social-link" aria-label="Follow on X (Twitter)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/company/gdda-uk" target="_blank" rel="noopener noreferrer"
+               class="contact-page__social-link" aria-label="Follow on LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://facebook.com/gddauk" target="_blank" rel="noopener noreferrer"
+               class="contact-page__social-link" aria-label="Follow on Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-page__form-wrap">
+        <form
+          class="contact-page__form"
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()"
+          novalidate
+          aria-label="Contact form"
+        >
+          <div class="contact-page__field">
+            <label class="contact-page__label" for="cp-fullName">Full Name</label>
+            <input
+              id="cp-fullName"
+              type="text"
+              class="contact-page__input"
+              placeholder="Dr. Kwame Mensah"
+              formControlName="fullName"
+              autocomplete="name"
+              [attr.aria-invalid]="form.get('fullName')?.invalid && form.get('fullName')?.touched ? true : null"
+            />
+          </div>
+
+          <div class="contact-page__field">
+            <label class="contact-page__label" for="cp-email">Email Address</label>
+            <input
+              id="cp-email"
+              type="email"
+              class="contact-page__input"
+              placeholder="kwame&#64;example.com"
+              formControlName="email"
+              autocomplete="email"
+              [attr.aria-invalid]="form.get('email')?.invalid && form.get('email')?.touched ? true : null"
+            />
+          </div>
+
+          <div class="contact-page__field">
+            <label class="contact-page__label" for="cp-subject">Subject</label>
+            <input
+              id="cp-subject"
+              type="text"
+              class="contact-page__input"
+              placeholder="e.g. Membership Enquiry"
+              formControlName="subject"
+              [attr.aria-invalid]="form.get('subject')?.invalid && form.get('subject')?.touched ? true : null"
+            />
+          </div>
+
+          <div class="contact-page__field">
+            <label class="contact-page__label" for="cp-specialty">Specialty / Profession</label>
+            <input
+              id="cp-specialty"
+              type="text"
+              class="contact-page__input"
+              placeholder="e.g. General Practitioner"
+              formControlName="specialty"
+              autocomplete="organization-title"
+            />
+          </div>
+
+          <div class="contact-page__field">
+            <label class="contact-page__label" for="cp-message">Message</label>
+            <textarea
+              id="cp-message"
+              class="contact-page__textarea"
+              placeholder="How can we help you?"
+              formControlName="message"
+              rows="5"
+              [attr.aria-invalid]="form.get('message')?.invalid && form.get('message')?.touched ? true : null"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--navy contact-page__submit">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

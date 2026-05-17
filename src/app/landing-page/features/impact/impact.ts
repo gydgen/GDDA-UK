@@ -1,79 +1,59 @@
-import { Component, ChangeDetectionStrategy, AfterViewInit, signal } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-interface StatItem {
+interface ImpactStat {
   value: string;
-  rawValue: number;
   label: string;
-  prefix?: string;
-  suffix?: string;
 }
 
-interface TestimonialItem {
-  quote: string;
-  name: string;
-  role: string;
-}
-
-interface ProgrammeItem {
-  tag: string;
+interface ImpactMilestone {
+  period: string;
   title: string;
   description: string;
-  outcomes: string[];
+  image: string;
+  imageAlt: string;
 }
 
 @Component({
   selector: 'app-impact',
-  imports: [RouterLink],
+  imports: [NgOptimizedImage, RouterLink],
   templateUrl: './impact.html',
   styleUrl: './impact.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Impact {
-  readonly stats: StatItem[] = [
-    { value: '£9,900', rawValue: 9900, label: 'Total Funds Raised', prefix: '£' },
-    { value: '£3,000', rawValue: 3000, label: 'Directly Distributed', prefix: '£' },
-    { value: '500+', rawValue: 500, label: 'Volunteers Engaged', suffix: '+' },
-    { value: '600', rawValue: 600, label: 'Beneficiaries Supported' },
+  readonly stats: readonly ImpactStat[] = [
+    { value: 'GBP 9,900', label: 'COVID-19 Relief Donations' },
+    { value: 'GBP 3,000', label: 'Obstetric Fistula Fund' },
+    { value: '500+', label: 'Medical Textbooks Donated' },
+    { value: '600', label: 'Training Contact Hours Delivered' },
   ];
 
-  readonly programmes: ProgrammeItem[] = [
+  readonly milestones: readonly ImpactMilestone[] = [
     {
-      tag: '2020',
-      title: 'COVID-19 Emergency Response',
-      description: 'During the pandemic, UDDA-UK mobilised healthcare professionals and raised emergency funds to support frontline workers and vulnerable communities.',
-      outcomes: ['PPE distributed to 200+ workers', 'Mental health support line launched', '£3,000 emergency relief distributed'],
+      period: '2020 - 2021',
+      title: 'COVID-19 Response and Humanitarian Aid',
+      description:
+        'GDDA-UK mobilised support for frontline teams and contributed direct financial aid to health centres across Ghana.',
+      image: '/assets/images/about-webinar-nhs.jpg',
+      imageAlt: 'Healthcare professionals collaborating during a GDDA-UK programme',
     },
     {
-      tag: '2021',
-      title: 'Obstetric Fistula Aid Programme',
-      description: 'Partnering with maternal health organisations, UDDA-UK funded treatment and rehabilitation for women affected by obstetric fistula in underserved regions.',
-      outcomes: ['15 surgeries funded', 'Rehabilitation support for 30+ women', 'Awareness campaign reaching 5,000+'],
+      period: '2017 - 2019',
+      title: 'Restoring Dignity Through Obstetric Fistula Support',
+      description:
+        'Funding helped improve specialist care pathways and strengthen local service capacity for women affected by fistula.',
+      image: '/assets/images/about-obstetic-fistula.png',
+      imageAlt: 'Women receiving specialist healthcare support',
     },
     {
-      tag: '2023',
-      title: 'Gathering for Excellence Initiative',
-      description: 'Our flagship annual conference expanded into a year-round initiative, providing scholarships, mentorship, and career development for diaspora healthcare students.',
-      outcomes: ['3 scholarships awarded', '50+ mentorship pairings', '300 delegates from 12 countries'],
-    },
-  ];
-
-  readonly testimonials: TestimonialItem[] = [
-    {
-      quote: 'UDDA-UK gave me the mentorship and support I needed to navigate the NHS as a healthcare professional from Ghana. I am forever grateful.',
-      name: 'Dr. Abena Mensah',
-      role: 'NHS Consultant Physician',
-    },
-    {
-      quote: 'The COVID-19 response from UDDA-UK was incredible. They mobilised our community faster than any organisation I have seen. Truly inspirational work.',
-      name: 'Kwame Asante',
-      role: 'Community Health Worker',
-    },
-    {
-      quote: 'Being part of the Gathering for Excellence conference changed my career trajectory. The connections I made opened doors I never knew existed.',
-      name: 'Efua Darko',
-      role: 'Medical Student, Imperial College London',
+      period: '2014 - 2016',
+      title: 'Diabetic Paediatric and Knowledge Infrastructure Projects',
+      description:
+        'Our members funded paediatric diabetic care tools and expanded access to medical texts, journals, and teaching materials.',
+      image: '/assets/images/about-diabetic-project.png',
+      imageAlt: 'Children and clinicians participating in diabetes support programmes',
     },
   ];
 }
-

@@ -29,6 +29,10 @@ export const routes: Routes = [
       {
         path: 'event',
         loadComponent: () => import('./landing-page/features/event/event').then((m) => m.Event),
+      },
+      {
+        path: 'contact',
+        loadComponent: () => import('./landing-page/features/contact/contact').then((m) => m.Contact),
       },{
         path: 'test',
         component: Test
