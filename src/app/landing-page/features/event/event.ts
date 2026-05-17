@@ -1,79 +1,129 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
+import { Component, ChangeDetectionStrategy, computed, signal, inject } from '@angular/core';
+import { NgOptimizedImage, LowerCasePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 
-interface GivingCard {
-  icon: string;
+export interface EventItem {
+  id: string;
+  date: string;
+  month: string;
+  year: string;
   title: string;
   description: string;
+  location: string;
+  type: string;
 }
 
-interface InvolvementOption {
-  icon: string;
-  title: string;
-  description: string;
-}
-
-interface InstagramPost {
-  image: string;
-  alt: string;
-  link: string;
-}
+const ALL_EVENTS: EventItem[] = [
+  {
+    id: '1',
+    date: '24',
+    month: 'Mar',
+    year: '2026',
+    title: 'Annual Health Conference & Dinner Dance',
+    description: 'Connect. Celebrate. Learn. Join us for a day of insight, impact, and inspiration. Doors open at 8:30am BST.',
+    location: 'London, UK',
+    type: 'Conference',
+  },
+  {
+    id: '2',
+    date: '15',
+    month: 'Jun',
+    year: '2026',
+    title: 'Ghana Healthcare Webinar Series',
+    description: 'Monthly virtual sessions featuring Ghanaian specialists sharing clinical insights across specialties.',
+    location: 'Online (Zoom)',
+    type: 'Webinar',
+  },
+  {
+    id: '3',
+    date: '09',
+    month: 'Aug',
+    year: '2026',
+    title: 'GDDA-UK Summer Networking Reception',
+    description: 'Informal gathering for members and prospective members to connect over drinks and light refreshments.',
+    location: 'Birmingham, UK',
+    type: 'Networking',
+  },
+  {
+    id: '4',
+    date: '12',
+    month: 'Oct',
+    year: '2026',
+    title: 'Medical Outreach Planning Meeting',
+    description: 'Annual planning session for our Ghana outreach programme. Open to active members and volunteers.',
+    location: 'Manchester, UK',
+    type: 'Planning',
+  },
+  {
+    id: '5',
+    date: '28',
+    month: 'Nov',
+    year: '2026',
+    title: 'End of Year Gala & Awards Dinner',
+    description: 'Celebrating the achievements of our members and the impact made in Ghana throughout the year.',
+    location: 'London, UK',
+    type: 'Gala',
+  },
+  {
+    id: '6',
+    date: '20',
+    month: 'Feb',
+    year: '2027',
+    title: 'Junior Doctors & Students Forum',
+    description: 'Dedicated event for medical students and junior doctors of Ghanaian heritage to meet mentors.',
+    location: 'Online (Zoom)',
+    type: 'Forum',
+  },
+];
 
 @Component({
   selector: 'app-event',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, RouterLink, ReactiveFormsModule, LowerCasePipe],
   templateUrl: './event.html',
   styleUrl: './event.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Event {
-  readonly givingCards: GivingCard[] = [
-    {
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
-      title: 'Time',
-      description: 'Volunteer your time for our community outreach programs and administrative excellence.',
-    },
-    {
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M12 12h.01M17 12h.01M7 12h.01"/></svg>`,
-      title: 'Money',
-      description: 'Direct financial contributions fund critical healthcare missions and educational bursaries.',
-    },
-    {
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`,
-      title: 'Skills',
-      description: 'Offer your specialized clinical or professional expertise to inspire the next generation.',
-    },
-    {
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>`,
-      title: 'Gifts',
-      description: 'Donations of medical equipment and professional resources to supported facilities in Ghana.',
-    },
+  private readonly fb = inject(FormBuilder);
+
+  readonly events = signal<EventItem[]>(ALL_EVENTS);
+  readonly filterTypes = ['All', 'Conference', 'Webinar', 'Networking', 'Gala', 'Forum'];
+  readonly activeFilter = signal<string>('All');
+
+  readonly filteredEvents = computed(() => {
+    const filter = this.activeFilter();
+    const evts = this.events();
+    return filter === 'All' ? evts : evts.filter(e => e.type === filter);
+  });
+
+  setFilter(type: string): void {
+    this.activeFilter.set(type);
+  }
+
+  readonly newsletterForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+  });
+
+  readonly submitted = signal(false);
+
+  readonly benefits = [
+    'Early access to event tickets',
+    'Members-only webinar invites',
+    'Ghana outreach updates',
+    'Quarterly newsletter',
   ];
 
-  readonly involvementOptions: InvolvementOption[] = [
-    {
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
-      title: 'Become An Ambassador',
-      description: 'Represent GDDA-UK within your hospital trust or university. Champion our values and expand our professional reach.',
-    },
-    {
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
-      title: 'Host or Plan a Local Event',
-      description: 'Organise networking hubs, clinical workshops, or social gatherings to strengthen the bonds among colleagues.',
-    },
-    {
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-      title: 'Become a Member',
-      description: 'Unlock exclusive academic journals, professional networking events, and the privilege of a global association.',
-    },
-  ];
+  onNewsletterSubmit(): void {
+    if (this.newsletterForm.valid) {
+      this.submitted.set(true);
+      this.newsletterForm.reset();
+    } else {
+      this.newsletterForm.markAllAsTouched();
+    }
+  }
 
-  readonly instagramPosts: InstagramPost[] = [
-    { image: 'assets/images/about-annual-health-conference.png', alt: 'GDDA-UK community event', link: 'https://instagram.com/gdda_uk' },
-    { image: 'assets/images/about-innovation-in-tropical.jpg', alt: 'GDDA-UK Independence Day celebration', link: 'https://instagram.com/gdda_uk' },
-    { image: 'assets/images/about-webinar-nhs.jpg', alt: 'GDDA-UK Estate Series', link: 'https://instagram.com/gdda_uk' },
-    { image: 'assets/images/about-diabetic-project.png', alt: 'Rare Disease Day awareness', link: 'https://instagram.com/gdda_uk' },
-  ];
-
+  get emailControl() {
+    return this.newsletterForm.controls['email'];
+  }
 }
-

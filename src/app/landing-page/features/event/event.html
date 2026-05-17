@@ -1,143 +1,142 @@
-<!-- ============================================================ -->
-<!-- Section 1: Volunteer Giving Cards                           -->
-<!-- ============================================================ -->
-<section class="giving-section" aria-labelledby="giving-heading">
-  <div class="site-container">
-    <h2 id="giving-heading" class="giving-section__title">
-      We would love volunteers who are willing to give:
-    </h2>
-    <div class="giving-cards" role="list">
-      @for (card of givingCards; track card.title) {
-        <article class="giving-card reveal" role="listitem">
-          <div class="giving-card__icon" [innerHTML]="card.icon" aria-hidden="true"></div>
-          <h3 class="giving-card__title">{{ card.title }}</h3>
-          <p class="giving-card__desc">{{ card.description }}</p>
-        </article>
-      }
-    </div>
+<section class="events-hero" aria-label="Events hero">
+  <!-- Background image -->
+  <div class="events-hero__bg" aria-hidden="true">
+    <img
+      ngSrc="/assets/images/events-hero-bg.jpg"
+      alt=""
+      fill
+      priority
+      class="events-hero__bg-img"
+    />
+    <div class="events-hero__gradient"></div>
   </div>
-</section>
 
-<!-- ============================================================ -->
-<!-- Section 2: Support Our Mission Financially                  -->
-<!-- ============================================================ -->
-<section class="financial-cta" aria-labelledby="financial-heading">
-  <div class="site-container">
-    <div class="financial-cta__inner">
-      <h2 id="financial-heading" class="financial-cta__title">Support Our Mission Financially</h2>
-      <p class="financial-cta__subtitle">
-        Every contribution ensures the longevity of GDDA-UK's philanthropic endeavors and
-        professional support frameworks.
+  <!-- Content -->
+  <div class="events-hero__content">
+    <div class="events-hero__content-inner">
+      <div class="section-badge section-badge--gold events-hero__badge">CLINICAL FELLOWSHIP</div>
+
+      <h1 class="events-hero__heading">
+        Gathering for <br />
+        Excellence
+      </h1>
+
+      <p class="events-hero__description">
+        GDDA-UK brings together the brightest minds in the Ghanaian medical and dental community.
+        Our events serve as a cornerstone for clinical synergy, professional mentorship, and the
+        celebration of healthcare distinction.
       </p>
-      <div class="financial-cta__actions">
-        <a
-          href="https://donate.gdda-uk.org"
-          class="btn-udda-primary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Make a One Off Donation
-        </a>
-        <a
-          href="https://donate.gdda-uk.org/regular"
-          class="btn-donate-secondary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Make a Regular Donation
-        </a>
+      <div class="hero__actions animate-fade-in-up anim-delay-4">
+        <a routerLink="" class="btn-secondary hero__cta"> View Latest Conference Details </a>
+        <a routerLink="/event" class="btn-outline-white hero__cta-secondary"> Our Mission </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- Section 3: Other Ways To Get Involved                       -->
-<!-- ============================================================ -->
-<section class="involvement-section" aria-labelledby="involvement-heading">
-  <div class="site-container">
-    <div class="involvement-section__inner">
-      <div class="involvement-section__content">
-        <h2 id="involvement-heading" class="involvement-section__title">
-          Other Ways To Get Involved
-        </h2>
-        <ul class="involvement-list" role="list">
-          @for (option of involvementOptions; track option.title) {
-            <li class="involvement-item reveal">
-              <div class="involvement-item__icon" [innerHTML]="option.icon" aria-hidden="true"></div>
-              <div class="involvement-item__body">
-                <h3 class="involvement-item__title">{{ option.title }}</h3>
-                <p class="involvement-item__desc">{{ option.description }}</p>
-              </div>
-            </li>
-          }
-        </ul>
-      </div>
-      <div class="involvement-section__image">
-        <img
-          ngSrc="assets/images/about-hero-image.png"
-          width="520"
-          height="620"
-          alt="GDDA-UK healthcare professional"
-          class="involvement-img"
-        />
-      </div>
+<section class="events-listing" aria-label="All events">
+  <div class="events-listing__container">
+    <!-- Section heading -->
+    <div class="events-listing__header">
+      <span class="section-badge--outline">EVENT PORTFOLIO</span>
+      <h2 class="events-listing__title">We Host Events Such As...</h2>
+      <p class="events-listing__subtitle">
+        From academic rigor to high-society galas, our events are meticulously designed to foster
+        clinical education and communal bonding.
+      </p>
     </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- Section 4: Instagram / Community Feed                        -->
-<!-- ============================================================ -->
-<section class="instagram-section" aria-labelledby="instagram-heading">
-  <div class="site-container">
-    <div class="instagram-section__header">
-      <div>
-        <span class="instagram-section__label" aria-hidden="true">COMMUNITY</span>
-        <h2 id="instagram-heading" class="instagram-section__title">
-          Keep Up To Date On &#64;gdda_uk
-        </h2>
+    <div class="news__side" role="list">
+      <div class="news__slide--first-row d-flex gap-4">
+        <article class="news__side-item d-flex card gap-4" role="listitem">
+          <div class="card-image news__side-image">
+            <img src="/assets/images/about-webinar-nhs.jpg" alt="" class="news__side-image" />
+          </div>
+          <div class="card-body news__side-body">
+            <h6 class="news__side-title">Annual Health Conference</h6>
+            <p class="news__side-desc">
+              Our flagship gathering focusing on networking, continuous clinical learning, and
+              vibrant social interactions.
+            </p>
+            <a class="section-badge--outline"
+              >Explore Conference <span class="material-symbols-outlined">arrow_forward</span></a
+            >
+          </div>
+        </article>
+        <article class="news__side-item d-flex card gap-4" role="listitem">
+          <div class="card-image news__side-image">
+            <img src="/assets/images/about-webinar-nhs.jpg" alt="" class="news__side-image" />
+          </div>
+          <div class="card-body news__side-body">
+            <h6 class="news__side-title">Charity Gala</h6>
+            <p class="news__side-desc">
+              A night of prestige and purpose, raising significant funds for selected healthcare
+              initiatives in Ghana and the UK.
+            </p>
+            <a class="section-badge--outline"
+              >View Philanthropy <span class="material-symbols-outlined">arrow_forward</span></a
+            >
+          </div>
+        </article>
+        <article class="news__side-ite blue--card d-flex card gap-4" role="listitem">
+          <div class="card-body news__side-body">
+            <h6 class="news__side-title">AGMs</h6>
+            <p class="news__side-desc">
+              Exclusive for paying members. A time for governance, accountability, and shaping the
+              future of GDDA-UK during the conference weekend.
+            </p>
+            <a class="btn-secondary d-flex justify-content-center align-items-center"
+              >Become a Member to Attend</a
+            >
+          </div>
+        </article>
       </div>
-      <a
-        href="https://instagram.com/gdda_uk"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="instagram-section__link"
-        aria-label="Follow GDDA-UK on Instagram (opens in new tab)"
-      >
-        Follow on Instagram
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-          <polyline points="15 3 21 3 21 9" />
-          <line x1="10" y1="14" x2="21" y2="3" />
-        </svg>
-      </a>
+      <!-- <div class="news__slide--second-row d-flex gap-4">
+        <article class="news__side-item d-flex card gap-4" role="listitem">
+          <div class="card-image news__side-image">
+            <img src="/assets/images/about-webinar-nhs.jpg" alt="" class="news__side-image" />
+          </div>
+          <div class="card-body news__side-body">
+            <h6 class="news__side-title">Poster Competitions</h6>
+            <p class="news__side-desc">
+              Empowering junior colleagues to showcase clinical research, case studies, and
+              innovative medical insights to a global audience.
+            </p>
+            <a class="section-badge--outline"
+              >Submission Guidelines <span class="material-symbols-outlined">arrow_forward</span></a
+            >
+          </div>
+        </article>
+        <article class="news__side-item d-flex card gap-4" role="listitem">
+          <div class="card-image news__side-image">
+            <img src="/assets/images/about-webinar-nhs.jpg" alt="" class="news__side-image" />
+          </div>
+          <div class="card-body news__side-body">
+            <h6 class="news__side-title">Annual Health Conference</h6>
+            <p class="news__side-desc">
+              Our flagship gathering focusing on networking, continuous clinical learning, and
+              vibrant social interactions.
+            </p>
+            <a class="section-badge--outline"
+              >Explore Conference <span class="material-symbols-outlined">arrow_forward</span></a
+            >
+          </div>
+        </article>
+        <article class="news__side-item d-flex card gap-4" role="listitem">
+          <div class="card-image news__side-image">
+            <img src="/assets/images/about-webinar-nhs.jpg" alt="" class="news__side-image" />
+          </div>
+          <div class="card-body news__side-body">
+            <h6 class="news__side-title">Annual Health Conference</h6>
+            <p class="news__side-desc">
+              Our flagship gathering focusing on networking, continuous clinical learning, and
+              vibrant social interactions.
+            </p>
+            <a class="section-badge--outline"
+              >Explore Conference <span class="material-symbols-outlined">arrow_forward</span></a
+            >
+          </div>
+        </article>
+      </div> -->
     </div>
-    <ul class="instagram-grid" role="list">
-      @for (post of instagramPosts; track post.alt) {
-        <li role="listitem">
-          <a
-            [href]="post.link"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="instagram-post"
-            [attr.aria-label]="'View on Instagram: ' + post.alt"
-          >
-            <img [src]="post.image" [alt]="post.alt" loading="lazy" width="250" height="250" />
-          </a>
-        </li>
-      }
-    </ul>
   </div>
 </section>

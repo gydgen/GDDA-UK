@@ -1,313 +1,467 @@
 @use '../../../../styles/variables' as *;
 @use '../../../../styles/mixins' as *;
-
 // ============================================================
-// Section 1: Volunteer Giving Cards
+// EVENTS HERO
 // ============================================================
-.giving-section {
-  padding: $space-20 0;
-  background: $color-white;
+.events-hero {
+  position: relative;
+  min-height: 560px;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
-.giving-section__title {
-  font-family: $font-body;
-  font-size: $font-size-lg;
-  font-weight: $font-weight-semibold;
-  color: $color-text;
-  text-align: center;
-  margin: 0 auto $space-12;
-  max-width: 560px;
+.events-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
-.giving-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: $space-8;
-
-  @media (max-width: $bp-lg) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: $bp-sm) {
-    grid-template-columns: 1fr;
-  }
+.events-hero__bg-img {
+  object-fit: cover;
+  object-position: center;
 }
 
-.giving-card {
+.events-hero__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 51, 102, 0.92) 0%,
+    rgba(0, 51, 102, 0.75) 55%,
+    rgba(0, 51, 102, 0.35) 100%
+  );
+}
+
+.events-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: $space-20 $space-12;
+}
+
+.events-hero__content-inner {
   display: flex;
   flex-direction: column;
-  gap: $space-3;
+  gap: 24px;
 }
 
-.giving-card__icon {
-  width: 48px;
-  height: 48px;
-  background: $color-navy;
-  border-radius: $border-radius;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $color-white;
-  margin-bottom: $space-1;
-
-  svg {
-    display: block;
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-  }
+.events-hero__badge {
+  align-self: flex-start;
 }
 
-.giving-card__title {
-  font-family: $font-body;
-  font-size: $font-size-base;
-  font-weight: $font-weight-bold;
-  color: $color-text;
+.events-hero__heading {
+  font-family: var(--font-heading);
+  font-size: 72px;
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
-.giving-card__desc {
-  font-size: $font-size-sm;
-  color: $color-text-muted;
-  line-height: $line-height-normal;
-  margin: 0;
-}
-
-// ============================================================
-// Section 2: Support Our Mission Financially
-// ============================================================
-.financial-cta {
-  padding: $space-20 0;
-  background: $color-white;
-  border-top: 1px solid $color-border;
-  border-bottom: 1px solid $color-border;
-}
-
-.financial-cta__inner {
-  text-align: center;
+.events-hero__description {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba($color-white, 0.7);
+  line-height: 1.6;
   max-width: 640px;
-  margin-inline: auto;
+  margin: 0;
 }
 
-.financial-cta__title {
-  font-family: $font-heading;
-  font-size: $font-size-2xl;
-  font-weight: $font-weight-bold;
-  color: $color-navy;
-  margin-bottom: $space-4;
+@media (max-width: 1024px) {
+  .events-hero {
+    min-height: 460px;
+  }
 
-  @media (max-width: $bp-md) {
-    font-size: $font-size-xl;
+  .events-hero__heading {
+    font-size: 56px;
+  }
+
+  .events-hero__content {
+    padding: $space-20 $space-12;
   }
 }
 
-.financial-cta__subtitle {
-  font-size: $font-size-base;
-  color: $color-text-muted;
-  line-height: $line-height-relaxed;
-  margin-bottom: $space-8;
+@media (max-width: 640px) {
+  .events-hero {
+    min-height: 400px;
+  }
+
+  .events-hero__content {
+    padding: $space-16 $space-8;
+  }
+
+  .events-hero__heading {
+    font-size: 40px;
+  }
+
+  .events-hero__description {
+    font-size: 16px;
+  }
 }
 
-.financial-cta__actions {
+// ============================================================
+// EVENTS LISTING
+// ============================================================
+.events-listing {
+  background-color: var(--color-white);
+  padding: $space-20 $space-12;
+}
+
+.events-listing__container {
   display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.events-listing__header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.events-listing__title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.events-listing__subtitle {
+  font-family: $font-basic;
+  font-size: $font-size-md;
+  color: $color-text-dark;
+  margin: 0;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.events-listing__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.events-listing__filter-btn {
+  padding: 8px 20px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-stroke-light);
+  background-color: var(--color-white);
+  color: var(--color-text-body);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base);
+
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  &--active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+
+    &:hover {
+      opacity: 0.88;
+      color: var(--color-white);
+    }
+  }
+}
+
+.events-listing__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.events-listing__empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-body);
+  padding: 48px 0;
+}
+
+.event-card {
+  display: flex;
+  gap: 0;
+  border: 1.5px solid var(--color-bg-dark-gray);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background-color: var(--color-white);
+  transition:
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0, 51, 102, 0.12);
+    transform: translateY(-2px);
+  }
+}
+
+.event-card__date {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: $space-4;
+  gap: 4px;
+  min-width: 88px;
+  background-color: var(--color-primary);
+  padding: 24px 16px;
+  flex-shrink: 0;
+}
+
+.event-card__day {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.event-card__month-year {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.event-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  flex: 1;
+  min-width: 0;
+}
+
+.event-card__type-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &--conference {
+    background-color: rgba(0, 51, 102, 0.1);
+    color: var(--color-primary);
+  }
+
+  &--webinar {
+    background-color: rgba(0, 128, 128, 0.1);
+    color: #007070;
+  }
+
+  &--networking {
+    background-color: rgba(254, 212, 136, 0.25);
+    color: var(--color-gold-dark);
+  }
+
+  &--planning {
+    background-color: rgba(65, 73, 68, 0.1);
+    color: var(--color-text-body);
+  }
+
+  &--gala {
+    background-color: rgba(120, 90, 26, 0.1);
+    color: var(--color-gold-dark);
+  }
+
+  &--forum {
+    background-color: rgba(0, 128, 255, 0.1);
+    color: var(--color-blue-cta);
+  }
+}
+
+.event-card__title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.event-card__description {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-body);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.event-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 8px;
   flex-wrap: wrap;
 }
 
-.btn-donate-secondary {
-  @include btn-secondary;
-}
-
-// ============================================================
-// Section 3: Other Ways To Get Involved
-// ============================================================
-.involvement-section {
-  padding: $space-20 0;
-  background: $color-white;
-}
-
-.involvement-section__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $space-16;
+.event-card__location {
+  display: flex;
   align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-body);
+}
 
-  @media (max-width: $bp-md) {
+.event-card__pin-icon {
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+@media (max-width: 900px) {
+  .events-listing__grid {
     grid-template-columns: 1fr;
   }
 }
 
-.involvement-section__title {
-  font-family: $font-heading;
-  font-size: $font-size-2xl;
-  font-weight: $font-weight-bold;
-  color: $color-navy;
-  margin-bottom: $space-8;
-
-  @media (max-width: $bp-md) {
-    font-size: $font-size-xl;
+@media (max-width: 640px) {
+  .events-listing {
+    padding-block: 64px;
   }
-}
 
-.involvement-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: $space-8;
-}
-
-.involvement-item {
-  display: flex;
-  gap: $space-4;
-  align-items: flex-start;
-}
-
-.involvement-item__icon {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  background: $color-navy;
-  border-radius: $border-radius-full;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $color-white;
-
-  svg {
-    display: block;
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
+  .events-listing__title {
+    font-size: 32px;
   }
-}
 
-.involvement-item__title {
-  font-family: $font-body;
-  font-size: $font-size-base;
-  font-weight: $font-weight-bold;
-  color: $color-text;
-  margin: 0 0 $space-1;
-}
-
-.involvement-item__desc {
-  font-size: $font-size-sm;
-  color: $color-text-muted;
-  line-height: $line-height-normal;
-  margin: 0;
-}
-
-.involvement-section__image {
-  @media (max-width: $bp-md) {
-    display: none;
+  .event-card__date {
+    min-width: 72px;
+    padding: 16px 12px;
   }
-}
 
-.involvement-img {
-  width: 100%;
-  height: auto;
-  border-radius: $border-radius-lg;
-  object-fit: cover;
-  display: block;
-  box-shadow: $shadow-lg;
-}
+  .event-card__day {
+    font-size: 28px;
+  }
 
-// ============================================================
-// Section 4: Instagram / Community Feed
-// ============================================================
-.instagram-section {
-  padding: $space-16 0;
-  background: #fef7e8;
-}
+  .event-card__body {
+    padding: 16px;
+  }
 
-.instagram-section__header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: $space-8;
-  gap: $space-4;
+  .event-card__title {
+    font-size: 16px;
+  }
 
-  @media (max-width: $bp-sm) {
+  .event-card__meta {
     flex-direction: column;
     align-items: flex-start;
+    gap: 8px;
   }
 }
 
-.instagram-section__label {
-  display: block;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-bold;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: $color-navy;
-  margin-bottom: $space-1;
-}
+.news__side {
+  .news__slide--first-row {
+    align-items: stretch;
 
-.instagram-section__title {
-  font-family: $font-heading;
-  font-size: $font-size-2xl;
-  font-weight: $font-weight-bold;
-  color: $color-navy;
-  margin: 0;
+    > article {
+      flex: 1 1 0;
+    }
+  }
+ 
+  .card {
+    border: 0;
+    background: transparent;
+  }
 
-  @media (max-width: $bp-md) {
-    font-size: $font-size-xl;
+  &-item {
+    display: flex;
+    gap: 24px;
+    box-shadow: $shadow-sm;
+    min-height: 100%;
+
+    .news__side-image {
+      flex-shrink: 0;
+      border-radius: $border-radius-md;
+      object-fit: cover;
+      // object-position: center; 
+      height: 220px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: $border-radius-md;
+      }
+    }
+    
+    .news__side-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+
+      .news__side-title {
+        font-family: $font-classic;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-navy;
+        margin: 0;
+        line-height: $line-height-snug;
+      }
+      .news__side-desc {
+        font-family: $font-basic;
+        font-size: $font-size-md;
+        font-weight: $font-weight-regular;
+        line-height: $line-height-snug;
+        font-weight: $font-weight-regular;
+        color: $color-text-dark;
+      }
+      .section-badge--outline {
+        display: flex;
+        align-items: self-end;
+        margin-top: auto;
+      }
+    }
+  }
+  .blue--card{
+    min-height: 100%;
+    background-color: $color-navy-light;
+    color: $color-white;
+    padding: $space-8;
+
+    .news__side-title{
+      font-family: $font-classic;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-xl;
+      line-height: $line-height-snug;
+      color: $color-white;
+
+    }
+    .news__side-desc{
+      font-family: $font-basic;
+      font-weight: $font-weight-regular;
+      font-size: $font-size-md;
+      line-height: $line-height-snug;
+      color: $color-blue-pale;
+    }
   }
 }
-
-.instagram-section__link {
-  display: inline-flex;
-  align-items: center;
-  gap: $space-2;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-semibold;
-  color: $color-navy;
-  text-decoration: none;
-  white-space: nowrap;
-
-  &:hover,
-  &:focus-visible {
-    color: $color-gold-light;
-    text-decoration: underline;
-  }
-}
-
-.instagram-grid {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: $space-3;
-
-  @media (max-width: $bp-md) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.instagram-post {
-  display: block;
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: $border-radius;
-
-  &:focus-visible {
-    @include focus-ring;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform $transition-smooth;
-  }
-
-  &:hover img {
-    transform: scale(1.05);
-  }
-}
-
