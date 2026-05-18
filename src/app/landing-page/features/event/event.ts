@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 interface EventPortfolioCard {
-  variant: 'image' | 'info-navy' | 'info-gold';
+  variant: 'image' | 'info-navy' | 'info-gold' | 'info-gray';
   title: string;
   summary: string;
   actionLabel: string;
@@ -34,33 +34,44 @@ export class Event {
     {
       variant: 'image',
       title: 'Annual Health Conference',
-      summary: 'Our flagship platform for clinical learning, research exchange, and diaspora collaboration.',
-      image: '/assets/images/about-annual-health-conference.png',
+      summary:
+        'Our flagship gathering focusing on networking, continuous clinical learning, and vibrant social interactions.',
+      image: '/assets/images/event-card-1.png',
       actionLabel: 'Explore Conference',
       actionLink: '/event',
     },
     {
       variant: 'image',
-      title: 'Charity Gala & Awards',
-      summary: 'A formal evening that raises targeted funding for health initiatives and scholarships.',
-      image: '/assets/images/about-association-news.png',
+      title: 'Charity Gala',
+      summary:
+        'A night of prestige and purpose, raising significant funds for selected healthcare initiatives in Ghana and the UK.',
+      image: '/assets/images/event-card-2.png',
       actionLabel: 'View Gala Overview',
       actionLink: '/impact',
     },
     {
       variant: 'info-navy',
-      title: 'Gathering for professional excellence',
-      summary: 'We create spaces where clinicians learn, collaborate, and lead community impact.',
-      actionLabel: 'View Event Calendar',
+      title: 'AGMs',
+      summary:
+        'Exclusive for paying members. A time for governance, accountability, and shaping the future of GDDA-UK during the conference weekend.',
+      actionLabel: 'Become a Member to Attend',
       actionLink: '/event',
     },
     {
       variant: 'image',
       title: 'Webinars & Clinical Forums',
-      summary: 'Roundtables, webinars, and specialist updates for members and prospective collaborators.',
-      image: '/assets/images/about-webinar-nhs.jpg',
+      summary:
+        'Roundtables, webinars, and specialist updates for members and prospective collaborators.',
+      image: '/assets/images/event-card-3.png',
       actionLabel: 'See Learning Events',
       actionLink: '/get-involved',
+    },
+    {
+      variant: 'info-gold',
+      title: 'Health Seminars',
+      summary: 'Regular clinical education sessions led by international experts. Elevating the standard of care through continuous knowledge sharing.',
+      actionLabel: 'Register Interest',
+      actionLink: '/contact',
     },
     {
       variant: 'info-gold',
@@ -68,14 +79,6 @@ export class Event {
       summary: 'Our events combine learning, mentorship, and service in one connected programme.',
       actionLabel: 'Register Interest',
       actionLink: '/contact',
-    },
-    {
-      variant: 'image',
-      title: 'Community Outreach Clinics',
-      summary: 'Volunteer-focused programmes delivering practical care and preventive health education.',
-      image: '/assets/images/about-gloabal-reach.png',
-      actionLabel: 'Join Outreach',
-      actionLink: '/get-involved',
     },
   ];
 

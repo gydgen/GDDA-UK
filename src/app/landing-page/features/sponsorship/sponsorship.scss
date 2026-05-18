@@ -64,7 +64,7 @@
 
 .sponsor-network {
   @include section-padding($space-12, $space-12);
-  background: $color-white;
+  background: $color-lightest-grey;
 }
 
 .sponsor-network__inner {
@@ -74,7 +74,7 @@
 }
 
 .sponsor-network__header {
-  max-width: 50rem;
+  // max-width: 50rem;
   margin-inline: auto;
   text-align: center;
   display: flex;
@@ -112,15 +112,16 @@
 }
 
 .sponsor-logo {
-  border: 1px solid rgba($color-border-soft, 0.45);
+  // border: 1px solid rgba($color-border-soft, 0.45);
   border-radius: $border-radius-lg;
   padding: $space-4;
   background: $color-white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: $space-2;
-  text-align: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // gap: $space-2;
+  // text-align: center;
+  box-shadow: $shadow-sm;
 }
 
 .sponsor-logo__mark {
@@ -325,5 +326,125 @@
   .sponsor-path__action,
   .sponsor-cta__actions a {
     justify-content: center;
+  }
+}
+.sponsorship {
+  text-align: center;
+
+  .sponsor-network__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: $space-4;
+
+    .sponsor-logo {
+      flex: 0 0 calc(50% - #{$space-4} / 2);
+      margin-bottom: $space-4;
+      width: 25%;
+
+      @media (min-width: $bp-md) {
+        flex: 0 0 calc(25% - #{$space-4} * 3 / 4);
+      
+      }
+
+      img {
+        height: 4rem;
+        max-width: 80%;
+         @media (max-width: $bp-md){
+          height: 2rem;
+         }
+      }
+    }
+  }
+}
+.voice-of-partners{
+  background-color: $color-text-navy;
+  padding: $space-10 $space-8;
+  border-radius: $border-radius-xl;
+  margin: $space-12 0;
+  &__title {
+   color: $color-white;
+   font-size: $font-size-2xl;
+   font-family: $font-classic;
+
+  }
+.voice-of-partners__header{
+  text-align: center;
+  // @include flex-;
+}
+.section-badge--outline{
+     color: $color-peach-light;
+}
+}
+.become-ambassador {
+  @include flex-between;
+  padding: $space-8 $space-4;
+  @media (max-width: $bp-md) {
+    width: 100%;
+    @include flex-column;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .become-ambassador__title {
+    // margin: 0;
+    font-family: $font-classic;
+    font-size: clamp(1rem, 2.4vw, $font-size-xl);
+    font-weight: $font-weight-bold;
+    line-height: $line-height-snug;
+    color: $color-dark-green;
+  }
+  .become-ambassador__inner-image {
+    // width: 50%;
+    @media (max-width: $bp-md) {
+      width: 100%;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: $border-radius-lg;
+    }
+  }
+  .become-ambassador__ranks {
+    @include flex-center;
+    align-items: flex-start;
+    gap: $space-4;
+    .become-ambassador__ranks--icon {
+      font-weight: $font-weight-bold;
+      // font-size: $font-size-2xl;
+      color: $color-text-gold;
+    }
+    .become-ambassador__ranks--subtitle {
+      color: $color-white;
+      line-height: $line-height-relaxed;
+      font-family: $font-basic;
+      font-size: $font-size-md;
+      font-weight: $font-weight-medium;
+
+
+    }
+    .become-ambassador__ranks--title {
+      font-family: $font-classic;
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      color: $color-white;
+      .yellow {
+        color: $color-peach-light;
+      }
+    }
+    .become-ambassador__ranks--benefits{
+      text-align: left;
+      color: $color-white;
+      line-height: $line-height-relaxed;
+      font-family: $font-basic;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-regular;
+
+      .material-symbols-outlined {
+        color: $color-gold;
+        font-weight: $font-weight-bold;
+      }
+    }
   }
 }

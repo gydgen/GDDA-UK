@@ -3,16 +3,16 @@
   <div class="sponsor-hero__overlay" aria-hidden="true"></div>
 
   <div class="site-container sponsor-hero__inner">
-    <span class="section-badge section-badge--gold">Sponsorship</span>
+    <span class="section-badge section-badge--gold">PARTNERSHIP EXCELLENCE</span>
     <h1 id="sponsor-hero-heading" class="sponsor-hero__title">
-      Professional Partnership Network For Lasting Impact
+      Empowering Healthcare Through Partnership
     </h1>
     <p class="sponsor-hero__subtitle">
-      Collaborate with GDDA-UK to support healthcare education, outreach, and practical community interventions.
+      Collaborate with the GDDA-UK to advance medical excellence and support the next generation of
+      Ghanaian clinicians across the United Kingdom.
     </p>
     <div class="sponsor-hero__actions">
       <a routerLink="/contact" class="btn-secondary">Become a Sponsor</a>
-      <a routerLink="/impact" class="btn-outline-white">Explore Impact Areas</a>
     </div>
   </div>
 </section>
@@ -20,62 +20,90 @@
 <section class="sponsor-network" aria-labelledby="sponsor-network-heading">
   <div class="site-container sponsor-network__inner">
     <header class="sponsor-network__header">
-      <h2 id="sponsor-network-heading" class="sponsor-network__title">Supported by trusted healthcare organisations</h2>
+      <h2 id="sponsor-network-heading" class="sponsor-network__title">Our Valued Partners</h2>
       <p class="sponsor-network__subtitle">
-        We collaborate with institutions, professional bodies, and partners aligned with diaspora-led healthcare progress.
+        Distinguished organizations contributing to the mission of health and professional
+        development.
       </p>
     </header>
-
-    <ul class="sponsor-network__grid" role="list" aria-label="Partner organisations">
-      @for (logo of sponsorLogos; track logo.name) {
-        <li class="sponsor-logo" role="listitem" [attr.aria-label]="logo.name">
-          <span class="sponsor-logo__mark" aria-hidden="true">{{ logo.mark }}</span>
-          <span class="sponsor-logo__name">{{ logo.name }}</span>
-        </li>
-      }
-    </ul>
+    <div class="sponsorship">
+      <div class="sponsor-network__sponsor--silver">
+        <span class="section-badge--outline mb-4">PARTNERSHIP EXCELLENCE</span>
+        <ul class="sponsor-network__grid" role="list" aria-label="Partner organisations">
+          @for (logo of silverSponsors; track logo.image) {
+            <li class="sponsor-logo" role="listitem" [attr.aria-label]="logo.imageAlt">
+              <img src="{{ logo.image }}" alt="{{ logo.imageAlt }}" class="sponsor__partners" />
+            </li>
+          }
+        </ul>
+      </div>
+      <div class="sponsor-network__sponsor--sapphire">
+        <span class="section-badge--outline mb-4">SAPPHIRE PARTNERS</span>
+        <ul class="sponsor-network__grid" role="list" aria-label="Partner organisations">
+          @for (logo of sapphireSponsors; track logo.image) {
+            <li class="sponsor-logo" role="listitem" [attr.aria-label]="logo.imageAlt">
+              <img src="{{ logo.image }}" alt="{{ logo.imageAlt }}" />
+            </li>
+          }
+        </ul>
+      </div>
+      <div class="sponsor-network__sponsor--auction">
+        <span class="section-badge--outline mb-4">AUCTION PRICE</span>
+        <ul class="sponsor-network__grid" role="list" aria-label="Partner organisations">
+          @for (logo of auctionSponsors; track logo.image) {
+            <li class="sponsor-logo" role="listitem" [attr.aria-label]="logo.imageAlt">
+              <img src="{{ logo.image }}" alt="{{ logo.imageAlt }}" />
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
-
-<section class="sponsor-paths" aria-labelledby="sponsor-paths-heading">
-  <div class="site-container sponsor-paths__inner">
-    <header class="sponsor-paths__header">
-      <span class="section-badge section-badge--outline">Partnership Options</span>
-      <h2 id="sponsor-paths-heading" class="sponsor-paths__title">Choose how your organisation can contribute</h2>
+<section class="voice-of-partners">
+  <div class="site-container voice-of-partners__inner">
+    <header class="voice-of-partners__header">
+      <span class="section-badge--outline mb-4">VOICE OF PARTNERS</span>
+      <h4 class="voice-of-partners__title">What Our Sponsors Say</h4>
     </header>
 
-    <ul class="sponsor-paths__grid" role="list" aria-label="Sponsorship pathways">
-      @for (path of sponsorshipPaths; track path.title) {
-        <li class="sponsor-path" [class.sponsor-path--light]="path.theme === 'light'" role="listitem">
-          <p class="sponsor-path__label">{{ path.label }}</p>
-          <h3 class="sponsor-path__title">{{ path.title }}</h3>
-          <p class="sponsor-path__text">{{ path.text }}</p>
-
-          <ul class="sponsor-path__list" role="list" [attr.aria-label]="path.label + ' inclusions'">
-            @for (point of path.points; track point) {
-              <li class="sponsor-path__item" role="listitem">
-                <span class="material-symbols-outlined" aria-hidden="true">check</span>
-                <span>{{ point }}</span>
-              </li>
-            }
-          </ul>
-
-          <a [routerLink]="path.actionLink" class="btn-secondary sponsor-path__action">{{ path.actionLabel }}</a>
-        </li>
+    <!-- carousel of testimonials from partners, with quote and name/position -->
+    <!-- <div class="testimonials">
+      @for (testimonial of testimonials; track testimonial.name) {
+        <div class="testimonial" role="region" aria-label="Partner testimonial">
+          <p class="testimonial__quote">"{{ testimonial.quote }}"</p>
+          <p class="testimonial__author">- {{ testimonial.name }}, {{ testimonial.position }}</p>
+        </div>
       }
-    </ul>
-  </div>
-</section>
-
-<section class="sponsor-cta" aria-labelledby="sponsor-cta-heading">
-  <div class="site-container sponsor-cta__inner">
-    <div class="sponsor-cta__copy">
-      <h2 id="sponsor-cta-heading" class="sponsor-cta__title">Ready to discuss a sponsorship package?</h2>
-      <p class="sponsor-cta__text">Email our team and we will help shape an option aligned with your goals.</p>
-    </div>
-    <div class="sponsor-cta__actions">
-      <a class="sponsor-cta__email" href="mailto:sponsors@gddauk.org">sponsors&#64;gddauk.org</a>
-      <a routerLink="/contact" class="btn-secondary">Contact Sponsorship Team</a>
+    </div> -->
+    <div class="sponsorship-family">
+      <section class="become-ambassador">
+        <div class="site-container become-ambassador__inner">
+          <div class="become-ambassador__ranks">
+            <div class="become-ambassador__ranks--icon"></div>
+            <div class="become-ambassador__ranks--description">
+              <h5 class="become-ambassador__ranks--title">Join Our <span class="yellow">Sponsorship Family</span></h5>
+              <p class="become-ambassador__ranks--subtitle">
+                By becoming a GDDA-UK sponsor, you are not just funding an event; you are investing
+                in the health outcomes of communities and the career longevity of brilliant
+                clinicians.
+              </p>
+              <div class="become-ambassador__ranks--benefits">
+                <p><span class="material-symbols-outlined m-2">check_circle</span> Brand visibility among a targeted audience of healthcare professionals.</p>
+                <p><span class="material-symbols-outlined m-2">check_circle</span> Networking opportunities with industry leaders and decision-makers.</p>
+                <p><span class="material-symbols-outlined m-2">check_circle</span> Positive association with a cause that resonates with your corporate values.</p>
+                <p><span class="material-symbols-outlined m-2">check_circle</span> Access to exclusive events and speaking opportunities.</p>
+              </div>
+              <div class="btn">
+                <a href="" class="btn-secondary">Become a Sponsor Today</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="site-container become-ambassador__inner-image">
+          <img src="/assets/images/sponsor-family.png" alt="Ambassador Program" />
+        </div>
+      </section>
     </div>
   </div>
 </section>

@@ -56,6 +56,10 @@
   font-weight: $font-weight-extrabold;
   line-height: $line-height-tight;
   color: $color-white;
+  .excellence{
+    color: $color-peach-light;
+
+  }
 }
 
 .event-hero__subtitle {
@@ -362,15 +366,30 @@
 }
 
 .event-newsletter {
-  @include section-padding($space-16, $space-20);
-  background: $color-text-navy;
+  // @include section-padding($space-16, $space-20);
+  color: $color-text-navy;
+  margin: $space-16 $space-12;
+  border-radius: $border-radius-lg;
+ display: flex;
+  @media (max-width: $bp-sm) {
+     flex-direction: column;
+     @include flex-center;
+     text-align: center;   
+    
+  }
 }
 
 .event-newsletter__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: $space-8;
   align-items: center;
+  background: $color-lighter-grey;
+  padding: $space-8;
+  border-radius:  $border-radius-lg 0 0 $border-radius-lg; 
+  @media (max-width: $bp-sm) {
+     border-radius: $border-radius-lg;  }
+
 }
 
 .event-newsletter__copy {
@@ -379,36 +398,25 @@
   gap: $space-4;
 }
 
-.event-newsletter__title {
-  color: $color-white;
-}
-
 .event-newsletter__text {
   margin: 0;
   font-family: $font-basic;
   font-size: $font-size-base;
   line-height: $line-height-relaxed;
-  color: rgba($color-white, 0.84);
+  color: rgba($color-text-navy, 0.84);
 }
 
 .event-newsletter__form-wrap {
   border: 1px solid rgba($color-white, 0.24);
   border-radius: $border-radius-xl;
   padding: $space-6;
-  background: rgba($color-white, 0.05);
 }
 
 .event-newsletter__form {
   display: flex;
   flex-direction: column;
   gap: $space-3;
-}
 
-.event-newsletter__label {
-  font-family: $font-basic;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  color: rgba($color-white, 0.9);
 }
 
 .event-newsletter__field-row {
@@ -418,22 +426,22 @@
 
 .event-newsletter__input {
   flex: 1;
-  border: 1px solid rgba($color-white, 0.25);
+  border: 1px solid rgba($color-text-navy, 0.8);
   border-radius: $border-radius;
-  background: rgba($color-white, 0.1);
-  color: $color-white;
+  background: rgba($color-white, 0.9);
+  color: $color-mid-grey;
   font-family: $font-basic;
   font-size: $font-size-sm;
   padding: $space-3 $space-4;
 
   &::placeholder {
-    color: rgba($color-white, 0.52);
+    color: $color-mid-grey;
   }
 
   &:focus {
     outline: none;
-    border-color: $color-gold;
-    box-shadow: 0 0 0 3px rgba($color-gold, 0.22);
+    border-color: $color-navy;
+    box-shadow: 0 0 0 3px rgba($color-navy, 0.22);
   }
 }
 
@@ -449,11 +457,57 @@
 }
 
 .event-newsletter__error {
-  color: #ffd8d8;
+  color: #950505;
 }
 
 .event-newsletter__success {
+  color: $color-text-green;
+}
+.event-inquiries__inner{
+  @include flex-column;
+  align-items: flex-start;  
+  background-color: $color-navy-light;
+  border-radius: 0 $border-radius-lg $border-radius-lg 0;
+  padding: $space-8;
+  @media (max-width: $bp-md) {
+    border-radius: $border-radius-lg;
+  }
+
+
+  
+
+}
+.event-inquiries__title{
+  font-family: $font-classic;
+  font-size: clamp(1rem, 3vw, $font-size-2xl);
+  font-weight: $font-weight-extrabold;
   color: $color-white;
+}
+.event-inquiries__text{
+  font-family: $font-basic;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: rgba($color-white, 0.84);
+  
+}
+.event-inquiries__email{
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-basic;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-gold-light;
+  text-decoration: none;
+
+  &:hover {
+    color: rgba($color-white, 0.85);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+    border-radius: $border-radius-sm;
+  }
 }
 
 @media (max-width: $bp-lg) {
@@ -499,6 +553,7 @@
   .event-newsletter__field-row {
     width: 100%;
     flex-direction: column;
+ 
   }
 
   .event-hero__actions a,

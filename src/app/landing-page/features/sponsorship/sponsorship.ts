@@ -34,6 +34,68 @@ export class Sponsorship {
     { mark: 'NMC', name: 'Nursing and Midwifery Council' },
     { mark: 'GMA', name: 'Ghana Medical Association' },
   ];
+  readonly silverSponsors: readonly any[] = [
+    {
+      image: '/assets/images/sponsor-1.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+  ];
+  readonly sapphireSponsors: readonly any[] = [
+    {
+      image: '/assets/images/sponsor-2.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/sponsor-3.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/sponsor-4.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/sponsor-5.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/sponsor-6.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/sponsor-7.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/sponsor-8.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/sponsor-9.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+  ];
+  readonly auctionSponsors: readonly any[] = [
+    {
+      image: '/assets/images/auction-1.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/auction-2.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/auction-3.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/auction-4.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+    {
+      image: '/assets/images/auction-5.png',
+      imageAlt: 'GDDA-UK Annual Conference',
+    },
+  ];
 
   readonly sponsorshipPaths: readonly SponsorshipPath[] = [
     {

@@ -27,53 +27,53 @@ interface InvolvementChannel {
 export class GetInvolved {
   readonly involvementPaths: readonly InvolvementPath[] = [
     {
-      icon: 'groups',
-      title: 'Membership',
-      text: 'Join our professional community of Ghanaian doctors, dentists, and trainees in the UK.',
+      icon: 'access_time',
+      title: 'Time',
+      text: 'Volunteer your time for our community outreach programs or administrative excellence.',
     },
     {
-      icon: 'school',
-      title: 'Mentoring',
-      text: 'Support students and early-career clinicians through structured guidance and career advice.',
+      icon: 'paid',
+      title: 'Money',
+      text: 'Direct financial contributions fund critical healthcare missions and educational bursaries.',
     },
     {
       icon: 'event',
-      title: 'Events',
-      text: 'Participate in conferences, webinars, and local sessions that strengthen our network.',
+      title: 'Skills',
+      text: 'Offer your specialized clinical or professional expertise to mentor the next generation.',
     },
     {
       icon: 'savings',
-      title: 'Giving',
-      text: 'Contribute to targeted health projects and outreach activities in Ghana and the UK.',
+      title: 'Gifts',
+      text: 'Donations of medical equipment and professional resources to supported facilities in Ghana.',
     },
   ];
 
-  readonly involvementChannels: readonly InvolvementChannel[] = [
-    {
-      theme: 'navy',
-      label: 'Professional Membership',
-      title: 'Join the association and grow with peers',
-      text: 'Membership gives you access to events, practical support, and a trusted community.',
-      bullets: [
-        'Connect with clinicians across specialties',
-        'Receive updates on opportunities and programmes',
-        'Support diaspora-led healthcare action',
-      ],
-      actionLabel: 'Become a Member',
-      actionLink: '/contact',
-    },
-    {
-      theme: 'gold',
-      label: 'Active Participation',
-      title: 'Volunteer your time or support a project',
-      text: 'Choose a practical way to contribute to education, outreach, and community programmes.',
-      bullets: [
-        'Mentor or teach in selected programmes',
-        'Support event delivery and logistics',
-        'Contribute to community impact projects',
-      ],
-      actionLabel: 'See Current Projects',
-      actionLink: '/impact',
-    },
-  ];
+  // readonly involvementChannels: readonly InvolvementChannel[] = [
+  //   {
+  //     theme: 'navy',
+  //     label: 'Professional Membership',
+  //     title: 'Join the association and grow with peers',
+  //     text: 'Membership gives you access to events, practical support, and a trusted community.',
+  //     bullets: [
+  //       'Connect with clinicians across specialties',
+  //       'Receive updates on opportunities and programmes',
+  //       'Support diaspora-led healthcare action',
+  //     ],
+  //     actionLabel: 'Become a Member',
+  //     actionLink: '/contact',
+  //   },
+  //   {
+  //     theme: 'gold',
+  //     label: 'Active Participation',
+  //     title: 'Volunteer your time or support a project',
+  //     text: 'Choose a practical way to contribute to education, outreach, and community programmes.',
+  //     bullets: [
+  //       'Mentor or teach in selected programmes',
+  //       'Support event delivery and logistics',
+  //       'Contribute to community impact projects',
+  //     ],
+  //     actionLabel: 'See Current Projects',
+  //     actionLink: '/impact',
+  //   },
+  // ];
 }

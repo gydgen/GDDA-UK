@@ -3,15 +3,16 @@
   <div class="gi-hero__overlay" aria-hidden="true"></div>
 
   <div class="site-container gi-hero__inner">
-    <span class="section-badge section-badge--gold">Get Involved</span>
-    <h1 id="gi-heading" class="gi-hero__title">Get Involved In Meaningful Service</h1>
+    <span class="section-badge section-badge--gold">GDDA-UK COMMUNITY</span>
+    <h1 id="gi-heading" class="gi-hero__title">Get Involved</h1>
     <p class="gi-hero__subtitle">
-      Join a professional network that supports members and delivers practical healthcare impact.
+      Join a prestigious network of Ghanaian medical professionals dedicated to advancing excellence
+      in healthcare, education, and social impact within the UK and Ghana.
     </p>
-    <div class="gi-hero__actions">
+    <!-- <div class="gi-hero__actions">
       <a routerLink="/contact" class="btn-secondary">Join Our Mailing List</a>
       <a routerLink="/event" class="btn-outline-white">Become a Member</a>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -19,7 +20,7 @@
   <div class="site-container gi-overview__inner">
     <header class="gi-overview__header">
       <h2 id="gi-overview-heading" class="gi-overview__title">
-        As an active member of a vibrant and rapidly growing professional community
+        We would love volunteers who are willing to give:
       </h2>
       <p class="gi-overview__subtitle">
         There are clear ways to participate, contribute, and strengthen our shared mission.
@@ -29,7 +30,9 @@
     <ul class="gi-overview__grid" role="list" aria-label="Get involved pathways">
       @for (path of involvementPaths; track path.title) {
         <li class="gi-overview__card" role="listitem">
-          <span class="material-symbols-outlined gi-overview__icon" aria-hidden="true">{{ path.icon }}</span>
+          <span class="material-symbols-outlined gi-overview__icon" aria-hidden="true">{{
+            path.icon
+          }}</span>
           <h3 class="gi-overview__card-title">{{ path.title }}</h3>
           <p class="gi-overview__card-text">{{ path.text }}</p>
         </li>
@@ -39,33 +42,86 @@
 </section>
 
 <section class="gi-channels" aria-labelledby="gi-channels-heading">
-  <div class="site-container gi-channels__inner">
-    <header class="gi-channels__header">
-      <span class="section-badge section-badge--outline">How You Can Participate</span>
-      <h2 id="gi-channels-heading" class="gi-channels__title">Choose a practical way to contribute</h2>
-    </header>
+  <div class="gi-channels__inner">
+    <h2 class="gi-channels__title">Support Our Mission Financially</h2>
+    <p class="gi-channels__subtitle">
+      Every contribution ensures the longevity of GDDA-UK's philanthropic endeavors and professional
+      support frameworks.
+    </p>
+    <div class="btns">
+      <a routerLink="/contact" class="btn-udda-primary p-4">Make a One Off Donation</a>
+      <a routerLink="/event" class="btn-secondary p-4">Make a Regular Donation</a>
+    </div>
+  </div>
+</section>
 
-    <ul class="gi-channels__grid" role="list" aria-label="Participation channels">
-      @for (channel of involvementChannels; track channel.title) {
-        <li class="gi-channel" [class.gi-channel--gold]="channel.theme === 'gold'" role="listitem">
-          <p class="gi-channel__label">{{ channel.label }}</p>
-          <h3 class="gi-channel__title">{{ channel.title }}</h3>
-          <p class="gi-channel__text">{{ channel.text }}</p>
+<section class="become-ambassador">
+  <div class="site-container become-ambassador__inner">
+    <h3 class="become-ambassador__title">Other Ways To Get Involved</h3>
+    <div class="become-ambassador__ranks">
+      <div class="become-ambassador__ranks--icon">
+        <span class="material-symbols-outlined">stars</span>
+      </div>
+      <div class="become-ambassador__ranks--description">
+        <h5 class="become-ambassador__ranks--title">Become An Ambassador</h5>
+        <p class="become-ambassador__ranks--subtitle">
+          Represent GDDA-UK within your hospital trust or university. Champion our values and expand
+          our professional reach.
+        </p>
+      </div>
+    </div>
+    <div class="become-ambassador__ranks">
+      <div class="become-ambassador__ranks--icon">
+        <span class="material-symbols-outlined">stars</span>
+      </div>
+      <div class="become-ambassador__ranks--description">
+        <h5 class="become-ambassador__ranks--title">Host or Plan a Local Event</h5>
+        <p class="become-ambassador__ranks--subtitle">
+          Organize networking hubs, clinical workshops, or social gatherings to strengthen the bond
+          among colleagues.
+        </p>
+      </div>
+    </div>
+    <div class="become-ambassador__ranks">
+      <div class="become-ambassador__ranks--icon">
+        <span class="material-symbols-outlined">stars</span>
+      </div>
+      <div class="become-ambassador__ranks--description">
+        <h5 class="become-ambassador__ranks--title">Become a Member</h5>
+        <p class="become-ambassador__ranks--subtitle">
+          Unlock exclusive academic journals, professional networking events, and the prestige of a
+          global association.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="site-container become-ambassador__inner-image">
+    <img src="/assets/images/female-doctor-1.png" alt="Ambassador Program" />
+  </div>
+</section>
 
-          <ul class="gi-channel__list" role="list" [attr.aria-label]="channel.label + ' focus areas'">
-            @for (item of channel.bullets; track item) {
-              <li class="gi-channel__list-item" role="listitem">
-                <span class="material-symbols-outlined" aria-hidden="true">check</span>
-                <span>{{ item }}</span>
-              </li>
-            }
-          </ul>
-
-          <a [routerLink]="channel.actionLink" class="btn-secondary gi-channel__action">
-            {{ channel.actionLabel }}
-          </a>
-        </li>
-      }
-    </ul>
+<section class="community">
+  <div class="site-container community__inner">
+    <span class="section-badge--outline">COMMUNITY</span>
+    <div class="community__header">
+      <h2 class="community__title">Keep Up To Date On @gdda_uk</h2>
+      <div class="community__follow">
+        Follow on Instagram<span class="material-symbols-outlined">arrow_outward</span>
+      </div>
+    </div>
+    <div class="community__cards">
+      <div class="community__card">
+        <img src="/assets/images/community-card-1.png" alt="" />
+      </div>
+      <div class="community__card">
+        <img src="/assets/images/community-card-2.png" alt="" />
+      </div>
+      <div class="community__card">
+        <img src="/assets/images/community-card-3.png" alt="" />
+      </div>
+      <div class="community__card">
+        <img src="/assets/images/community-card-4.png" alt="" />
+      </div>
+    </div>
   </div>
 </section>
