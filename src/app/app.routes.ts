@@ -7,7 +7,7 @@ export const routes: Routes = [
     path: '',
     component: LandingPage,
     children: [
-        {redirectTo: 'test', pathMatch: 'full', path: ''},
+        {redirectTo: 'about', pathMatch: 'full', path: ''},
       {
         path: 'about',
         loadComponent: () => import('./landing-page/features/about/about').then((m) => m.About),
@@ -33,9 +33,6 @@ export const routes: Routes = [
       {
         path: 'contact',
         loadComponent: () => import('./landing-page/features/contact/contact').then((m) => m.Contact),
-      },{
-        path: 'test',
-        component: Test
       }
     ],
   },
