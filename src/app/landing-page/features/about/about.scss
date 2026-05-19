@@ -15,7 +15,7 @@
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: url('/assets/images/about-hero-bg.png') center / cover no-repeat;
+  background: url('/assets/images/about-hero-bg.png') 80% 30% / cover no-repeat;
   transform: scale(1.05);
   animation: heroZoom 12s ease-in-out infinite alternate;
 }
