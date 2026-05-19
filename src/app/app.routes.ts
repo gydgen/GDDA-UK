@@ -7,9 +7,9 @@ export const routes: Routes = [
     path: '',
     component: LandingPage,
     children: [
-        {redirectTo: 'about', pathMatch: 'full', path: ''},
+        {redirectTo: 'home', pathMatch: 'full', path: ''},
       {
-        path: 'about',
+        path: 'home',
         loadComponent: () => import('./landing-page/features/about/about').then((m) => m.About),
       },
       {
