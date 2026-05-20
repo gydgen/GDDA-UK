@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { InvolvementPath } from '../get-involved/get-involved';
 
 interface SponsorLogo {
   mark: string;
@@ -123,6 +124,23 @@ export class Sponsorship {
       ],
       actionLabel: 'See Impact Areas',
       actionLink: '/impact',
+    },
+  ];
+  readonly involvementPaths: readonly InvolvementPath[] = [
+    {
+      icon: 'school',
+      title: 'Medical Training Programs',
+      text: 'Funding scholarships and advanced clinical rotations for junior doctors and dentists in both UK and Ghana.',
+    },
+    {
+      icon: 'volunteer_activism',
+      title: 'Healthcare Outreach Projects',
+      text: 'Supporting medical missions and equipment donations to under-resourced hospitals across the Ghanaian region.',
+    },
+    {
+      icon: 'groups',
+      title: 'Networking Opportunities',
+      text: 'Annual gala balls and professional symposia that foster mentorship and interdisciplinary collaboration.',
     },
   ];
 }

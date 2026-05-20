@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-interface InvolvementPath {
+export interface InvolvementPath {
   icon: string;
   title: string;
   text: string;

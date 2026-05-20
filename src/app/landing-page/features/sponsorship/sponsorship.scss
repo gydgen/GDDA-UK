@@ -467,3 +467,113 @@
 
 //     }
 // }
+
+
+.gi-overview {
+  @include section-padding($space-12, $space-12);
+  background: $color-white;
+}
+
+.gi-overview__inner {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.gi-overview__header {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  text-align: center;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.gi-overview__title {
+  margin: 0;
+  font-family: $font-classic;
+  font-size: clamp(1.75rem, 3.4vw, $font-size-3xl);
+  font-weight: $font-weight-bold;
+  line-height: $line-height-snug;
+  color: $color-text-navy;
+  
+}
+
+.gi-overview__subtitle {
+  margin: 0;
+  font-family: $font-basic;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: $color-text-dark;
+}
+
+.gi-overview__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: $space-4;
+}
+
+.gi-overview__card {
+  border: 1px solid rgba($color-border-soft, 0.45);
+  border-radius: $border-radius-lg;
+  padding: $space-5;
+  background: $color-white;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.gi-overview__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: $border-radius;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-gold;
+  color: $color-dark-green;
+}
+
+.gi-overview__card-title {
+  margin: 0;
+  font-family: $font-classic;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-dark-green;
+}
+
+.gi-overview__card-text {
+  margin: 0;
+  font-family: $font-basic;
+  font-size: $font-size-sm;
+  line-height: $line-height-relaxed;
+  color: $color-text-dark;
+}
+@media (max-width: $bp-sm) {
+  .gi-overview__grid {
+    grid-template-columns: 1fr;
+  }}
+
+  .event-card__link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-basic;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-gold-dark;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-text-gold;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+    border-radius: $border-radius-sm;
+  }
+}

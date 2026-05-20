@@ -107,3 +107,29 @@
     </div>
   </div>
 </section>
+<section class="gi-overview" aria-labelledby="gi-overview-heading">
+  <div class="site-container gi-overview__inner">
+    <header class="gi-overview__header">
+      <h2 id="gi-overview-heading" class="gi-overview__title">
+Support Our Key Initiatives
+      </h2>
+      <p class="gi-overview__subtitle">
+       Your sponsorship directly fuels these critical programs designed to improve healthcare
+equity and professional excellence.
+      </p>
+    </header>
+
+    <ul class="gi-overview__grid" role="list" aria-label="Get involved pathways">
+      @for (path of involvementPaths; track path.title) {
+        <li class="gi-overview__card" role="listitem">
+          <span class="material-symbols-outlined gi-overview__icon" aria-hidden="true">{{
+            path.icon
+          }}</span>
+          <h3 class="gi-overview__card-title">{{ path.title }}</h3>
+          <p class="gi-overview__card-text">{{ path.text }}</p>
+          <a href="" class="event-card__link">Learn More <span class="material-symbols-outlined">arrow_forward</span></a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
