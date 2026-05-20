@@ -71,6 +71,9 @@
   display: flex;
   flex-direction: column;
   gap: $space-8;
+  @media (max-width: $bp-sm) {
+    padding: 0;
+  }
 }
 
 .sponsor-network__header {
@@ -345,43 +348,52 @@
 
       @media (min-width: $bp-md) {
         flex: 0 0 calc(25% - #{$space-4} * 3 / 4);
-      
       }
 
       img {
         height: 4rem;
         max-width: 80%;
-         @media (max-width: $bp-md){
+        @media (max-width: $bp-md) {
           height: 2rem;
-         }
+        }
       }
     }
   }
 }
-.voice-of-partners{
+.voice-of-partners {
   background-color: $color-text-navy;
   padding: $space-10 $space-8;
   border-radius: $border-radius-xl;
   margin: $space-12 0;
   &__title {
-   color: $color-white;
-   font-size: $font-size-2xl;
-   font-family: $font-classic;
-
+    color: $color-white;
+    font-size: $font-size-2xl;
+    font-family: $font-classic;
+    @media (max-width: $bp-sm) {
+      font-size: $font-size-lg;
+    }
   }
-.voice-of-partners__header{
-  text-align: center;
-  // @include flex-;
-}
-.section-badge--outline{
-     color: $color-peach-light;
-}
+  .voice-of-partners__header {
+    text-align: center;
+    // @include flex-;
+  }
+  .section-badge--outline {
+    color: $color-peach-light;
+  }
+
+  @media (max-width: $bp-sm) {
+    padding: $space-6 $space-4;
+    @include flex-column;
+    text-align: center;
+  }
+  
 }
 .become-ambassador {
   @include flex-between;
   padding: $space-8 $space-4;
   @media (max-width: $bp-md) {
     width: 100%;
+    // padding: 0;
     @include flex-column;
     flex-direction: column-reverse;
     justify-content: center;
@@ -421,8 +433,6 @@
       font-family: $font-basic;
       font-size: $font-size-md;
       font-weight: $font-weight-medium;
-
-
     }
     .become-ambassador__ranks--title {
       font-family: $font-classic;
@@ -433,7 +443,7 @@
         color: $color-peach-light;
       }
     }
-    .become-ambassador__ranks--benefits{
+    .become-ambassador__ranks--benefits {
       text-align: left;
       color: $color-white;
       line-height: $line-height-relaxed;
@@ -447,4 +457,13 @@
       }
     }
   }
+  @media (max-width: $bp-sm) {
+    padding: 0;
+  }
 }
+// .site-container{
+//     @media (max-width: $bp-sm) {
+//      padding: $space-6;
+
+//     }
+// }

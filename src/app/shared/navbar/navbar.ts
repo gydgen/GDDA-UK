@@ -19,7 +19,7 @@ export class Navbar {
   readonly mobileOpen = signal(false);
 
   readonly navLinks = [
-    { label: 'About', path: '/about' },
+    { label: 'About', path: '/home' },
     { label: 'Event', path: '/event' },
     { label: 'Impact', path: '/impact' },
     { label: 'Get Involved', path: '/get-involved' },

@@ -192,6 +192,14 @@
   .event-card__link {
     color: $color-gold;
   }
+  .agm-icon{
+    font-size: $font-size-2xl;
+     color: $color-gold;
+     fill: 1;
+  }
+  .member-attend{
+    color: $color-text-gold;
+  }
 }
 
 .event-card--gold {
@@ -206,6 +214,28 @@
 
   .event-card__link {
     color: $color-text-gold-dark;
+  }
+}
+.event-card--grey {
+  @include flex-column;
+  background: url('/assets/images/event-health-background.png') center / cover no-repeat;
+  border-color: rgba($color-text-gold-dark, 0.2);
+
+  .event-card__tag,
+  .event-card__title {
+    color: $color-text-navy;
+  }
+  .event-card__text{
+    color: $color-text-dark;
+  }
+
+  .event-card__link {
+    color: $color-text-gold-dark;
+  }
+  .google-icon{
+    padding: $space-4;
+     background:rgba($color-forest-green, 0.1);
+     border-radius: 50% ;
   }
 }
 
@@ -388,7 +418,12 @@
   padding: $space-8;
   border-radius:  $border-radius-lg 0 0 $border-radius-lg; 
   @media (max-width: $bp-sm) {
-     border-radius: $border-radius-lg;  }
+     border-radius: $border-radius-lg; 
+     padding: $space-6; 
+     border-radius:  0;
+    //  border-radius: $border-radius-lg  $border-radius-lg 0 0;
+
+    }
 
 }
 
@@ -409,7 +444,7 @@
 .event-newsletter__form-wrap {
   border: 1px solid rgba($color-white, 0.24);
   border-radius: $border-radius-xl;
-  padding: $space-6;
+  // padding: $space-6;
 }
 
 .event-newsletter__form {
@@ -470,7 +505,7 @@
   border-radius: 0 $border-radius-lg $border-radius-lg 0;
   padding: $space-8;
   @media (max-width: $bp-md) {
-    border-radius: $border-radius-lg;
+    border-radius: 0;
   }
 
 
