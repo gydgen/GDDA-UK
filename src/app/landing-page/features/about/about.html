@@ -4,27 +4,38 @@
 <section class="hero" aria-labelledby="hero-headline">
   <div class="hero__bg" role="img" aria-label="Healthcare professional in a clinical setting"></div>
   <div class="hero__overlay" aria-hidden="true"></div>
+
   <div class="hero__inner site-container">
+
+    <!-- ── Left: copy + CTAs ── -->
     <div class="hero__content-left">
       <div>
         <span class="section-badge animate-fade-in-up anim-delay-1">Established Excellence</span>
       </div>
+
       <h1 id="hero-headline" class="hero__title animate-fade-in-up anim-delay-2">
         Connecting Ghanaian <span>Healthcare</span>
         Professionals.
       </h1>
+
       <p class="hero__subtitle animate-fade-in-up anim-delay-3">
-        The leading diaspora association dedicated to professional development, networking, and
-        impactful medical outreach programs across Ghana and the UK.
+        The leading diaspora association dedicated to professional
+        development, networking, and impactful medical outreach programs
+        across Ghana and the UK.
       </p>
+
       <div class="hero__actions animate-fade-in-up anim-delay-4">
         <a routerLink="" class="btn-secondary hero__cta">Join GDDA-UK</a>
-        <a routerLink="/event" class="btn-udda-outline hero__cta-secondary">View Events</a>
+        <!-- Transparent outline button — hover fills with gold tint -->
+        <a routerLink="/event" class="hero__cta-secondary">View Events</a>
       </div>
     </div>
-    <div class="hero__content-right animate-fade-in-up anim-delay-3" aria-hidden="true">
+
+    <!-- ── Right: floating card (stacks below CTAs on mobile) ── -->
+    <div class="hero__content-right animate-fade-in-up anim-delay-3">
       <div class="hero__card">
         <div class="hero__card-badge">Excellence<br />in care</div>
+
         <div class="hero__card-inner">
           <img
             ngSrc="assets/images/about-hero-image.png"
@@ -36,13 +47,16 @@
           <div class="hero__card-overlay">
             <p class="hero__quote">&ldquo;Moving Forward&rdquo;</p>
             <p class="hero__quote-text">
-              We are so proud to move forward together representing UK Ghanaian Doctors and Dentists
+              We are so proud to move forward together representing UK
+              Ghanaian Doctors and Dentists
             </p>
           </div>
         </div>
       </div>
     </div>
+
   </div>
+
   <div class="hero__scroll-hint" aria-hidden="true">
     <span></span>
   </div>
@@ -54,19 +68,21 @@
 <section class="about" aria-labelledby="about-heading">
   <div class="about__inner">
 
-    <!-- Top two-column: Image LEFT + Text RIGHT -->
+    <!-- ── Top two-column: Image LEFT + Text RIGHT ── -->
     <div class="about__grid">
 
-      <!-- Left: Image with overlay -->
-      <div class="about__image-wrap">
+      <!-- Left: Image with floating stat card -->
+      <div class="about__image-wrap animate-fade-in-up anim-delay-1">
         <img
           ngSrc="/assets/images/about-male-doctor.png"
-          alt="GDDA-UK members at a medical outreach event"
+          alt="GDDA-UK member, a smiling doctor holding a stethoscope"
           width="568"
           height="710"
           class="about__image"
         />
-        <div class="about__image-overlay" aria-hidden="true">
+
+        <!-- Floating 30+ Years card — properly contained on all breakpoints -->
+        <div class="about__image-overlay">
           <p class="about__overlay-stat">30+ Years</p>
           <p class="about__overlay-desc">
             Of collective medical impact and diaspora professional advocacy.
@@ -76,18 +92,23 @@
 
       <!-- Right: Text content -->
       <div class="about__text">
+        <!-- Soft peach glow — now visible on mobile too -->
         <div class="about__ellipse" aria-hidden="true"></div>
 
-        <div class="about__label">
+        <div class="about__label animate-fade-in-up anim-delay-1">
           <span class="section-badge--gold">About GDDA-UK</span>
         </div>
 
-        <h2 class="about__heading" id="about-heading">Professionalism with a Purpose.</h2>
+        <h2 class="about__heading animate-fade-in-up anim-delay-2" id="about-heading">
+          Professionalism with a Purpose.
+        </h2>
 
         <div class="about__missions">
-          <div class="about__mission">
-            <h3 class="about__mission-title d-flex align-items-center gap-2">
-              <span class="material-symbols-outlined">flag</span>Our Mission
+
+          <div class="about__mission animate-fade-in-up anim-delay-3">
+            <h3 class="about__mission-title">
+              <span class="material-symbols-outlined" aria-hidden="true">flag</span>
+              Our Mission
             </h3>
             <p class="about__mission-text">
               To unite Ghanaian doctors and dentists in the UK into one strong association,
@@ -96,9 +117,10 @@
             </p>
           </div>
 
-          <div class="about__mission">
-            <h3 class="about__mission-title d-flex align-items-center gap-2">
-              <span class="material-symbols-outlined">visibility</span>Our Vision
+          <div class="about__mission animate-fade-in-up anim-delay-4">
+            <h3 class="about__mission-title">
+              <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+              Our Vision
             </h3>
             <p class="about__mission-text">
               To be a trusted "home away from home" for Ghanaian healthcare professionals in the UK,
@@ -106,12 +128,13 @@
               contributions to both the UK and Ghana's health systems.
             </p>
           </div>
+
         </div>
       </div>
     </div>
 
-    <!-- Bottom: Regional Groups banner -->
-    <div class="about__regional" aria-label="Regional groups">
+    <!-- ── Bottom: Regional Groups banner ── -->
+    <div class="about__regional animate-fade-in-up anim-delay-2" aria-label="Regional groups">
       <div class="about__regional-text">
         <h2 class="about__regional-heading">
           Our Regional <br />
@@ -121,7 +144,7 @@
       <div class="about__regional-image">
         <img
           src="/assets/images/about-regional-map.png"
-          alt="GDDA-UK regional group members"
+          alt="Map showing GDDA-UK regional group locations across the UK"
           class="about__regional-img"
         />
       </div>
@@ -133,36 +156,48 @@
 <!-- ====================================================
      MEMBERSHIP AND BENEFITS SECTION
 ===================================================== -->
-<section class="membership">
-  <h3 class="membership-heading">Membership &amp; Benefits</h3>
-  <p class="membership-subheading">
+<section class="membership" aria-labelledby="membership-heading">
+
+  <h3 class="membership-heading animate-fade-in-up anim-delay-1" id="membership-heading">
+    Membership &amp; Benefits
+  </h3>
+  <p class="membership-subheading animate-fade-in-up anim-delay-2">
     Join a network that supports your career and fuels your passion for service.
   </p>
 
+  <!-- ── Benefit cards grid ── -->
   <div class="cards">
-    @for (benefit of benefits; track benefit.title) {
-      <div class="card">
-        <span class="material-symbols-outlined">{{ benefit.icon }}</span>
+    @for (benefit of benefits; track benefit.title; let i = $index) {
+      <div class="card animate-fade-in-up" [style.animation-delay]="(0.15 * (i + 1)) + 's'">
+        <span class="material-symbols-outlined" aria-hidden="true">{{ benefit.icon }}</span>
         <h6 class="card-title">{{ benefit.title }}</h6>
         <p class="card-text">{{ benefit.description }}</p>
       </div>
     }
   </div>
 
-  <div class="who-can-join">
+  <!-- ── Who can join banner ── -->
+  <div class="who-can-join animate-fade-in-up anim-delay-3" aria-labelledby="who-join-heading">
+
     <div class="who-can-join-info">
-      <h4 class="who-can-join-heading">Who can join?</h4>
+      <h4 class="who-can-join-heading" id="who-join-heading">Who can join?</h4>
       <p class="who-can-join-text">
         Doctors, Dentists, and Students of Ghanaian heritage currently in the UK.
       </p>
     </div>
+
+    <!-- Side-by-side on desktop, stacked on mobile -->
     <div class="who-can-join-buttons">
       <button routerLink="" class="btn-outline-secondary who-can-join-btn">
         Join Our Mailing List
       </button>
-      <button routerLink="/event" class="btn-secondary who-can-join-btn">Become a Member</button>
+      <button routerLink="/event" class="btn-secondary who-can-join-btn">
+        Become a Member
+      </button>
     </div>
+
   </div>
+
 </section>
 
 <!-- ====================================================
@@ -171,22 +206,29 @@
 <section class="impact" aria-labelledby="impact-heading">
   <div class="impact__inner">
 
-    <!-- Header row -->
-    <div class="impact__header">
+    <!-- ── Header row ── -->
+    <!-- Heading centred on mobile via flex-direction: column + align-items: center -->
+    <div class="impact__header animate-fade-in-up anim-delay-1">
       <div class="impact__header-text">
         <span class="section-badge--outline">Our Projects</span>
-        <h2 class="impact__heading" id="impact-heading">Transforming Healthcare<br />in Ghana</h2>
+        <h2 class="impact__heading" id="impact-heading">
+          Transforming Healthcare<br />in Ghana
+        </h2>
       </div>
       <a class="impact__view-all" routerLink="/impact" aria-label="View all projects">
         View All Projects
-        <span class="material-symbols-outlined">arrow_forward</span>
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
       </a>
     </div>
 
-    <!-- Row 1: Obstetric (wide) + Diabetic (tall) -->
+    <!-- ── Row 1: Obstetric (wide) + Diabetic (tall) ── -->
     <div class="impact__grid--row1" role="list">
 
-      <article class="impact__card impact__card--obstetric" role="listitem">
+      <!-- Wide left card -->
+      <article
+        class="impact__card impact__card--obstetric animate-fade-in-up anim-delay-2"
+        role="listitem"
+      >
         <img
           src="/assets/images/about-obstetic-fistula.png"
           alt="Medical professionals providing obstetric fistula care"
@@ -203,15 +245,20 @@
         </div>
       </article>
 
-      <article class="impact__card impact__card--diabetic" role="listitem">
+      <!-- Taller right card with "Learn more" link -->
+      <article
+        class="impact__card impact__card--diabetic animate-fade-in-up anim-delay-3"
+        role="listitem"
+      >
         <img
           ngSrc="/assets/images/about-diabetic-project.png"
           alt="Young patient receiving diabetes care"
           fill
           class="impact__card-img"
         />
-        <div class="impact__card-overlay">
+        <div class="impact__card-overlay impact__card-overlay--bottom">
           <div class="impact__card-content">
+            <span class="material-symbols-outlined" aria-hidden="true">water_drop</span>
             <h3 class="impact__card-title impact__card-title--lg">Diabetic Paediatric Project</h3>
             <p class="impact__card-desc">
               Empowering young patients and families with essential insulin and education.
@@ -222,7 +269,7 @@
               aria-label="Learn more about Diabetic Paediatric Project"
             >
               Learn more
-              <span class="material-symbols-outlined">open_in_new</span>
+              <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
             </a>
           </div>
         </div>
@@ -230,10 +277,14 @@
 
     </div>
 
-    <!-- Row 2: Surgical (navy) + Leaflets (grey) + Paediatric (gold) -->
+    <!-- ── Row 2: Surgical (navy) + Leaflets (grey) + Paediatric (gold) ── -->
     <div class="impact__grid--row2" role="list">
 
-      <article class="impact__card impact__card--surgical" role="listitem">
+      <!-- Navy — Surgical Skills Training -->
+      <article
+        class="impact__card impact__card--surgical animate-fade-in-up anim-delay-2"
+        role="listitem"
+      >
         <h3 class="impact__card-title">Surgical Skills Training</h3>
         <p class="impact__card-desc impact__card-desc--light">
           Hands-on workshops for Ghanaian surgeons, bridging the gap in advanced clinical
@@ -241,15 +292,23 @@
         </p>
       </article>
 
-      <article class="impact__card impact__card--leaflets" role="listitem">
-        <span class="material-symbols-outlined">description</span>
+      <!-- Grey — Health Information Leaflets -->
+      <article
+        class="impact__card impact__card--leaflets animate-fade-in-up anim-delay-3"
+        role="listitem"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">description</span>
         <h3 class="impact__card-title impact__card-title--dark">Health Information Leaflets</h3>
         <p class="impact__card-desc impact__card-desc--dark">
           Culturally relevant medical guidance translated for local community needs.
         </p>
       </article>
 
-      <article class="impact__card impact__card--paediatric" role="listitem">
+      <!-- Gold — The Paediatric Programme -->
+      <article
+        class="impact__card impact__card--paediatric animate-fade-in-up anim-delay-4"
+        role="listitem"
+      >
         <h3 class="impact__card-title impact__card-title--gold">The Paediatric Programme</h3>
         <p class="impact__card-desc impact__card-desc--brown">
           Specialized newborn care training and equipment donations for regional hospitals.
@@ -257,6 +316,7 @@
       </article>
 
     </div>
+
   </div>
 </section>
 
@@ -266,24 +326,38 @@
 <section class="events" aria-labelledby="events-heading">
   <div class="events__inner">
 
-    <!-- Header -->
-    <div class="events__header">
+    <!-- ── Section header ──
+         Desktop: heading left | "View Calendar" right
+         Mobile:  heading + sub centred; "View Calendar" moves below the list -->
+    <div class="events__header animate-fade-in-up anim-delay-1">
       <div class="events__header-text">
         <h2 class="events__heading" id="events-heading">Upcoming Events</h2>
         <p class="events__subheading">Connecting, learning, and celebrating excellence.</p>
       </div>
-      <a class="events__calendar-link" routerLink="/event" aria-label="View full events calendar">
+
+      <!-- Visible on desktop only — hidden on mobile via CSS -->
+      <a
+        class="events__calendar-link events__calendar-link--header"
+        routerLink="/event"
+        aria-label="View full events calendar"
+      >
         View Calendar
-        <span class="material-symbols-outlined">event</span>
+        <span class="material-symbols-outlined" aria-hidden="true">event</span>
       </a>
     </div>
 
-    <!-- Grid: Featured Event + Side List -->
-    <div class="events__grid">
+    <!-- ── Main grid: Featured card (left) + Side list (right) ── -->
+    <div class="events__grid animate-fade-in-up anim-delay-2">
 
-      <!-- Featured Event -->
+      <!-- ── Featured event card ── -->
       <article class="events__featured" aria-label="Featured event">
+
+        <!-- Image with date badge overlaid top-left -->
         <div class="events__featured-img-wrap">
+          <div class="events__featured-date-badge" aria-label="Event date: 24 March 2026">
+            <span class="events__date-day">24</span>
+            <span class="events__date-month">Mar 2026</span>
+          </div>
           <img
             ngSrc="/assets/images/about-annual-health-conference.png"
             alt="Annual Health Conference and Dinner Dance venue"
@@ -292,13 +366,13 @@
             class="events__featured-img"
           />
         </div>
+
+        <!-- Card body: title, description, meta -->
         <div class="events__featured-body">
-          <div class="events__featured-date-badge">
-            <span class="events__date-day">24</span>
-            <span class="events__date-month">Mar 2026</span>
-          </div>
           <div class="events__featured-info">
-            <h3 class="events__featured-title">Annual Health Conference &amp; Dinner Dance</h3>
+            <h3 class="events__featured-title">
+              Annual Health Conference &amp; Dinner Dance
+            </h3>
             <p class="events__featured-desc">
               Connect. Celebrate. Learn. Join the UK's leading Ghanaian healthcare community for a
               day of insight, impact, and inspiration.
@@ -306,8 +380,9 @@
             <ul class="events__featured-desc" style="padding-left: 1.25rem; margin: 0;">
               <li>Doors at 8:30am, event starts 9:30am BST</li>
             </ul>
+
             <div class="events__featured-meta">
-              <span class="events__location" aria-label="Location">
+              <span class="events__location" aria-label="Location: London, UK">
                 <svg
                   width="14"
                   height="14"
@@ -332,12 +407,17 @@
         </div>
       </article>
 
-      <!-- Side Events -->
+      <!-- ── Side events list ── -->
       <div class="events__side" role="list">
         @for (event of sideEvents; track event.title) {
-          <article class="events__side-item" role="listitem">
+          <article class="events__side-item animate-fade-in-up" role="listitem">
             <div class="card-image">
-              <img [ngSrc]="event.image" alt="{{ event.title }}" height="96" width="96" />
+              <img
+                [ngSrc]="event.image"
+                alt="{{ event.title }}"
+                height="96"
+                width="96"
+              />
             </div>
             <div class="card-body">
               <span class="events__side-date">{{ event.date }}</span>
@@ -346,6 +426,16 @@
             </div>
           </article>
         }
+
+        <!-- "View Calendar" shown here on mobile only (below the list) -->
+        <a
+          class="events__calendar-link events__calendar-link--footer"
+          routerLink="/event"
+          aria-label="View full events calendar"
+        >
+          View Calendar
+          <span class="material-symbols-outlined" aria-hidden="true">event</span>
+        </a>
       </div>
 
     </div>
@@ -358,28 +448,37 @@
 <section class="news" aria-labelledby="latest-news-heading">
   <div class="news__inner">
 
-    <!-- Header -->
-    <div class="news__header">
+    <!-- ── Section header ──
+         Desktop: heading left | "See Blog →" right
+         Mobile:  both centred via flex-direction: column + align-items: center -->
+    <div class="news__header animate-fade-in-up anim-delay-1">
       <div class="news__header-text">
         <h2 class="news__heading" id="latest-news-heading">Latest News &amp; Updates</h2>
       </div>
       <a
-        class="news__calendar-link"
+        class="news__blog-link"
         routerLink="/news"
-        aria-label="View all news and blogs"
+        aria-label="View all news and blog posts"
       >
         See Blog
-        <span class="material-symbols-outlined">east</span>
+        <span class="material-symbols-outlined" aria-hidden="true">east</span>
       </a>
     </div>
 
-    <!-- 3-column card grid (image top, content below) -->
+    <!-- ── 3-column card grid ──
+         Each card: full image on top (no cropping), content below -->
     <div class="news__grid">
-      @for (item of news; track item.title) {
-        <article class="news__card">
+      @for (item of news; track item.title; let i = $index) {
+        <article
+          class="news__card animate-fade-in-up"
+          [style.animation-delay]="(0.12 * (i + 1)) + 's'"
+          [attr.aria-label]="item.title"
+        >
+          <!-- Full image — height: auto ensures nothing is ever cut off -->
           <div class="news__card-image">
-            <img [src]="item.image" alt="{{ item.title }}" />
+            <img [src]="item.image" [alt]="item.title" loading="lazy" />
           </div>
+
           <div class="news__card-body">
             <p class="news__card-category">{{ item.category }}</p>
             <h3 class="news__card-title">{{ item.title }}</h3>
