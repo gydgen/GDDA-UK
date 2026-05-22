@@ -1,3 +1,5 @@
 export  {Footer} from "./footer/footer"
 export  {Navbar} from "./navbar/navbar"
 export  {ScrollRevealService} from "./services/scroll-reveal.service"
+export  {Carousal} from "./carousal/carousal"
+export type {CarouselTestimonial} from "./carousal/carousal"

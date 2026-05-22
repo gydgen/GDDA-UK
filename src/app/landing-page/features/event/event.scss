@@ -46,6 +46,11 @@
   flex-direction: column;
   align-items: flex-start;
   gap: $space-4;
+
+  @media (max-width: $bp-sm) {
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .event-hero__title {
@@ -404,7 +409,8 @@
   @media (max-width: $bp-sm) {
      flex-direction: column;
      @include flex-center;
-     text-align: center;   
+     text-align: center;  
+     margin: $space-8; 
     
   }
 }

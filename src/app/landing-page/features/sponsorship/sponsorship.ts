@@ -1,10 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Carousal, type CarouselTestimonial } from '../../../shared';
 import { InvolvementPath } from '../get-involved/get-involved';
 
 interface SponsorLogo {
   mark: string;
   name: string;
+}
+
+interface SponsorImage {
+  image: string;
+  imageAlt: string;
 }
 
 interface SponsorshipPath {
@@ -19,7 +25,7 @@ interface SponsorshipPath {
 
 @Component({
   selector: 'app-sponsorship',
-  imports: [RouterLink],
+  imports: [RouterLink, Carousal],
   templateUrl: './sponsorship.html',
   styleUrl: './sponsorship.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,13 +41,13 @@ export class Sponsorship {
     { mark: 'NMC', name: 'Nursing and Midwifery Council' },
     { mark: 'GMA', name: 'Ghana Medical Association' },
   ];
-  readonly silverSponsors: readonly any[] = [
+  readonly silverSponsors: readonly SponsorImage[] = [
     {
       image: '/assets/images/sponsor-1.png',
       imageAlt: 'GDDA-UK Annual Conference',
     },
   ];
-  readonly sapphireSponsors: readonly any[] = [
+  readonly sapphireSponsors: readonly SponsorImage[] = [
     {
       image: '/assets/images/sponsor-2.png',
       imageAlt: 'GDDA-UK Annual Conference',
@@ -75,7 +81,7 @@ export class Sponsorship {
       imageAlt: 'GDDA-UK Annual Conference',
     },
   ];
-  readonly auctionSponsors: readonly any[] = [
+  readonly auctionSponsors: readonly SponsorImage[] = [
     {
       image: '/assets/images/auction-1.png',
       imageAlt: 'GDDA-UK Annual Conference',
@@ -141,6 +147,44 @@ export class Sponsorship {
       icon: 'groups',
       title: 'Networking Opportunities',
       text: 'Annual gala balls and professional symposia that foster mentorship and interdisciplinary collaboration.',
+    },
+  ];
+
+  readonly testimonials: readonly CarouselTestimonial[] = [
+    {
+      id: 'alpha-health-trust',
+      quote:
+        'Partnering with the Ghanaian Doctors & Dentists Association has been a rewarding experience. Our support has directly contributed to improving healthcare access in underserved communities.',
+    },
+    {
+      id: 'nexus-lifecare',
+      quote:
+        'The strategic sponsorship opportunities provided by GDDA-UK have enabled us to align our corporate social responsibility goals with meaningful initiatives that resonate with our values and stakeholders.',
+    },
+    {
+      id: 'sterling-medical-systems',
+      quote:
+        'The annual gala balls and professional symposia organised by GDDA-UK have been invaluable for fostering mentorship and interdisciplinary collaboration, creating a vibrant community of healthcare professionals dedicated to improving outcomes in Ghana.',
+    },
+    {
+      id: 'kingsbridge-uk',
+      quote:
+        'Our team has seen first-hand how GDDA-UK translates sponsorship into practical outcomes, from equipment support to specialist training that strengthens local capacity.',
+    },
+    {
+      id: 'nova-pharma',
+      quote:
+        'The transparency and communication from GDDA-UK make collaboration easy. We always understand where support is going and the impact it creates.',
+    },
+    {
+      id: 'evergreen-charity',
+      quote:
+        'Sponsoring GDDA-UK initiatives has expanded our reach and connected us with clinicians who are deeply committed to sustainable health improvements.',
+    },
+    {
+      id: 'bridgepoint-consulting',
+      quote:
+        'This partnership goes beyond branding. It is a meaningful platform for contributing to mentorship, outreach, and long-term healthcare resilience.',
     },
   ];
 }

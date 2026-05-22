@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center align-items-center carousel-container pb-4">
+<div
+  class="testimonials"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="Partner testimonials"
+  [style.--active-index]="activeTestimonialIndex()"
+  (mouseenter)="pauseAutoScroll()"
+  (mouseleave)="resumeAutoScroll()"
+  (focusin)="pauseAutoScroll()"
+  (focusout)="resumeAutoScroll()"
+>
+
+  
+
+  <div
+    class="testimonials__track"
+    [class.testimonials__track--no-transition]="!isTransitionEnabled()"
+    (transitionend)="handleCarouselTransitionEnd()"
+  >
+    @for (slide of carouselTestimonials(); track slide.key) {
+      <article
+        class="testimonial__inner-container"
+        [class.testimonial--active]="activeTestimonialIndex() === $index"
+        [attr.aria-label]="'Testimonial ' + (($index % testimonials().length) + 1) + ' of ' + testimonials().length"
+        [attr.aria-hidden]="activeTestimonialIndex() !== $index"
+      >
+        <p class="testimonial__quote">"{{ slide.testimonial.quote }}"</p>
+        <img
+          ngSrc="/assets/images/quote-down.png"
+          alt=""
+          width="42"
+          height="42"
+          aria-hidden="true"
+          class="testimonial__quote-icon"
+        />
+      </article>
+    }
+  </div>
+</div>
+</div>
