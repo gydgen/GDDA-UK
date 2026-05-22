@@ -1,5 +1,6 @@
 <header class="navbar-wrapper" role="banner">
   <div class="navbar-inner">
+
     <!-- Logo -->
     <a routerLink="" class="navbar-brand gap-4" (click)="closeMobile()" aria-label="GDDA-UK">
       <span class="brand-logo" aria-hidden="true">LOGO</span>
@@ -9,31 +10,18 @@
     <!-- Desktop nav -->
     <nav class="navbar-nav flex-row gap-4" role="navigation" aria-label="Main navigation">
       @for (link of navLinks; track link.path) {
-        <a
-          [routerLink]="link.path"
-          routerLinkActive="nav-link--active"
-          class="nav-link text-capitalize"
-          [attr.aria-current]="null">
-          {{ link.label }}
-        </a>
+        <a [routerLink]="link.path" routerLinkActive="nav-link--active" class="nav-link text-capitalize" [attr.aria-current]="null">{{ link.label }}</a>
       }
     </nav>
 
-    <!-- CTA -->
+    <!-- CTA + Hamburger -->
     <div class="navbar-actions">
-      <a
-        href="#donate"
-        class="btn btn-udda-outline navbar-cta"
-        aria-label="Donate to UDDA UK">
+      <a href="#membership" class="btn btn-udda-outline navbar-cta" aria-label="Membership">
         Membership
       </a>
-       <a
-        href="#donate"
-        class="btn btn-udda-primary navbar-cta"
-        aria-label="Donate to UDDA UK">
+      <a href="#donate" class="btn btn-udda-primary navbar-cta" aria-label="Donate to GDDA-UK">
         Donate
       </a>
-      <!-- Mobile hamburger -->
       <button
         class="navbar-burger"
         type="button"
@@ -56,26 +44,41 @@
     role="dialog"
     aria-modal="true"
     aria-label="Mobile navigation">
-    <nav aria-label="Mobile navigation links">
-      @for (link of navLinks; track link.path) {
-        <a
-          [routerLink]="link.path"
-          routerLinkActive="nav-link--active"
-          class="mobile-nav__link"
-          (click)="closeMobile()">
-          {{ link.label }}
+
+    <div class="mobile-nav__header">
+      <span class="mobile-nav__brand">GDDA-UK</span>
+      <button
+        class="mobile-nav__close"
+        type="button"
+        aria-label="Close navigation"
+        (click)="closeMobile()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav__divider"></div>
+
+    <nav class="mobile-nav__links" aria-label="Mobile navigation links">
+      @for (link of navLinks; track link.path; let i = $index) {
+        <a [routerLink]="link.path" routerLinkActive="nav-link--active" class="mobile-nav__link" (click)="closeMobile()">
+          <span class="mobile-nav__link-inner">
+            <span class="mobile-nav__index">0{{ i + 1 }}</span>
+            {{ link.label }}
+          </span>
+          <svg class="mobile-nav__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
         </a>
       }
-      <div>
-
-          <a href="" class="btn-udda-primary mobile-nav__cta" (click)="closeMobile()">
-          Membership
-        </a>
-        <a href="" class="btn-udda-primary mobile-nav__cta" (click)="closeMobile()">
-          Donate
-        </a>
-      </div>
     </nav>
+
+    <div class="mobile-nav__cta">
+      <a href="#membership" class="btn btn-udda-outline" (click)="closeMobile()">Membership</a>
+      <a href="#donate" class="btn btn-udda-primary" (click)="closeMobile()">Donate</a>
+    </div>
   </div>
 
   <!-- Overlay -->

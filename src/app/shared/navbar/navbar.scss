@@ -5,23 +5,16 @@
 // Navbar Wrapper
 // ============================================================
 .navbar-wrapper {
-  // position: sticky;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  // z-index: 1000;
   font-family: 'Manrope', sans-serif;
   background: $color-white;
   transition: background $transition-smooth, box-shadow $transition-smooth;
 
-  // Scrolled state (applied via host binding)
   :host(.navbar--scrolled) & {
     background: $color-navy;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
   }
 }
 
-// Host default state (transparent over hero)
 :host {
   display: block;
   position: sticky;
@@ -56,15 +49,13 @@
   }
 }
 
-.brand-logo, .brand-tag {
-
+.brand-logo,
+.brand-tag {
   font-size: $font-size-lg;
   text-transform: uppercase;
   font-weight: $font-weight-bold;
   color: $color-text-navy;
- 
 }
-
 
 // ============================================================
 // Desktop Nav
@@ -105,14 +96,7 @@
   }
 
   &:hover {
-    // color: $color-white;
     border-bottom: 2px solid $color-gold;
-    //   transform: translateX(-50%) scaleX(1);
-
-
-    // &::after {
-    // //   transform: translateX(-50%) scaleX(1);
-    // }
   }
 
   &:focus-visible {
@@ -120,14 +104,7 @@
   }
 
   &.nav-link--active {
-    // color: $color-gold;
-      border-bottom: 2px solid $color-gold;
-
-
-    // &::after {
-    // //   transform: translateX(-50%) scaleX(1);
-    //   border-bottom: 4px solid $color-gold;
-    // }
+    border-bottom: 2px solid $color-gold;
   }
 }
 
@@ -195,42 +172,50 @@
   bottom: 0;
   width: min(320px, 85vw);
   background: $color-navy-dark;
-  padding: $space-20 $space-8 $space-8;
   display: flex;
   flex-direction: column;
   transform: translateX(100%);
-  transition: transform $transition-smooth;
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
   z-index: 1001;
   overflow-y: auto;
 
   &--open {
     transform: translateX(0);
   }
-
-  nav {
-    display: flex;
-    flex-direction: column;
-    gap: $space-2;
-  }
 }
 
-.mobile-nav__link {
-  padding: $space-4 $space-6;
-  color: rgba($color-white, 0.85);
-  font-size: $font-size-md;
-  font-weight: $font-weight-medium;
-  border-radius: $border-radius;
-  text-decoration: none;
+.mobile-nav__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-6 $space-6 0;
+}
+
+.mobile-nav__brand {
+  font-family: 'Manrope', sans-serif;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-white;
+}
+
+.mobile-nav__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba($color-white, 0.08);
+  border: 1px solid rgba($color-white, 0.12);
+  color: rgba($color-white, 0.7);
+  cursor: pointer;
   transition: background $transition-base, color $transition-base;
 
   &:hover {
-    background: rgba($color-white, 0.08);
+    background: rgba($color-white, 0.14);
     color: $color-white;
-  }
-
-  &.nav-link--active {
-    color: $color-gold;
-    background: rgba($color-gold, 0.1);
   }
 
   &:focus-visible {
@@ -238,12 +223,91 @@
   }
 }
 
-.mobile-nav__cta {
-  margin-top: $space-6;
-  text-align: center;
-  justify-content: center;
+.mobile-nav__divider {
+  height: 1px;
+  background: rgba($color-white, 0.08);
+  margin: $space-6 $space-6;
 }
 
+.mobile-nav__links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 $space-3;
+  flex: 1;
+}
+
+.mobile-nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-4;
+  border-radius: $border-radius;
+  color: rgba($color-white, 0.85);
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  transition: background $transition-base, color $transition-base;
+
+  &:hover {
+    background: rgba($color-white, 0.07);
+    color: $color-white;
+
+    .mobile-nav__arrow {
+      stroke: rgba($color-white, 0.5);
+      transform: translateX(2px);
+    }
+  }
+
+  &.nav-link--active {
+    color: $color-gold;
+
+    .mobile-nav__index {
+      color: $color-gold;
+      opacity: 0.6;
+    }
+
+    .mobile-nav__arrow {
+      stroke: $color-gold;
+    }
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.mobile-nav__link-inner {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.mobile-nav__index {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-regular;
+  color: rgba($color-white, 0.2);
+  font-variant-numeric: tabular-nums;
+  min-width: 20px;
+}
+
+.mobile-nav__arrow {
+  stroke: rgba($color-white, 0.2);
+  flex-shrink: 0;
+  transition: stroke $transition-base, transform $transition-base;
+}
+
+// ── CTA buttons ──
+.mobile-nav__cta {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding: $space-6 $space-6 $space-8;
+}
+
+// ============================================================
+// Overlay
+// ============================================================
 .mobile-overlay {
   position: fixed;
   inset: 0;

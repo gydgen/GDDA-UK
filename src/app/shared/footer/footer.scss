@@ -1,19 +1,31 @@
+@use 'sass:color';
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
+// ============================================================
+// SITE FOOTER
+// ============================================================
 .site-footer {
   background: $color-navy-light;
   color: rgba($color-white, 0.8);
 }
 
+// ============================================================
+// MAIN FOOTER GRID
+// Desktop:  brand | explore | members | newsletter  (4 cols)
+// Tablet:   2-column wrap
+// Mobile:   single column, centred
+// ============================================================
 .footer-main {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1.5fr;
   gap: $space-8;
   padding: $space-20 $space-12;
+  align-items: start;
 
   @media (max-width: $bp-lg) {
     grid-template-columns: 1fr 1fr;
+    gap: $space-10 $space-8;
   }
 
   @media (max-width: $bp-sm) {
@@ -24,15 +36,21 @@
   }
 }
 
-// Brand
+// ============================================================
+// BRAND COLUMN
+// ============================================================
 .footer-brand {
   display: flex;
   flex-direction: column;
-  gap: $space-6;
+  gap: $space-5;
+
+  @media (max-width: $bp-sm) {
+    align-items: center;
+  }
 }
 
 .footer-logo {
-  display: flex;
+  display: inline-flex;
   align-items: baseline;
   gap: 2px;
   text-decoration: none;
@@ -46,34 +64,33 @@
 
 .brand-logo {
   font-family: $font-classic;
-  font-size: 1.5rem;
-  font-weight: $font-weight-bold;
+  font-size: 1.75rem;
+  font-weight: $font-weight-extrabold;
   color: $color-yellow;
-}
-
-.brand-tag {
-  font-family: $font-body;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-semibold;
-  color: $color-gold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  align-self: flex-end;
-  margin-bottom: 3px;
+  letter-spacing: -0.5px;
 }
 
 .footer-brand__tagline {
   font-size: $font-size-sm;
-  color: $color-white;
+  color: rgba($color-white, 0.70);
   line-height: $line-height-relaxed;
   font-family: $font-basic;
-  // max-width: 300px;
+  max-width: 260px;
   margin: 0;
+
+  @media (max-width: $bp-sm) {
+    max-width: 100%;
+  }
 }
 
+// ── Social icons ──
 .footer-socials {
   display: flex;
   gap: $space-3;
+
+  @media (max-width: $bp-sm) {
+    justify-content: center;
+  }
 }
 
 .social-btn {
@@ -82,15 +99,21 @@
   justify-content: center;
   width: 38px;
   height: 38px;
+  border-radius: $border-radius-sm;
   background: $color-blue-light;
-  color: rgba($color-white, 0.7);
+  color: rgba($color-white, 0.75);
   text-decoration: none;
-  transition: background $transition-base, color $transition-base, transform $transition-smooth;
+  transition:
+    background  $transition-base,
+    color       $transition-base,
+    transform   $transition-smooth,
+    box-shadow  $transition-base;
 
   &:hover {
     background: $color-gold;
     color: $color-navy-dark;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba($color-gold, 0.30);
   }
 
   &:focus-visible {
@@ -98,16 +121,12 @@
   }
 }
 
-// Nav
+// ============================================================
+// NAV COLUMNS  (Explore + Members)
+// ============================================================
 .footer-nav {
-  @media (max-width: $bp-lg) {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
   @media (max-width: $bp-sm) {
     grid-column: 1;
-    grid-row: auto;
   }
 }
 
@@ -116,9 +135,8 @@
   font-size: $font-size-base;
   font-weight: $font-weight-bold;
   color: $color-white;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: $space-6;
+  letter-spacing: 0.5px;
+  margin-bottom: $space-5;
 }
 
 .footer-nav ul {
@@ -131,13 +149,37 @@
 }
 
 .footer-nav__link {
+  font-family: $font-basic;
   font-size: $font-size-sm;
-  color: $color-white;
+  color: rgba($color-white, 0.68);
   text-decoration: none;
-  transition: color $transition-base;
+  position: relative;
+  display: inline-block;
+  transition: color $transition-base, padding-left $transition-base;
+
+  // Animated gold dot slides in from the left on hover
+  &::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: $color-gold;
+    opacity: 0;
+    transition: opacity $transition-base, left $transition-base;
+  }
 
   &:hover {
-    color: $color-gold;
+    color: $color-white;
+    padding-left: 12px;
+
+    &::before {
+      opacity: 1;
+      left: 0;
+    }
   }
 
   &:focus-visible {
@@ -145,37 +187,49 @@
     border-radius: $border-radius-sm;
   }
 }
-// CTA
+
+// ============================================================
+// NEWSLETTER CTA CARD
+// ============================================================
 .footer-cta {
   background: $color-blue;
   border: 1px solid rgba($color-navy, 0.08);
   border-radius: $border-radius-md;
   padding: $space-10;
+
+  // Spans full width on tablet when it drops to its own row
+  @media (max-width: $bp-lg) {
+    grid-column: 1 / -1;
+  }
+
   @media (max-width: $bp-sm) {
     padding: $space-6;
+    grid-column: 1;
   }
 }
 
 .footer-cta__title {
   font-family: $font-classic;
-  font-size: $font-size-base;
+  font-size: $font-size-lg;
   font-weight: $font-weight-bold;
   color: $color-yellow;
-  margin-bottom: $space-3;
+  margin-bottom: $space-2;
 }
 
 .footer-cta__text {
+  font-family: $font-basic;
   font-size: $font-size-sm;
   color: rgba($color-white, 0.65);
   line-height: $line-height-relaxed;
-  margin-bottom: $space-6;
+  margin-bottom: $space-5;
 }
 
-.footer-cta__form{
+.footer-cta__form {
   display: flex;
   gap: $space-2;
   width: 100%;
 }
+
 .footer-cta__input {
   flex: 1;
   padding: $space-3 $space-4;
@@ -183,30 +237,55 @@
   border: 1px solid rgba($color-blue, 0.9);
   background: $color-navy;
   color: $color-white;
+  font-family: $font-basic;
   font-size: $font-size-sm;
+  transition: border-color $transition-base, background $transition-base;
 
   &::placeholder {
     color: rgba($color-white, 0.4);
   }
 
   &:focus-visible {
-    // @include focus-ring;
+    outline: none;
     border-color: rgba($color-white, 0.4);
     background: transparent;
   }
 }
 
 .footer-cta__btn {
-  // @include btn-secondary;
   background-color: $color-yellow;
   color: $color-navy;
-  & .span{
-    @include flex-center;
+  border: none;
+  border-radius: $border-radius;
+  padding: $space-3 $space-4;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    background  $transition-base,
+    transform   $transition-smooth,
+    box-shadow  $transition-base;
 
+  .material-symbols-outlined {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background: color.adjust($color-yellow, $lightness: -8%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba($color-yellow, 0.30);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
   }
 }
 
-// Bottom bar
+// ============================================================
+// FOOTER BOTTOM BAR
+// ============================================================
 .footer-bottom {
   border-top: 1px solid rgba($color-white, 0.08);
   padding: $space-5 0;
@@ -214,33 +293,57 @@
 
 .footer-bottom__inner {
   @include flex-between;
-  gap: $space-6;
+  gap: $space-4;
   flex-wrap: wrap;
-    @media (max-width: $bp-sm) {
-      text-align: center;
-      @include flex-center;
-    }
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: $space-2;
+  }
 }
 
 .footer-bottom__copy {
+  font-family: $font-basic;
   font-size: $font-size-xs;
-  color: rgba($color-white, 0.45);
+  color: rgba($color-white, 0.40);
   margin: 0;
 }
 
+// Charity number + developer credit — right-aligned on desktop
 .footer-bottom__links {
- font-size: $font-size-xs;
- font-weight: $font-weight-semibold;
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  flex-wrap: wrap;
 
-
-  span {
-    color: rgba($color-white, 0.25);
+  @media (max-width: $bp-sm) {
+    justify-content: center;
   }
+}
+
+.footer-bottom__charity {
+  font-family: $font-basic;
+  font-size: $font-size-xs;
+  color: rgba($color-white, 0.40);
+}
+
+// Separator dot between charity and credit
+.footer-bottom__sep {
+  color: rgba($color-white, 0.20);
+  font-size: $font-size-xs;
+}
+
+.footer-bottom__credit {
+  font-family: $font-basic;
+  font-size: $font-size-xs;
+  color: rgba($color-white, 0.40);
 
   a {
-    font-size: $font-size-xs;
-    color: rgba($color-white, 0.45);
+    color: rgba($color-gold, 0.75);
     text-decoration: none;
+    font-weight: $font-weight-semibold;
     transition: color $transition-base;
 
     &:hover {
