@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
@@ -272,7 +273,7 @@
   }
 
   &:hover {
-    background: darken($color-yellow, 8%);
+    background: color.adjust($color-yellow, $lightness: -8%);
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba($color-yellow, 0.30);
   }

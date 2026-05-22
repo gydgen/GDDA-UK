@@ -10,13 +10,7 @@
     <!-- Desktop nav -->
     <nav class="navbar-nav flex-row gap-4" role="navigation" aria-label="Main navigation">
       @for (link of navLinks; track link.path) {
-        
-          [routerLink]="link.path"
-          routerLinkActive="nav-link--active"
-          class="nav-link text-capitalize"
-          [attr.aria-current]="null">
-          {{ link.label }}
-        </a>
+        <a [routerLink]="link.path" routerLinkActive="nav-link--active" class="nav-link text-capitalize" [attr.aria-current]="null">{{ link.label }}</a>
       }
     </nav>
 
@@ -69,11 +63,7 @@
 
     <nav class="mobile-nav__links" aria-label="Mobile navigation links">
       @for (link of navLinks; track link.path; let i = $index) {
-        
-          [routerLink]="link.path"
-          routerLinkActive="nav-link--active"
-          class="mobile-nav__link"
-          (click)="closeMobile()">
+        <a [routerLink]="link.path" routerLinkActive="nav-link--active" class="mobile-nav__link" (click)="closeMobile()">
           <span class="mobile-nav__link-inner">
             <span class="mobile-nav__index">0{{ i + 1 }}</span>
             {{ link.label }}
