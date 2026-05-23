@@ -2069,6 +2069,35 @@
   margin-top: 4px;
 }
 
+.contact-home__toast {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1200;
+  margin: 0;
+  padding: $space-3 $space-4;
+  border-radius: $border-radius;
+  background: rgba($color-navy-dark, 0.94);
+  color: $color-white;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+  font-family: $font-basic;
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+  animation: contact-home-toast-in 0.24s ease both;
+}
+
+@keyframes contact-home-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 // ============================================================
 // UTILITY
 // ============================================================

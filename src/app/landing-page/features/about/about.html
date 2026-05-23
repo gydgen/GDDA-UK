@@ -694,6 +694,11 @@
           Send Message
         </button>
       </form>
+      @if (showSuccessToast()) {
+        <p class="contact-home__toast" role="status" aria-live="polite">
+          Message sent successfully.
+        </p>
+      }
     </div>
 
   </div>
