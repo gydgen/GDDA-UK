@@ -310,6 +310,9 @@
   .sponsor-hero__inner {
     padding-top: calc(#{$navbar-height} + #{$space-8});
     padding-bottom: $space-12;
+    @include flex-column;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -323,6 +326,7 @@
   .sponsor-cta__actions,
   .sponsor-cta__actions a {
     width: 100%;
+    @include flex-center;
   }
 
   .sponsor-hero__actions a,

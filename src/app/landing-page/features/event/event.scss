@@ -98,6 +98,9 @@
   border-radius: $border-radius-lg;
   overflow: hidden;
   box-shadow: $shadow-lg;
+  @media (max-width: $bp-sm) {
+    @include flex-center;
+  }
 }
 
 .event-hero__card-image {
@@ -105,6 +108,9 @@
   height: auto;
   display: block;
   object-fit: cover;
+  @media (max-width: $bp-sm) {
+    width: 80%;
+  }
 }
 
 .event-hero__note {
@@ -114,7 +120,13 @@
   border-radius: $border-radius;
   background: $color-peach-light;
   padding: $space-8 $space-4;
-}
+  @media (max-width: $bp-sm) {
+    left: -1rem;
+    bottom: -1rem;
+    width: 70%;
+    // transform: translateX(-50%);
+  
+}}
 
 .event-hero__note-value {
   margin: 0;
@@ -213,21 +225,33 @@
   }
   .member-attend {
     color: $color-text-gold;
+    @include flex-center;
+    @media (max-width: $bp-sm) {
+     padding: $space-3 $space-4;
+    }
   }
 }
 
 .event-card--gold {
   background: $color-peach-light;
   border-color: rgba($color-text-gold-dark, 0.2);
+  @include flex-center;
+  gap: $space-8;
 
   .event-card__tag,
   .event-card__title,
   .event-card__text {
     color: $color-text-navy;
   }
+.event-card__title {
+font-size: $font-size-lg;
+  }
+
 
   .event-card__link {
     color: $color-text-gold-dark;
+  }.btn-udda-primary{
+    width:100%;
   }
 }
 .event-card--grey {
@@ -468,6 +492,9 @@
 .event-newsletter__field-row {
   display: flex;
   gap: $space-3;
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+  }
 }
 
 .event-newsletter__input {
@@ -603,7 +630,8 @@
   .event-hero__actions {
     .btn-outline-white,
     .btn-secondary {
-      padding: $space-3 $space-4;
+      padding: $space-2;
+      font-size: $font-size-xs;
     }
   }
 
@@ -612,10 +640,6 @@
   .event-newsletter__submit {
     // width: 100%;
     justify-content: center;
-  }
-
-  .event-hero__card {
-    display: none;
   }
 
   .event-upcoming-card {
@@ -631,5 +655,6 @@
   position: relative;
   @media (max-width: $bp-sm) {
     width: 100%;
+    
   }
 }
