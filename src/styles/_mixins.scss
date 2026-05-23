@@ -71,9 +71,9 @@
   border-radius: $border-radius-md;
 
   &:hover, &:focus-visible {
-    background: $color-gold;
-    border-color: $color-text-gold;
-    color: $color-text-gold;
+    background: $color-white;
+    border-color: $color-navy;
+    color:$color-navy;
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba($color-navy, 0.4);
   }
@@ -107,7 +107,7 @@
 
   &:hover, &:focus-visible {
     background: transparent;
-    color: $color-text-gold;
+    color: $color-gold;
     border-color: $color-gold;
     // transform: translateY(-1px);
     // box-shadow: 0 6px 20px rgba($color-gold, 0.4);

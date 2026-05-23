@@ -167,7 +167,11 @@
   @include flex-column;
   background-color: $color-lighter-grey;
   padding: $space-16;
+  margin: $space-4 0;
   text-align: center;
+   @media (max-width: $bp-md) {
+    padding: $space-12 0;
+   }
   .btns {
     display: flex;
     gap: $space-4;
@@ -176,7 +180,6 @@
       width: 100%;
       @include flex-column;
       justify-content: center;
-      padding: $space-2;
       a {
           width: 100%;
           justify-content: center;
@@ -184,9 +187,9 @@
         }
     }
   }
-    @media (max-width: $bp-md) {
-      padding: $space-2;
-    }
+    // @media (max-width: $bp-md) {
+    //   padding: $space-2;
+    // }
 }
 
 .gi-channels__title {
