@@ -411,6 +411,12 @@
     line-height: $line-height-snug;
     color: $color-dark-green;
   }
+  .become-ambassador__inner{
+    width: 50%;
+    @media (max-width: $bp-md) {
+      width: 100%;
+    }
+  }
   .become-ambassador__inner-image {
     // width: 50%;
     @media (max-width: $bp-md) {
