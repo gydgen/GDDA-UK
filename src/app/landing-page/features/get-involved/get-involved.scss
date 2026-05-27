@@ -116,6 +116,19 @@
   display: flex;
   flex-direction: column;
   gap: $space-3;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 16px 40px rgba(0, 0, 0, 0.1),
+      0 6px 16px rgba(0, 0, 0, 0.06);
+  }
 }
 
 .gi-overview__icon {
@@ -154,7 +167,11 @@
   @include flex-column;
   background-color: $color-lighter-grey;
   padding: $space-16;
+  margin: $space-4 0;
   text-align: center;
+   @media (max-width: $bp-md) {
+    padding: $space-12 0;
+   }
   .btns {
     display: flex;
     gap: $space-4;
@@ -163,7 +180,7 @@
       width: 100%;
       @include flex-column;
       justify-content: center;
-      padding: $space-2;
+      padding: 0 $space-4;
       a {
           width: 100%;
           justify-content: center;
@@ -171,9 +188,9 @@
         }
     }
   }
-    @media (max-width: $bp-md) {
-      padding: $space-2;
-    }
+    // @media (max-width: $bp-md) {
+    //   padding: $space-2;
+    // }
 }
 
 .gi-channels__title {

@@ -125,10 +125,15 @@
             ></textarea>
           </div>
 
-          <button type="submit" class="btn btn--navy contact-page__submit">
+          <button type="submit" class="btn btn--navy contact-page__submit w-100">
             Send Message
           </button>
         </form>
+        @if (showSuccessToast()) {
+          <p class="contact-page__toast" role="status" aria-live="polite">
+            Message sent successfully.
+          </p>
+        }
       </div>
 
     </div>

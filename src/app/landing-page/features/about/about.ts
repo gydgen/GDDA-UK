@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, ChangeDetectionStrategy, OnDestroy, inject, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -46,8 +47,14 @@ interface News {
   styleUrl: './about.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class About {
+export class About implements OnDestroy {
   private readonly fb = inject(FormBuilder);
+  private readonly http = inject(HttpClient);
+  private readonly formspreeEndpoint = 'https://formspree.io/f/xjgzorpb';
+  private readonly ccRecipient = 'asarerichmond94@gmail.com';
+  private toastTimeoutId: ReturnType<typeof setTimeout> | null = null;
+
+  readonly showSuccessToast = signal(false);
 
   readonly contactForm: FormGroup = this.fb.group({
     fullName: ['', Validators.required],
@@ -57,9 +64,57 @@ export class About {
   });
 
   onContactSubmit(): void {
-    if (this.contactForm.valid) {
-      this.contactForm.reset();
+    if (!this.contactForm.valid) {
+      this.contactForm.markAllAsTouched();
+      return;
     }
+
+    const formValue = this.contactForm.getRawValue();
+
+    this.http
+      .post(
+        this.formspreeEndpoint,
+        {
+          name: formValue.fullName,
+          email: formValue.email,
+          specialty: formValue.specialty,
+          message: formValue.message,
+          subject: 'About Page Contact Form Submission',
+          _cc: this.ccRecipient,
+        },
+        {
+          headers: { Accept: 'application/json' },
+        },
+      )
+      .subscribe({
+        next: () => {
+          this.contactForm.reset();
+          this.displaySuccessToast();
+        },
+        error: (error: unknown) => {
+          console.error('Failed to submit About contact form to Formspree.', error);
+        },
+      });
+  }
+
+  ngOnDestroy(): void {
+    if (this.toastTimeoutId !== null) {
+      clearTimeout(this.toastTimeoutId);
+      this.toastTimeoutId = null;
+    }
+  }
+
+  private displaySuccessToast(): void {
+    this.showSuccessToast.set(true);
+
+    if (this.toastTimeoutId !== null) {
+      clearTimeout(this.toastTimeoutId);
+    }
+
+    this.toastTimeoutId = setTimeout(() => {
+      this.showSuccessToast.set(false);
+      this.toastTimeoutId = null;
+    }, 4000);
   }
 
   readonly sideEvents: SideEvent[] = [
@@ -183,4 +238,3 @@ export class About {
     },
   ];
 }
-

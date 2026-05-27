@@ -310,6 +310,9 @@
   .sponsor-hero__inner {
     padding-top: calc(#{$navbar-height} + #{$space-8});
     padding-bottom: $space-12;
+    @include flex-column;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -323,6 +326,7 @@
   .sponsor-cta__actions,
   .sponsor-cta__actions a {
     width: 100%;
+    @include flex-center;
   }
 
   .sponsor-hero__actions a,
@@ -365,6 +369,7 @@
   padding: $space-10 $space-8;
   border-radius: $border-radius-xl;
   margin: $space-12 0;
+  overflow-x: clip;
   &__title {
     color: $color-white;
     font-size: $font-size-2xl;
@@ -405,6 +410,12 @@
     font-weight: $font-weight-bold;
     line-height: $line-height-snug;
     color: $color-dark-green;
+  }
+  .become-ambassador__inner{
+    width: 50%;
+    @media (max-width: $bp-md) {
+      width: 100%;
+    }
   }
   .become-ambassador__inner-image {
     // width: 50%;
@@ -524,6 +535,19 @@
   display: flex;
   flex-direction: column;
   gap: $space-3;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 16px 40px rgba(0, 0, 0, 0.1),
+      0 6px 16px rgba(0, 0, 0, 0.06);
+  }
 }
 
 .gi-overview__icon {
@@ -567,9 +591,21 @@
   font-weight: $font-weight-semibold;
   color: $color-text-gold-dark;
   text-decoration: none;
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+
+  .material-symbols-outlined {
+    transition: transform 0.25s ease;
+  }
 
   &:hover {
     color: $color-text-gold;
+    gap: $space-3;
+
+    .material-symbols-outlined {
+      transform: translateX(3px);
+    }
   }
 
   &:focus-visible {
@@ -577,3 +613,4 @@
     border-radius: $border-radius-sm;
   }
 }
+

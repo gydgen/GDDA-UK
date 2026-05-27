@@ -22,7 +22,12 @@
 .event-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(108deg, rgba($color-navy-dark, 0.94) 0%, rgba($color-navy, 0.8) 58%, rgba($color-navy, 0.44) 100%);
+  background: linear-gradient(
+    108deg,
+    rgba($color-navy-dark, 0.94) 0%,
+    rgba($color-navy, 0.8) 58%,
+    rgba($color-navy, 0.44) 100%
+  );
 }
 
 .event-hero__inner {
@@ -35,10 +40,9 @@
 }
 
 .event-hero__layout {
-  display: grid;
-  grid-template-columns: 1fr 20rem;
-  gap: $space-8;
-  align-items: center;
+@include flex-between;
+  // gap: $space-8;
+  // align-items: center;
 }
 
 .event-hero__copy {
@@ -46,19 +50,27 @@
   flex-direction: column;
   align-items: flex-start;
   gap: $space-4;
+
+  @media (max-width: $bp-sm) {
+    align-items: center;
+    text-align: center;
+    margin-bottom: $space-8;
+  }
 }
 
 .event-hero__title {
   margin: 0;
   max-width: 33rem;
   font-family: $font-classic;
-  font-size: clamp(2.1rem, 4.8vw, $font-size-5xl);
+  font-size: clamp(2.5rem, 4.8vw, $font-size-5xl);
   font-weight: $font-weight-extrabold;
   line-height: $line-height-tight;
   color: $color-white;
-  .excellence{
+  .excellence {
     color: $color-peach-light;
-
+  }
+  @media (max-width: $bp-sm) {
+   margin-bottom: $space-4;
   }
 }
 
@@ -69,21 +81,56 @@
   font-size: $font-size-md;
   line-height: $line-height-relaxed;
   color: rgba($color-white, 0.82);
+  @media (max-width: $bp-sm) {
+    // font-size: $font-size-sm;
+    margin-bottom: $space-4;
+  }
 }
 
 .event-hero__actions {
   display: flex;
   flex-wrap: wrap;
   gap: $space-4;
+  @media (max-width: $bp-sm) {
+    flex-wrap: nowrap;
+  }
+}
+
+.event-hero__cta-secondary {
+  @include btn-outline;
+  background-color: transparent;
+  border: 2px solid rgba($color-white, 0.65);
+  color: $color-white;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgba($color-gold, 0.12);
+    border-color: $color-gold;
+    color: $color-gold;
+    box-shadow: 0 0 0 3px rgba($color-gold, 0.18);
+    outline: none;
+  }
+
+  &:active {
+    background-color: rgba($color-gold, 0.22);
+  }
 }
 
 .event-hero__card {
-  position: relative;
-  width: 20rem;
+  // position: relative;
+  // width: 15rem;
   justify-self: end;
   border-radius: $border-radius-lg;
   overflow: hidden;
   box-shadow: $shadow-lg;
+  @media (max-width: $bp-sm) {
+    @include flex-center;
+  }
 }
 
 .event-hero__card-image {
@@ -91,6 +138,9 @@
   height: auto;
   display: block;
   object-fit: cover;
+  @media (max-width: $bp-sm) {
+    width: 80%;
+  }
 }
 
 .event-hero__note {
@@ -99,8 +149,14 @@
   bottom: $space-4;
   border-radius: $border-radius;
   background: $color-peach-light;
-  padding: $space-3 $space-4;
-}
+  padding: $space-8 $space-4;
+  @media (max-width: $bp-sm) {
+    left: -1rem;
+    bottom: -1rem;
+    width: 70%;
+    // transform: translateX(-50%);
+  
+}}
 
 .event-hero__note-value {
   margin: 0;
@@ -173,7 +229,19 @@
   background: $color-white;
   display: flex;
   flex-direction: column;
-  box-shadow: $shadow-sm;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 16px 40px rgba(0, 0, 0, 0.1),
+      0 6px 16px rgba(0, 0, 0, 0.06);
+  }
 }
 
 .event-card--info {
@@ -192,28 +260,40 @@
   .event-card__link {
     color: $color-gold;
   }
-  .agm-icon{
+  .agm-icon {
     font-size: $font-size-2xl;
-     color: $color-gold;
-     fill: 1;
+    color: $color-gold;
+    fill: 1;
   }
-  .member-attend{
+  .member-attend {
     color: $color-text-gold;
+    @include flex-center;
+    @media (max-width: $bp-sm) {
+     padding: $space-3 $space-4;
+    }
   }
 }
 
 .event-card--gold {
   background: $color-peach-light;
   border-color: rgba($color-text-gold-dark, 0.2);
+  @include flex-center;
+  gap: $space-8;
 
   .event-card__tag,
   .event-card__title,
   .event-card__text {
     color: $color-text-navy;
   }
+.event-card__title {
+font-size: $font-size-lg;
+  }
+
 
   .event-card__link {
     color: $color-text-gold-dark;
+  }.btn-udda-primary{
+    width:100%;
   }
 }
 .event-card--grey {
@@ -225,17 +305,17 @@
   .event-card__title {
     color: $color-text-navy;
   }
-  .event-card__text{
+  .event-card__text {
     color: $color-text-dark;
   }
 
   .event-card__link {
     color: $color-text-gold-dark;
   }
-  .google-icon{
+  .google-icon {
     padding: $space-4;
-     background:rgba($color-forest-green, 0.1);
-     border-radius: 50% ;
+    background: rgba($color-forest-green, 0.1);
+    border-radius: 50%;
   }
 }
 
@@ -244,6 +324,11 @@
   height: 12.5rem;
   object-fit: cover;
   display: block;
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  .event-card:hover & {
+    transform: scale(1.04);
+  }
 }
 
 .event-card__body {
@@ -400,12 +485,12 @@
   color: $color-text-navy;
   margin: $space-16 $space-12;
   border-radius: $border-radius-lg;
- display: flex;
+  display: flex;
   @media (max-width: $bp-sm) {
-     flex-direction: column;
-     @include flex-center;
-     text-align: center;   
-    
+    flex-direction: column;
+    @include flex-center;
+    text-align: center;
+    margin: $space-8;
   }
 }
 
@@ -416,15 +501,13 @@
   align-items: center;
   background: $color-lighter-grey;
   padding: $space-8;
-  border-radius:  $border-radius-lg 0 0 $border-radius-lg; 
+  border-radius: $border-radius-lg 0 0 $border-radius-lg;
   @media (max-width: $bp-sm) {
-     border-radius: $border-radius-lg; 
-     padding: $space-6; 
-     border-radius:  0;
+    border-radius: $border-radius-lg;
+    padding: $space-6;
+    border-radius: 0;
     //  border-radius: $border-radius-lg  $border-radius-lg 0 0;
-
-    }
-
+  }
 }
 
 .event-newsletter__copy {
@@ -451,12 +534,14 @@
   display: flex;
   flex-direction: column;
   gap: $space-3;
-
 }
 
 .event-newsletter__field-row {
   display: flex;
   gap: $space-3;
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+  }
 }
 
 .event-newsletter__input {
@@ -498,34 +583,29 @@
 .event-newsletter__success {
   color: $color-text-green;
 }
-.event-inquiries__inner{
+.event-inquiries__inner {
   @include flex-column;
-  align-items: flex-start;  
+  align-items: flex-start;
   background-color: $color-navy-light;
   border-radius: 0 $border-radius-lg $border-radius-lg 0;
   padding: $space-8;
   @media (max-width: $bp-md) {
     border-radius: 0;
   }
-
-
-  
-
 }
-.event-inquiries__title{
+.event-inquiries__title {
   font-family: $font-classic;
   font-size: clamp(1rem, 3vw, $font-size-2xl);
   font-weight: $font-weight-extrabold;
   color: $color-white;
 }
-.event-inquiries__text{
+.event-inquiries__text {
   font-family: $font-basic;
   font-size: $font-size-base;
   line-height: $line-height-relaxed;
   color: rgba($color-white, 0.84);
-  
 }
-.event-inquiries__email{
+.event-inquiries__email {
   display: inline-flex;
   align-items: center;
   gap: $space-2;
@@ -547,7 +627,8 @@
 
 @media (max-width: $bp-lg) {
   .event-hero__layout {
-    grid-template-columns: 1fr;
+  @include flex-column;
+  gap: $space-6;
   }
 
   .event-hero__card {
@@ -572,6 +653,7 @@
   .event-hero__inner {
     padding-top: calc(#{$navbar-height} + #{$space-8});
     padding-bottom: $space-12;
+    
   }
 
   .event-hero__card {
@@ -583,23 +665,21 @@
   .event-portfolio__grid {
     grid-template-columns: 1fr;
   }
-
-  .event-hero__actions,
-  .event-newsletter__field-row {
-    width: 100%;
-    flex-direction: column;
- 
+  .btn {
+    padding: $space-3 $space-4;
   }
 
+  // .event-hero__actions,
+  // .event-newsletter__field-row {
+  //   // width: 100%;
+  //   // flex-direction: column;
+
+  // }
   .event-hero__actions a,
   .event-upcoming__intro a,
   .event-newsletter__submit {
-    width: 100%;
+    // width: 100%;
     justify-content: center;
-  }
-
-  .event-hero__card {
-    display: none;
   }
 
   .event-upcoming-card {
@@ -608,5 +688,13 @@
 
   .event-upcoming-card__date {
     width: fit-content;
+  }
+}
+.event-hero__spacer {
+  width: 48%;
+  position: relative;
+  @media (max-width: $bp-sm) {
+    width: 100%;
+    @include flex-center;    
   }
 }
