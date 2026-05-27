@@ -1,13 +1,15 @@
 <section class="impact-hero" aria-labelledby="impact-hero-heading">
-
   <div class="impact-hero__overlay" aria-hidden="true"></div>
-
   <div class="site-container impact-hero__inner">
-    <span class="section-badge section-badge--gold">Since 2010</span>
-    <h1 id="impact-hero-heading" class="impact-hero__title">A Legacy of Giving Back</h1>
+    <span class="section-badge section-badge--gold">Established 2010</span>
+    <h1 id="impact-hero-heading" class="impact-hero__title">
+      A Legacy of
+      <span class="impact-hero__title-gold">Giving Back</span>
+    </h1>
     <p class="impact-hero__subtitle">
-      GDDA-UK continues to bridge world-class clinical expertise in the UK with meaningful,
-      measurable healthcare support in Ghana.
+      GDDA-UK became a registered charity in 2010 in the UK and Wales, but the desire to give back
+      goes right back to our inception. We bridge the gap between clinical authority in the UK and
+      healthcare needs in Ghana through focused interventions, education, and direct financial support.
     </p>
   </div>
 </section>
@@ -15,8 +17,36 @@
 <section class="impact-stats" aria-label="Impact statistics">
   <div class="site-container impact-stats__inner">
     <ul class="impact-stats__grid" role="list">
-      @for (stat of stats; track stat.label) {
+      @for (stat of stats; let i = $index; track stat.label) {
         <li class="impact-stats__card" role="listitem">
+          <div class="impact-stats__icon" aria-hidden="true">
+            @switch (i) {
+              @case (0) {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 4.5C10.07 2.57 7 2.92 5.5 5.17c-1.3 1.95-.93 4.6.87 6.11L12 16.5l5.63-5.22c1.8-1.51 2.17-4.16.87-6.11C17 2.92 13.93 2.57 12 4.5z"/>
+                  <path d="M4 18h3l2.5 2h5l2.5-2H20a1 1 0 0 0 0-2H4a1 1 0 0 0 0 2z" opacity=".6"/>
+                </svg>
+              }
+              @case (1) {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 6h-2.18c.07-.44.18-.86.18-1a3 3 0 0 0-6 0c0 .14.11.56.18 1H10a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zm-7-1a1 1 0 0 1 2 0c0 .14-.09.46-.18 1h-1.64C13.09 5.46 13 5.14 13 5zm2 9h-1.5v1.5a.5.5 0 0 1-1 0V14H11a.5.5 0 0 1 0-1h1.5v-1.5a.5.5 0 0 1 1 0V13H15a.5.5 0 0 1 0 1z"/>
+                </svg>
+              }
+              @case (2) {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h8v-2H4V6h16v12h-7v2h8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1z" opacity=".5"/>
+                  <path d="M12 6c-2.69 0-5 2.24-5 5v7h2v-7a3 3 0 0 1 6 0v7h2v-7c0-2.76-2.31-5-5-5z"/>
+                  <path d="M9 13h6v2H9zm0 3h6v2H9z" opacity=".6"/>
+                </svg>
+              }
+              @default {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 13l-4-4 1.41-1.41L12 13.17l6.59-6.59L20 8l-8 8z" opacity=".4"/>
+                  <path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                </svg>
+              }
+            }
+          </div>
           <p class="impact-stats__value">{{ stat.value }}</p>
           <p class="impact-stats__label">{{ stat.label }}</p>
         </li>
@@ -25,108 +55,274 @@
   </div>
 </section>
 
+<!-- ===================== STORIES ===================== -->
 <section class="impact-stories" aria-labelledby="impact-stories-heading">
   <div class="site-container impact-stories__inner">
+
     <header class="impact-stories__header">
-      <h2 id="impact-stories-heading" class="impact-stories__title">Milestones Of Service</h2>
-      <p class="impact-stories__summary">
-        Key interventions that shaped our journey and strengthened patient care outcomes.
-      </p>
+      <h2 id="impact-stories-heading" class="impact-stories__title">Milestones of Excellence</h2>
+      <div class="impact-stories__title-bar" aria-hidden="true"></div>
     </header>
 
-    <ul class="impact-stories__list" role="list" aria-label="Impact milestones">
-      @for (milestone of milestones; let i = $index; track milestone.title) {
-        <li class="impact-stories__item" role="listitem">
-          <article class="impact-story" [class.impact-story--reversed]="i % 2 === 1" [attr.aria-label]="milestone.title">
-            <div class="impact-story__media">
-              <img
-                [ngSrc]="milestone.image"
-                width="620"
-                height="360"
-                [alt]="milestone.imageAlt"
-                class="impact-story__image"
-              />
+    <!-- Story 1: COVID-19 — image left, content right -->
+    <article class="impact-story impact-story--image-left" aria-label="COVID-19 Response">
+      <div class="impact-story__media">
+        <img [ngSrc]="milestones[0].image" width="600" height="400"
+             [alt]="milestones[0].imageAlt" class="impact-story__image" />
+      </div>
+      <div class="impact-story__content">
+        <p class="impact-story__period">{{ milestones[0].period }}</p>
+        <h3 class="impact-story__title">{{ milestones[0].title }}</h3>
+        <p class="impact-story__description">
+          GDDA-UK made history as the <strong>first Ghanaian Diasporan society</strong> to donate
+          directly to Ghana during the global crisis. We committed a total of £9,900 to support
+          frontline workers and health centers across the nation.
+        </p>
+        <ul class="impact-story__checklist" role="list">
+          <li class="impact-story__check-item">
+            <span class="impact-story__check-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+            </span>
+            <div>
+              <p class="impact-story__check-title">May 2020: £7,500 Support</p>
+              <p class="impact-story__check-text">Distributed to 3 major medical centres during the height of the first wave.</p>
             </div>
-            <div class="impact-story__content">
-              <p class="impact-story__period">{{ milestone.period }}</p>
-              <h3 class="impact-story__title">{{ milestone.title }}</h3>
-              <p class="impact-story__description">{{ milestone.description }}</p>
+          </li>
+          <li class="impact-story__check-item">
+            <span class="impact-story__check-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+            </span>
+            <div>
+              <p class="impact-story__check-title">August 2021: £2,400 Relief</p>
+              <p class="impact-story__check-text">Donated to 3 hospitals to bolster infrastructure and equipment reserves.</p>
             </div>
-          </article>
-        </li>
-      }
-    </ul>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Story 2: Obstetric Fistula — content left, image right. No divider. -->
+    <article class="impact-story impact-story--image-right" aria-label="Obstetric Fistula Fund">
+      <div class="impact-story__content">
+        <p class="impact-story__period">{{ milestones[1].period }}</p>
+        <h3 class="impact-story__title">{{ milestones[1].title }}</h3>
+        <p class="impact-story__description">{{ milestones[1].description }}</p>
+        <div class="impact-story__pills" role="list" aria-label="Focus areas">
+          <div class="impact-story__pill" role="listitem">
+            <span class="impact-story__pill-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </span>
+            <span>Equipment</span>
+          </div>
+          <div class="impact-story__pill" role="listitem">
+            <span class="impact-story__pill-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </span>
+            <span>IT Infrastructure</span>
+          </div>
+          <div class="impact-story__pill" role="listitem">
+            <span class="impact-story__pill-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </span>
+            <span>Staff Training</span>
+          </div>
+        </div>
+      </div>
+      <div class="impact-story__media">
+        <img [ngSrc]="milestones[1].image" width="600" height="400"
+             [alt]="milestones[1].imageAlt" class="impact-story__image" />
+      </div>
+    </article>
+
+    <!-- Bottom 2 cards: wider light card + taller gold card -->
+    <div class="impact-stories__cards">
+
+      <article class="impact-story-card impact-story-card--light" aria-label="Diabetic Paediatric Project">
+        <p class="impact-story-card__period">2015 — 2016</p>
+        <h3 class="impact-story-card__title">Diabetic Paediatric Project</h3>
+        <p class="impact-story-card__description">
+          Partnered with Dr Ameyaw to provide essential funding and high-quality testing strips in
+          rural Ghana, ensuring no child is left behind in the fight against diabetes.
+        </p>
+        <div class="impact-story-card__quote">
+          <span class="impact-story-card__quote-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/>
+              <circle cx="4"  cy="12" r="1.8"/>
+              <circle cx="20" cy="12" r="1.8"/>
+              <circle cx="12" cy="4"  r="1.8"/>
+              <circle cx="12" cy="20" r="1.8"/>
+              <line x1="6"  y1="12" x2="9.5"  y2="12"/>
+              <line x1="14.5" y1="12" x2="18.2" y2="12"/>
+              <line x1="12" y1="6"  x2="12" y2="9.5"/>
+              <line x1="12" y1="14.5" x2="12" y2="18.2"/>
+            </svg>
+          </span>
+          <p class="impact-story-card__quote-text"><em>"Bridging the diagnostic gap in rural communities."</em></p>
+        </div>
+      </article>
+
+      <article class="impact-story-card impact-story-card--gold" aria-label="Paediatric Network">
+        <p class="impact-story-card__period">2014</p>
+        <h3 class="impact-story-card__title">Paediatric Network</h3>
+        <p class="impact-story-card__description">
+          Sent vital supplies and resources to the Kumasi-based Paediatric Diabetes Network,
+          supporting specialized care for infants.
+        </p>
+        <div class="impact-story-card__image-wrap">
+          <img ngSrc="/assets/images/impact-pediatric-network .png" width="560" height="160"
+               alt="Paediatric Network" class="impact-story-card__image" />
+        </div>
+      </article>
+
+    </div>
+
   </div>
 </section>
 
+<!-- ===================== EDUCATION ===================== -->
 <section class="impact-education" aria-labelledby="impact-education-heading">
-  <div class="site-container impact-education__inner">
-    <div class="impact-education__copy">
-      <h2 id="impact-education-heading" class="impact-education__title">Educational Interventions</h2>
-      <div class="impact-education__points" role="list" aria-label="Educational intervention highlights">
-        <article class="impact-education__point" role="listitem">
-          <h3 class="impact-education__point-title">Broadcast Health Education</h3>
-          <p class="impact-education__point-text">
-            Delivered expert public awareness sessions on ABN TV and GTV Sports to improve health literacy.
-          </p>
-        </article>
-        <article class="impact-education__point" role="listitem">
-          <h3 class="impact-education__point-title">Community Information Leaflets</h3>
-          <p class="impact-education__point-text">
-            Published practical guides on hypertension, sickle cell disease, and diabetes for Ghanaian communities.
-          </p>
-        </article>
-      </div>
-    </div>
+  <div class="site-container">
+    <div class="impact-education__inner">
 
-    <div class="impact-education__stats" aria-label="Educational statistics">
-      <div class="impact-education__stat">
-        <span class="impact-education__stat-value">3k+</span>
-        <span class="impact-education__stat-label">Leaflets Distributed</span>
+      <!-- Left: copy -->
+      <div class="impact-education__copy">
+        <h2 id="impact-education-heading" class="impact-education__title">Educational Interventions</h2>
+        <div class="impact-education__points">
+
+          <div class="impact-education__point">
+            <div class="impact-education__point-icon" aria-hidden="true">
+              <!-- Monitor / TV icon -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <div>
+              <p class="impact-education__point-title">ABN TV &amp; GTV Sports</p>
+              <p class="impact-education__point-text">Broadcasting critical health info on Erectile Dysfunction and Sudden Death inquests.</p>
+            </div>
+          </div>
+
+          <div class="impact-education__point">
+            <div class="impact-education__point-icon" aria-hidden="true">
+              <!-- Document / leaflet icon -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div>
+              <p class="impact-education__point-title">Health Information Leaflets</p>
+              <p class="impact-education__point-text">Published awareness guides on Hypertension, Sickle Cell, and Diabetes—distributed via Ghana Embassy.</p>
+            </div>
+          </div>
+
+        </div>
       </div>
-      <div class="impact-education__stat impact-education__stat--light">
-        <span class="impact-education__stat-value">Free</span>
-        <span class="impact-education__stat-label">Public Access</span>
+
+      <!-- Right: stat boxes side by side -->
+      <div class="impact-education__stats">
+        <div class="impact-education__stat">
+          <span class="impact-education__stat-value">3k+</span>
+          <span class="impact-education__stat-label">Leaflets Distributed</span>
+        </div>
+        <div class="impact-education__stat impact-education__stat--accent">
+          <span class="impact-education__stat-value">FREE</span>
+          <span class="impact-education__stat-label">Public Access</span>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ===================== FOUNDATIONS ===================== -->
 <section class="impact-foundations" aria-labelledby="impact-foundations-heading">
   <div class="site-container impact-foundations__inner">
-    <h2 id="impact-foundations-heading" class="impact-foundations__title">Foundational Programmes</h2>
 
     <div class="impact-foundations__grid">
+
+      <!-- Card 1: Health Extension Programme — grey bg -->
       <article class="impact-foundation-card" aria-labelledby="impact-foundation-health-heading">
-        <p class="impact-foundation-card__year">2008</p>
+        <div class="impact-foundation-card__year-row">
+          <span class="impact-foundation-card__year">2008</span>
+          <!-- Plane / takeoff icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color: var(--color-gold, #c9a84c)">
+            <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+          </svg>
+        </div>
         <h3 id="impact-foundation-health-heading" class="impact-foundation-card__title">Health Extension Programme</h3>
         <p class="impact-foundation-card__text">
-          Twelve clinicians travelled to Ghana for a two-week mission and delivered over 600 contact
-          hours of direct support and practical training.
+          12 dedicated members traveled to Ghana for a 2-week mission, delivering 600 hours of direct clinical support and professional training.
         </p>
+        <div class="impact-foundation-card__divider" aria-hidden="true"></div>
+        <div class="impact-foundation-card__meta">
+          <div class="impact-foundation-card__meta-item">
+            <span class="impact-foundation-card__meta-value">600 Contact Hours</span>
+          </div>
+          <div class="impact-foundation-card__meta-item impact-foundation-card__meta-item--right">
+            <span class="impact-foundation-card__meta-value">12 Specialists</span>
+          </div>
+        </div>
       </article>
 
-      <article class="impact-foundation-card impact-foundation-card--alt" aria-labelledby="impact-foundation-knowledge-heading">
-        <p class="impact-foundation-card__year">2007</p>
+      <!-- Card 2: Knowledge Infrastructure — white bg -->
+      <article class="impact-foundation-card impact-foundation-card--white" aria-labelledby="impact-foundation-knowledge-heading">
+        <div class="impact-foundation-card__year-row">
+          <span class="impact-foundation-card__year">2007</span>
+          <!-- Book icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color: var(--color-gold, #c9a84c)">
+            <path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+          </svg>
+        </div>
         <h3 id="impact-foundation-knowledge-heading" class="impact-foundation-card__title">Knowledge Infrastructure</h3>
         <p class="impact-foundation-card__text">
-          Donated Oxford textbooks, British Medical Journals, and specialist tropical medicine resources
-          to hospitals and teaching institutions.
+          Donation of 500 Oxford textbooks, British Medical Journals, and specialized Tropical Medicine volumes to teaching hospitals and medical libraries.
         </p>
+        <div class="impact-foundation-card__divider" aria-hidden="true"></div>
+        <div class="impact-foundation-card__tags">
+          <span class="impact-foundation-card__tag">Oxford Texts</span>
+          <span class="impact-foundation-card__tag">BMJ Journals</span>
+          <span class="impact-foundation-card__tag">Teaching Hospitals</span>
+        </div>
       </article>
+
     </div>
   </div>
 </section>
 
+<!-- ===================== CTA ===================== -->
 <section class="impact-cta" aria-labelledby="impact-cta-heading">
   <div class="site-container impact-cta__inner">
-    <h2 id="impact-cta-heading" class="impact-cta__title">Be Part Of The Change</h2>
+    <h2 id="impact-cta-heading" class="impact-cta__title">Help Us Write the Next Chapter</h2>
     <p class="impact-cta__text">
-      Join a network of Ghanaian healthcare professionals committed to practical, long-term impact.
+      Our impact is only limited by our reach. Join GDDA-UK today to contribute your clinical authority,
+      resources, and passion to our ongoing mission in the UK and Ghana.
     </p>
     <div class="impact-cta__actions">
-      <a routerLink="/get-involved" class="btn-secondary">Become a Member</a>
-      <a routerLink="/sponsorship" class="btn-outline-white">Support Our Work</a>
+      <a routerLink="/get-involved" class="impact-cta__btn impact-cta__btn--navy">Support Our Projects</a>
+      <a routerLink="/sponsorship" class="impact-cta__btn impact-cta__btn--gold">Membership Inquiries</a>
     </div>
   </div>
 </section>
